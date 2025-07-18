@@ -12,8 +12,6 @@ import defaultMdxComponents from "fumadocs-ui/mdx";
 
 import { buttonVariants } from "@repo/ui/button";
 
-import { PostComments } from "./page.client";
-
 export function generateStaticParams({ params }: { params: { slug: string } }) {
   const { slug } = params;
   // @ts-expect-error issue with fumadocs
@@ -80,7 +78,6 @@ export default async function BlogPage(props0: {
               }}
             />
           </div>
-          <PostComments slug={slug} />
         </div>
         <div className="flex flex-col gap-4 border-l p-4 text-sm">
           <div>
