@@ -2,9 +2,8 @@ import React from "react";
 import { metadata as meta } from "@/app/config";
 import Link from "@/components/fancy/link";
 import { contact } from "@/components/sections/contact/config";
-import { copyright, footer } from "@/components/sections/footer/config";
+import { footer } from "@/components/sections/footer/config";
 import { links } from "@/components/sections/header/config";
-import { getYearDisplay } from "@/lib/utils";
 
 export default function Content() {
   return (
@@ -16,16 +15,13 @@ export default function Content() {
 }
 
 const Copyright = () => {
-  const { startYear } = copyright;
-  const yearDisplay = getYearDisplay(startYear);
-
   return (
     <div className="flex flex-col items-start justify-between sm:flex-row sm:items-end">
       <h1 className="mt-10 text-[18vw] leading-[0.8] md:text-[16vw] lg:text-[18vw] xl:text-[20vw] 2xl:text-[22vw]">
-        Portfolio
+        {meta.author.name}
       </h1>
       <p className="mt-4 text-xs sm:mt-0 sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl">
-        © {yearDisplay} {meta.author.name}
+        © {2025} {meta.author.name}
       </p>
     </div>
   );
