@@ -1,5 +1,4 @@
 import About from "./about/cozy/about";
-import Contact from "./contact/cozy/contact";
 import Experience from "./experience/modern/experience";
 import Footer from "./footer/modern/footer";
 import Header from "./header/cozy/header";
@@ -18,6 +17,5 @@ export {
   Technologies,
   Experience,
   Testimonials,
-  Contact,
   Footer,
 };

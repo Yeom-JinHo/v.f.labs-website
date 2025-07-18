@@ -1,7 +1,6 @@
 import Cursor from "@/components/cursor/cursor";
 import {
   About,
-  Contact,
   Experience,
   Footer,
   Header,
@@ -24,7 +23,6 @@ export default function Home() {
           <Projects />
           <Experience />
           <Testimonials />
-          <Contact />
         </main>
         <footer>
           <Footer />
