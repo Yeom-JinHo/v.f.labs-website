@@ -1,0 +1,7 @@
+[github_app]
+# 어떤 PR 명령어를 자동으로 실행할지
+pr_commands = ["/describe", "/review", "/improve"]
+
+# 커밋 푸시 때도 트리거할지 여부
+handle_push_trigger = true
+push_commands = ["/review"]

@@ -9,23 +9,12 @@ createJiti(fileURLToPath(import.meta.url))("./src/env");
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   /** Enables hot reloading for local packages without a build step */
-  transpilePackages: [
-    "@repo/api",
-    "@repo/auth",
-    "@repo/emails",
-    "@repo/comments",
-    "@repo/db",
-    "@repo/ui",
-    "@repo/validators",
-  ],
+  transpilePackages: ["@repo/ui"],
   /** We already do linting and typechecking as separate tasks in CI */
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
   experimental: {
     viewTransition: true,
-    serverActions: {
-      allowedOrigins: ["localhost:3000"],
-    },
     reactCompiler: true,
   },
   sassOptions: {

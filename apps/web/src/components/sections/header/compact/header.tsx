@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { metadata as meta } from "@/app/config";
-import { UserButton } from "@/components/auth/user-button";
 import Link from "@/components/fancy/link";
 import ThemeToggle from "@/components/mode-toggle";
 import { linkLimit, links } from "@/components/sections/header/config";
@@ -132,7 +131,6 @@ export default function Header() {
                 )}
               </div>
               <div className="flex items-center gap-2">
-                <UserButton />
                 <ThemeToggle />
               </div>
             </nav>
