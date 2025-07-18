@@ -13,7 +13,7 @@ import ArtistCard from './artistCard';
 const firstRow = [...artistProfiles, ...artistProfiles, ...artistProfiles];
 const secondRow = [...artistProfiles, ...artistProfiles, ...artistProfiles];
 
-function Testimonials() {
+function ArtistProfiles() {
   return (
     <MotionWrap className="w-full py-24 lg:py-32" id="testimonials">
       <div className="grid gap-10">
@@ -114,4 +114,4 @@ function Testimonials() {
   );
 }
 
-export default Testimonials;
+export default ArtistProfiles;
