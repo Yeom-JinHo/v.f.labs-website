@@ -15,22 +15,11 @@ function Hero() {
         <div className="relative flex h-full flex-col items-center justify-center">
           <div className="flex w-full items-center justify-center px-4 md:px-6">
             <h1 className="text-4xl font-light sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
-              <span>A </span>
-              <span>developer</span>
+              <span>Vague  </span>
+              <span>Frequency</span>
               <br />
               <span className="flex items-center gap-2 md:gap-4">
-                <span>Who</span>
-                <span
-                  className={
-                  `relative mx-2 my-auto inline-block aspect-[1.5/1] h-[3.25rem] overflow-hidden rounded-full bg-linear-to-br from-pink-200 from-40% to-pink-400 md:mx-4 md:h-[7.8rem]`
-                  }
-                >
-                  <span className="absolute inset-0 flex items-center justify-center text-4xl select-none md:text-7xl">
-                    ❤️
-                  </span>
-                </span>
-                <span>to</span>
-                <span>code</span>
+                <span>Laboratory</span>
               </span>
             </h1>
           </div>
@@ -38,7 +27,7 @@ function Hero() {
       </div>
 
       <ParallaxImage
-        src="/images/hero.jpg"
+        src="/images/hero.png"
         containerRef={container}
         alt="Hero image"
         containerClassName="aspect-4/2 w-screen lg:mt-28"

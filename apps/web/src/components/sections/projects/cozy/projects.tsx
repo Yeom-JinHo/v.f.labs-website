@@ -6,9 +6,7 @@ import MotionWrap from "@/components/motion-wrap";
 import ProjectCard from "./project-card";
 
 function Projects() {
-  const projects = [...project.getPages()].sort(
-    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
-  );
+  const projects = [...project.getPages()]
 
   return (
     <MotionWrap className="w-full py-24 lg:py-32" id="projects">
