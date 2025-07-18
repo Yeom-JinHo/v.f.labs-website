@@ -2,8 +2,6 @@ import React from "react";
 import { metadata as meta } from "@/app/config";
 import Link from "@/components/fancy/link";
 import { contact } from "@/components/sections/contact/config";
-import { footer } from "@/components/sections/footer/config";
-import { links } from "@/components/sections/header/config";
 
 export default function Content() {
   return (
@@ -30,7 +28,7 @@ const Copyright = () => {
 const Nav = () => {
   return (
     <div className="flex shrink-0 gap-20">
-      <div className="flex flex-col gap-2">
+      {/* <div className="flex flex-col gap-2">
         <h3 className="mb-2 text-zinc-500 uppercase dark:text-zinc-400">
           About
         </h3>
@@ -47,13 +45,13 @@ const Nav = () => {
             </Link>
           );
         })}
-      </div>
+      </div> */}
       <div className="flex flex-col gap-2">
         <h3 className="mb-2 text-zinc-500 uppercase dark:text-zinc-400">
           Socials
         </h3>
         {contact.socials.map((link, index) => {
-          const { name, href } = link;
+          const { name, href, Icon } = link;
 
           return (
             <Link
@@ -63,12 +61,13 @@ const Nav = () => {
               key={`ft-l_social_${index}`}
               external
             >
+              {Icon && <Icon className="h-4 w-4" />}
               {name}
             </Link>
           );
         })}
       </div>
-      <div className="flex flex-col gap-2">
+      {/* <div className="flex flex-col gap-2">
         <h3 className="mb-2 text-zinc-500 uppercase dark:text-zinc-400">
           More
         </h3>
@@ -85,7 +84,7 @@ const Nav = () => {
             </Link>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };
