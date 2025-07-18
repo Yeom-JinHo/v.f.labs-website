@@ -11,7 +11,6 @@ const nextConfig: NextConfig = {
   /** Enables hot reloading for local packages without a build step */
   transpilePackages: [
     "@repo/api",
-    "@repo/auth",
     "@repo/emails",
     "@repo/comments",
     "@repo/db",
