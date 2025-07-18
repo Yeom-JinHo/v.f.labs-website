@@ -51,7 +51,7 @@ export default function ArtistCard({
       >
         <DialogImage
           src={image ?? "/placeholder.svg"}
-          alt="A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood."
+          alt={`${name} profile image`}
           className="h-48 w-full object-cover"
         />
         <div className="flex grow flex-col items-end justify-between gap-4 p-6">
