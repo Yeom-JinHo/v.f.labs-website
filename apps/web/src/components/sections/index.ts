@@ -7,6 +7,7 @@ import Projects from "./projects/modern/projects";
 import Skills from "./skills/cozy/skills";
 import Technologies from "./technologies/modern/technologies";
 import Testimonials from "./testimonials/modern/testimonials";
+import ArtistProfiles from "./artistProfiles/modern/artistProfiles";
 
 export {
   Header,
@@ -18,4 +19,5 @@ export {
   Experience,
   Testimonials,
   Footer,
+  ArtistProfiles
 };

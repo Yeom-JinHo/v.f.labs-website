@@ -1,13 +1,10 @@
 import Cursor from "@/components/cursor/cursor";
 import {
   About,
-  Experience,
+  ArtistProfiles,
   Footer,
   Header,
   Hero,
-  Projects,
-  Skills,
-  Testimonials,
 } from "@/components/sections";
 import SmoothScroll from "@/components/smooth-scroll";
 
@@ -19,10 +16,11 @@ export default function Home() {
         <main className="flex-1">
           <Hero />
           <About />
-          <Skills />
+          {/* <Skills />
           <Projects />
           <Experience />
-          <Testimonials />
+          <Testimonials /> */}
+          <ArtistProfiles />
         </main>
         <footer>
           <Footer />
