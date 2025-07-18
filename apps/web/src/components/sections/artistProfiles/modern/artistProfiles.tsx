@@ -3,12 +3,12 @@
 import React from "react";
 import TextReveal from "@/components/fancy/text-reveal";
 import MotionWrap from "@/components/motion-wrap";
+import { artistProfiles } from "@/components/sections/artistProfiles/config";
 import Autoplay from "embla-carousel-auto-scroll";
 
 import { Carousel, CarouselContent, CarouselItem } from "@repo/ui/carousel";
 
-import { artistProfiles } from "@/components/sections/artistProfiles/config";
-import ArtistCard from './artistCard';
+import ArtistCard from "./artistCard";
 
 const firstRow = [...artistProfiles, ...artistProfiles, ...artistProfiles];
 const secondRow = [...artistProfiles, ...artistProfiles, ...artistProfiles];
@@ -55,7 +55,7 @@ function ArtistProfiles() {
                   className="md:basis-1/2 xl:basis-1/3 2xl:basis-1/4"
                 >
                   <div className="h-full p-1">
-                  <ArtistCard
+                    <ArtistCard
                       key={`artist_${index}`}
                       index={index + 1}
                       name={artist.name}
@@ -91,8 +91,8 @@ function ArtistProfiles() {
                   key={`artist-reverse_${index}`}
                   className="md:basis-1/2 xl:basis-1/3 2xl:basis-1/4"
                 >
-                <div className="flex w-full flex-col gap-2"> 
-                <ArtistCard
+                  <div className="h-full p-1">
+                    <ArtistCard
                       key={`artist_${index}`}
                       index={index + 1}
                       name={artist.name}
@@ -100,7 +100,7 @@ function ArtistProfiles() {
                       nickname={artist.nickname}
                       image={artist.image}
                     />
-          </div>
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
