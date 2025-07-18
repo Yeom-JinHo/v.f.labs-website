@@ -19,4 +19,4 @@ export const artistProfiles: ArtistProfile[] = [
     nickname: "juntaro",
     description: "King",
   },
-]
+];
