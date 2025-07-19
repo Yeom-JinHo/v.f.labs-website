@@ -10,8 +10,8 @@ import { Carousel, CarouselContent, CarouselItem } from "@repo/ui/carousel";
 
 import ArtistCard from "./artistCard";
 
-const firstRow = [...artistProfiles, ...artistProfiles, ...artistProfiles];
-const secondRow = [...artistProfiles, ...artistProfiles, ...artistProfiles];
+const firstRow = [...artistProfiles];
+const secondRow = [...artistProfiles];
 
 function ArtistProfiles() {
   return (
