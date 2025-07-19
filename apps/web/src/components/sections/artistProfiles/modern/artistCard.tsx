@@ -110,9 +110,7 @@ export default function ArtistCard({
           </div>
           <div className="flex justify-center p-6">
             <Button className="w-full font-bold">
-              <Link href={`https://www.instagram.com/${nickname}`}>
-                자세히보기
-              </Link>
+              <Link href={`artist/${name}`}>자세히보기</Link>
             </Button>
           </div>
           <DialogClose className="text-zinc-50" />

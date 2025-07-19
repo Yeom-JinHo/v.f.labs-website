@@ -1,20 +1,19 @@
 import type { CollectionPage, WithContext } from "schema-dts";
 import React from "react";
 import { metadata as meta } from "@/app/config";
-import ProjectCard from "@/app/projects/_components/project-card";
 import { project } from "@/app/source";
 import Line from "@/components/fancy/line";
 import TextReveal from "@/components/fancy/text-reveal";
 import { createMetadata } from "@/lib/metadata";
 
-const title = "Projects";
-const description = "Here are some projects I have worked on.";
+const title = "Artist";
+const description = "Here are some artist I have worked on.";
 
 export const metadata = createMetadata({
   title,
   description,
   openGraph: {
-    url: "/projects",
+    url: "/artist",
     title,
     description,
   },
@@ -29,7 +28,7 @@ const jsonLd: WithContext<CollectionPage> = {
   "@type": "CollectionPage",
   name: title,
   description,
-  url: `${meta.site.url}/projects`,
+  url: `${meta.site.url}/artist`,
   isPartOf: {
     "@type": "WebSite",
     name: meta.site.title,
@@ -45,8 +44,6 @@ const jsonLd: WithContext<CollectionPage> = {
 };
 
 export default function ProjectsPage(): React.ReactElement {
-  const projects = [...project.getPages()];
-
   return (
     <main className="my-14 flex-1">
       <script
@@ -63,23 +60,11 @@ export default function ProjectsPage(): React.ReactElement {
             as="h1"
             className="leading-wide tracking-relaxed text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
           >
-            My Projects
+            아티스트
           </TextReveal>
 
           <Line className={"mt-16"} />
         </div>
-      </section>
-      <section className="grid w-full grid-cols-1 gap-4 p-4 md:grid-cols-2 2xl:grid-cols-3">
-        {projects.map((project, index) => (
-          <ProjectCard
-            title={project.data.title}
-            href={project.url}
-            description={project.data.description}
-            key={`project_${index}`}
-            tags={project.data.tags}
-            thumbnail={`/images/projects/${project.slugs[0]}/cover.jpg`}
-          />
-        ))}
       </section>
     </main>
   );

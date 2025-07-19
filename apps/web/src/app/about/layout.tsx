@@ -13,7 +13,7 @@ export const metadata = createMetadata({
   title,
   description,
   openGraph: {
-    url: "/about",
+    url: "/artist",
     type: "profile",
     title,
     description,
@@ -29,7 +29,7 @@ const jsonLd: WithContext<AboutPage> = {
   "@type": "AboutPage",
   name: title,
   description,
-  url: `${meta.site.url}/about`,
+  url: `${meta.site.url}/artist`,
   mainEntity: {
     "@type": "Person",
     name: meta.author.name,
