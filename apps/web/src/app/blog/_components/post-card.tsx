@@ -59,12 +59,12 @@ function PostCard({
           >
             {description ?? ""}
           </TextReveal>
-          <TextReveal
+          {/* <TextReveal
             as="p"
             className="text-sm text-gray-500 dark:text-gray-400"
           >
             {date.toDateString()}
-          </TextReveal>
+          </TextReveal> */}
           {/* <div className="mt-2 flex flex-wrap gap-2">
             {tags?.map((tag, index) => (
               <Badge key={`project-tag_${index}`}>{tag.label}</Badge>

@@ -86,7 +86,7 @@ export default async function BlogPage(props0: {
           </div>
           <div>
             <p className="text-muted-foreground mb-1 text-sm">At</p>
-            <p className="font-medium">{page.data.date.toDateString()}</p>
+            {/* <p className="font-medium">{page.data.date.toDateString()}</p> */}
           </div>
           {/*<Control url={page.url} />*/}
         </div>

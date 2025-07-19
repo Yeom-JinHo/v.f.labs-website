@@ -39,9 +39,9 @@ const Header = (props: HeaderProps) => {
         <div className="flex flex-col gap-3">
           <div className="text-3xl font-bold">{title}</div>
           <div>{description}</div>
-          {date && (
+          {/* {date && (
             <p className="font-medium">{new Date(date).toDateString()}</p>
-          )}
+          )} */}
         </div>
       </motion.div>
       <motion.div
