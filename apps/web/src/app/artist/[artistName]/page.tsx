@@ -60,9 +60,9 @@ export default async function ProjectPage(props0: {
         <Image
           src={artist.image}
           width={1280}
-          height={1000}
+          height={600}
           alt={`Image of ${artistName}`}
-          className="mt-12 aspect-video h-auto w-full rounded-lg object-cover"
+          className="mt-12 w-full rounded-lg object-contain"
         />
         <div className="my-8 flex gap-1">
           {artist.socials?.map(({ Icon, href }, index) => (
