@@ -10,8 +10,8 @@ import { Carousel, CarouselContent, CarouselItem } from "@repo/ui/carousel";
 
 import ArtistCard from "./artistCard";
 
-const firstRow = [...artistProfiles, ...artistProfiles, ...artistProfiles];
-const secondRow = [...artistProfiles, ...artistProfiles, ...artistProfiles];
+const firstRow = [...artistProfiles];
+const secondRow = [...artistProfiles];
 
 function ArtistProfiles() {
   return (
@@ -59,7 +59,8 @@ function ArtistProfiles() {
                       key={`artist_${index}`}
                       index={index + 1}
                       name={artist.name}
-                      description={artist.description}
+                      shortDescription={artist.shortDescription}
+                      fullDescription={artist.fullDescription}
                       nickname={artist.nickname}
                       image={artist.image}
                     />
@@ -96,7 +97,8 @@ function ArtistProfiles() {
                       key={`artist_${index}`}
                       index={index + 1}
                       name={artist.name}
-                      description={artist.description}
+                      shortDescription={artist.shortDescription}
+                      fullDescription={artist.fullDescription}
                       nickname={artist.nickname}
                       image={artist.image}
                     />

@@ -1,4 +1,4 @@
-import type { ArtistProfile } from "@/types/artistProfile";
+import type { ArtistProfile } from "@/types/artist";
 import Link from "next/link";
 import {
   MorphingDialog as Dialog,
@@ -22,7 +22,6 @@ import { Button } from "@repo/ui/button";
 interface ArtistCardProps extends ArtistProfile {
   index: number;
   className?: string;
-  description?: string;
 }
 
 // todo: use text reveal for name and description
@@ -30,7 +29,7 @@ interface ArtistCardProps extends ArtistProfile {
 export default function ArtistCard({
   name,
   nickname,
-  description,
+  shortDescription,
   image,
   className,
 }: ArtistCardProps) {
@@ -104,15 +103,13 @@ export default function ArtistCard({
                   },
                 }}
               >
-                {description}
+                {shortDescription}
               </MemoizedReactMarkdown>
             </DialogDescription>
           </div>
           <div className="flex justify-center p-6">
-            <Button className="w-full font-bold">
-              <Link href={`https://www.instagram.com/${nickname}`}>
-                자세히보기
-              </Link>
+            <Button asChild className="w-full font-bold">
+              <Link href={`artist/${name}`}>자세히보기</Link>
             </Button>
           </div>
           <DialogClose className="text-zinc-50" />
