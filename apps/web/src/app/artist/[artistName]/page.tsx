@@ -63,6 +63,7 @@ export default async function ProjectPage(props0: {
           height={600}
           alt={`Image of ${artistName}`}
           className="mt-12 w-full rounded-lg object-contain"
+          priority
         />
         <div className="my-8 flex gap-1">
           {artist.socials?.map(({ Icon, href }, index) => (
@@ -80,9 +81,20 @@ export default async function ProjectPage(props0: {
           ))}
         </div>
       </div>
-      <section className="container mx-auto">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+      <section className="container mb-12">
+        <h2 className="mb-2 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
           About
+        </h2>
+        <TextReveal
+          as="p"
+          className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
+        >
+          {artist.fullDescription}
+        </TextReveal>
+      </section>
+      <section className="container mb-12">
+        <h2 className="mb-2 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+          Photos
         </h2>
         <TextReveal
           as="p"
