@@ -1,23 +1,19 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { metadata as meta } from "@/app/config";
-import { project } from "@/app/source";
-import { contact } from "@/components/sections/contact/config";
+import { artistProfile } from "@/app/source";
+import TextReveal from "@/components/fancy/text-reveal";
 import { createMetadata } from "@/lib/metadata";
 
 import { cn } from "@repo/ui";
 import { buttonVariants } from "@repo/ui/button";
-import { Separator } from "@repo/ui/separator";
 
-export function generateStaticParams({
-  params,
-}: {
-  params: { artistName: string };
-}) {
-  const { artistName } = params;
-  // @ts-expect-error issue with fumadocs
-  return project.generateParams([artistName]);
+export function generateStaticParams() {
+  return artistProfile.getPages().map((artist) => ({
+    artistName: artist.name,
+  }));
 }
 
 export async function generateMetadata(props: {
@@ -25,18 +21,12 @@ export async function generateMetadata(props: {
 }) {
   const params = await props.params;
   const { artistName } = params;
-  // const page = project.getPage([artistName]);
-  // if (!page) notFound();
-  const page = {
-    data: {
-      title: "123",
-      description: "123",
-    },
-  };
+  const artist = artistProfile.getPage(artistName);
+  if (!artist) notFound();
 
   return createMetadata({
-    title: page.data.title,
-    description: page.data.description,
+    title: artist.name,
+    description: artist.shortDescription,
     openGraph: {
       type: "article",
       images: [
@@ -44,22 +34,11 @@ export async function generateMetadata(props: {
           alt: "banner",
           width: 1200,
           height: 630,
-          url: `/images/person/${artistName}.png`,
+          url: artist.image,
           type: "image/png",
         },
       ],
       authors: meta.author.name,
-      // modifiedTime: page.data.date.toISOString()
-    },
-    twitter: {
-      images: [
-        {
-          alt: "banner",
-          width: 1200,
-          height: 630,
-          url: `/images/person/${artistName}.png`,
-        },
-      ],
     },
   }) satisfies Metadata;
 }
@@ -69,12 +48,8 @@ export default async function ProjectPage(props0: {
 }) {
   const params = await props0.params;
   const { artistName } = params;
-  // const page = project.getPage([artistName]);
-  // if (!page) notFound();
-
-  // const {
-  //   data: { body },
-  // } = page;
+  const artist = artistProfile.getPage(artistName);
+  if (!artist) notFound();
 
   return (
     <main className="my-14 flex-1">
@@ -83,14 +58,14 @@ export default async function ProjectPage(props0: {
           {artistName}
         </h2>
         <Image
-          src={`/images/person/${artistName}.png`}
+          src={artist.image}
           width={1280}
           height={1000}
           alt={`Image of ${artistName}`}
-          className="my-12 aspect-video h-auto w-full rounded-lg object-cover"
+          className="mt-12 aspect-video h-auto w-full rounded-lg object-cover"
         />
-        <div className="mt-2 flex gap-1">
-          {contact.socials.map(({ Icon, name, href }, index) => (
+        <div className="my-8 flex gap-1">
+          {artist.socials?.map(({ Icon, href }, index) => (
             <Link
               target="_blank"
               href={href}
@@ -105,7 +80,17 @@ export default async function ProjectPage(props0: {
           ))}
         </div>
       </div>
-      <Separator />
+      <section className="container mx-auto">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+          About
+        </h2>
+        <TextReveal
+          as="p"
+          className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
+        >
+          {artist.fullDescription}
+        </TextReveal>
+      </section>
     </main>
   );
 }
