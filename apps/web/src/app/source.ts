@@ -36,7 +36,7 @@ export const artistProfilesData: ArtistProfile[] = [
   },
   {
     name: "Kingtaro",
-    image: "/images/person/kingtaro.png",
+    image: "/images/person/juntaro.jpg",
     nickname: "juntaro",
     shortDescription: "King",
     fullDescription: `
