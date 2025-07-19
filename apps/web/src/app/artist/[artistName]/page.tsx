@@ -57,14 +57,16 @@ export default async function ProjectPage(props0: {
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
           {artistName}
         </h2>
-        <Image
-          src={artist.image}
-          width={1280}
-          height={600}
-          alt={`Image of ${artistName}`}
-          className="mt-12 w-full rounded-lg object-contain"
-          priority
-        />
+        <div className="mt-12 h-96 w-full rounded-lg object-contain">
+          <Image
+            src={artist.image}
+            width={1280}
+            height={600}
+            alt={`Image of ${artistName}`}
+            className="h-full"
+            priority
+          />
+        </div>
         <div className="my-8 flex gap-1">
           {artist.socials?.map(({ Icon, href }, index) => (
             <Link
