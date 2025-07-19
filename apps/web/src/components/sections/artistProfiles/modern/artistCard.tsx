@@ -77,7 +77,7 @@ export default function ArtistCard({
           <DialogImage
             src={image ?? "/placeholder.svg"}
             alt={`An image which depicts the skill (${name})`}
-            className="h-100 w-full"
+            className="h-80 w-full"
           />
           <div className="flex flex-col gap-2 p-6">
             <DialogTitle className="text-3xl leading-8 font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
