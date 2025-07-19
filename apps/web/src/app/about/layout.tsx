@@ -3,7 +3,6 @@ import { metadata as meta } from "@/app/config";
 import Cursor from "@/components/cursor/cursor";
 import { Footer, Header } from "@/components/sections";
 import { contact } from "@/components/sections/contact/config";
-import SmoothScroll from "@/components/smooth-scroll";
 import { createMetadata } from "@/lib/metadata";
 
 const title = "About";
@@ -45,7 +44,7 @@ export default function AboutLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <SmoothScroll>
+    <>
       <div className="flex min-h-[100dvh] flex-col">
         <Header />
         <script
@@ -58,6 +57,6 @@ export default function AboutLayout({
         </footer>
       </div>
       <Cursor />
-    </SmoothScroll>
+    </>
   );
 }
