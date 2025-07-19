@@ -193,9 +193,10 @@ function MorphingDialogContent({
       triggerRef.current?.focus();
     }
 
-    // 컴포넌트 언마운트 시 overflow-hidden 제거
     return () => {
-      document.body.classList.remove("overflow-hidden");
+      if (isOpen) {
+        document.body.classList.remove("overflow-hidden");
+      }
     };
   }, [isOpen, triggerRef]);
 
