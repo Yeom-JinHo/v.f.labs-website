@@ -102,7 +102,7 @@ export default async function ProjectPage(props0: {
           as="p"
           className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
         >
-          {artist.fullDescription}
+          TBD
         </TextReveal>
       </section>
     </main>
