@@ -52,7 +52,7 @@ function ArtistProfiles() {
               {firstRow.map((artist, index) => (
                 <CarouselItem
                   key={`testimonial_${index}`}
-                  className="md:basis-1/2 xl:basis-1/3 2xl:basis-1/4"
+                  className="basis-1/2 xl:basis-1/3 2xl:basis-1/4"
                 >
                   <div className="h-full p-1">
                     <ArtistCard
@@ -89,7 +89,7 @@ function ArtistProfiles() {
               {secondRow.map((artist, index) => (
                 <CarouselItem
                   key={`artist-reverse_${index}`}
-                  className="md:basis-1/2 xl:basis-1/3 2xl:basis-1/4"
+                  className="basis-1/2 xl:basis-1/3 2xl:basis-1/4"
                 >
                   <div className="h-full p-1">
                     <ArtistCard

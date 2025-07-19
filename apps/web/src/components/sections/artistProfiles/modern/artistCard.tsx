@@ -1,3 +1,5 @@
+import type { ArtistProfile } from "@/types/artistProfile";
+import Link from "next/link";
 import {
   MorphingDialog as Dialog,
   MorphingDialogClose as DialogClose,
@@ -15,7 +17,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
 import { cn } from "@repo/ui";
-import type { ArtistProfile } from '@/types/artistProfile';
+import { Button } from "@repo/ui/button";
 
 interface ArtistCardProps extends ArtistProfile {
   index: number;
@@ -75,7 +77,7 @@ export default function ArtistCard({
           <DialogImage
             src={image ?? "/placeholder.svg"}
             alt={`An image which depicts the skill (${name})`}
-            className="h-full w-full"
+            className="h-80 w-full"
           />
           <div className="flex flex-col gap-2 p-6">
             <DialogTitle className="text-3xl leading-8 font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
@@ -105,6 +107,13 @@ export default function ArtistCard({
                 {description}
               </MemoizedReactMarkdown>
             </DialogDescription>
+          </div>
+          <div className="flex justify-center p-6">
+            <Button className="w-full font-bold">
+              <Link href={`https://www.instagram.com/${nickname}`}>
+                자세히보기
+              </Link>
+            </Button>
           </div>
           <DialogClose className="text-zinc-50" />
         </DialogContent>
