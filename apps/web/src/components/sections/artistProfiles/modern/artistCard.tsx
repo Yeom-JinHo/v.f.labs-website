@@ -108,7 +108,7 @@ export default function ArtistCard({
             </DialogDescription>
           </div>
           <div className="flex justify-center p-6">
-            <Button className="w-full font-bold">
+            <Button asChild className="w-full font-bold">
               <Link href={`artist/${name}`}>자세히보기</Link>
             </Button>
           </div>
