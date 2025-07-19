@@ -1,4 +1,4 @@
-import type { ArtistProfile } from "@/types/artistProfile";
+import type { ArtistProfile } from "@/types/artist";
 
 export const artistProfiles: ArtistProfile[] = [
   {
