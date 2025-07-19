@@ -57,13 +57,13 @@ export default async function ProjectPage(props0: {
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
           {artistName}
         </h2>
-        <div className="mt-12 h-96 w-full rounded-lg object-contain">
+        <div className="mt-12 h-96 w-full overflow-hidden rounded-lg">
           <Image
             src={artist.image}
             width={1280}
             height={600}
             alt={`Image of ${artistName}`}
-            className="h-full"
+            className="h-full w-full object-contain"
             priority
           />
         </div>
