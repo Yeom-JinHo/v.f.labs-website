@@ -6,7 +6,6 @@ import Link from "@/components/fancy/link";
 import ImageTrail from "@/components/fancy/motion-trail";
 import TextReveal from "@/components/fancy/text-reveal";
 import { contact } from "@/components/sections/contact/config";
-import ContactForm from "@/components/sections/contact/cozy/contact-form";
 import { experiences } from "@/components/sections/experience/config";
 import ExperienceCard from "@/components/sections/experience/cozy/experience-card";
 import { skills } from "@/components/sections/skills/config";
@@ -223,9 +222,7 @@ export default function About() {
               ))}
             </div>
           </div>
-          <div className="col-span-1 md:col-span-3">
-            <ContactForm />
-          </div>
+          <div className="col-span-1 md:col-span-3"></div>
         </div>
       </section>
     </main>

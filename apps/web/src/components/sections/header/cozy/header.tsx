@@ -30,7 +30,7 @@ const Header = () => {
           href="/"
           className="text-md inline-flex items-center justify-center font-semibold"
         >
-          {meta.author.name}
+          {meta.site.title}
         </MotionLink>
         <div onClick={() => setIsActive(!isActive)} className={styles.el}>
           <div className={styles.label}>
@@ -38,14 +38,14 @@ const Header = () => {
               variants={opacity}
               animate={!isActive ? "open" : "closed"}
             >
-              Menu
+              {/* Menu */}
             </motion.p>
             <motion.p variants={opacity} animate={isActive ? "open" : "closed"}>
-              Close
+              {/* Close */}
             </motion.p>
           </div>
           <div
-            className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}
+            // className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}
           ></div>
         </div>
       </div>

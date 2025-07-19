@@ -45,9 +45,7 @@ const jsonLd: WithContext<CollectionPage> = {
 };
 
 export default function ProjectsPage(): React.ReactElement {
-  const projects = [...project.getPages()].sort(
-    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
-  );
+  const projects = [...project.getPages()];
 
   return (
     <main className="my-14 flex-1">

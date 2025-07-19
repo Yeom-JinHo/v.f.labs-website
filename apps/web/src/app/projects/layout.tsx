@@ -1,6 +1,5 @@
 import Cursor from "@/components/cursor/cursor";
 import { Footer, Header } from "@/components/sections";
-import SmoothScroll from "@/components/smooth-scroll";
 
 export default function ProjectLayout({
   children,
@@ -8,7 +7,7 @@ export default function ProjectLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <SmoothScroll>
+    <>
       {/* <Loader /> */}
       <div className="flex min-h-[100dvh] flex-col">
         <Header />
@@ -18,6 +17,6 @@ export default function ProjectLayout({
         </footer>
       </div>
       <Cursor />
-    </SmoothScroll>
+    </>
   );
 }

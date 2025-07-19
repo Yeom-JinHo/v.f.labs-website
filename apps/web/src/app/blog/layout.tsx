@@ -1,6 +1,5 @@
 import Cursor from "@/components/cursor/cursor";
 import { Footer, Header } from "@/components/sections";
-import SmoothScroll from "@/components/smooth-scroll";
 
 export default function BlogLayout({
   children,
@@ -8,7 +7,7 @@ export default function BlogLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <SmoothScroll>
+    <>
       <div className="flex min-h-[100dvh] flex-col">
         <Header />
         {children}
@@ -17,6 +16,6 @@ export default function BlogLayout({
         </footer>
       </div>
       <Cursor />
-    </SmoothScroll>
+    </>
   );
 }
