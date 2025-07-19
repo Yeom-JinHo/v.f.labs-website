@@ -19,4 +19,10 @@ export const artistProfiles: ArtistProfile[] = [
     nickname: "juntaro",
     description: "King",
   },
+  {
+    name: "Mr. Dong",
+    image: "/images/person/dong.jpg",
+    nickname: "dminzz",
+    description: "Dong",
+  },
 ];
