@@ -59,7 +59,8 @@ function ArtistProfiles() {
                       key={`artist_${index}`}
                       index={index + 1}
                       name={artist.name}
-                      description={artist.description}
+                      shortDescription={artist.shortDescription}
+                      fullDescription={artist.fullDescription}
                       nickname={artist.nickname}
                       image={artist.image}
                     />
@@ -96,7 +97,8 @@ function ArtistProfiles() {
                       key={`artist_${index}`}
                       index={index + 1}
                       name={artist.name}
-                      description={artist.description}
+                      shortDescription={artist.shortDescription}
+                      fullDescription={artist.fullDescription}
                       nickname={artist.nickname}
                       image={artist.image}
                     />

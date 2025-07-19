@@ -22,7 +22,6 @@ import { Button } from "@repo/ui/button";
 interface ArtistCardProps extends ArtistProfile {
   index: number;
   className?: string;
-  description?: string;
 }
 
 // todo: use text reveal for name and description
@@ -30,7 +29,7 @@ interface ArtistCardProps extends ArtistProfile {
 export default function ArtistCard({
   name,
   nickname,
-  description,
+  shortDescription,
   image,
   className,
 }: ArtistCardProps) {
@@ -104,7 +103,7 @@ export default function ArtistCard({
                   },
                 }}
               >
-                {description}
+                {shortDescription}
               </MemoizedReactMarkdown>
             </DialogDescription>
           </div>
