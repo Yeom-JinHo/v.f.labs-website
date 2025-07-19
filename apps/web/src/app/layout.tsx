@@ -7,6 +7,7 @@ import { metadata as meta } from "@/app/config";
 import Providers from "@/app/providers";
 import { env } from "@/env";
 import { createMetadata } from "@/lib/metadata";
+import { Analytics } from "@vercel/analytics/next";
 
 import { Toaster } from "@repo/ui/sonner";
 
@@ -42,6 +43,7 @@ export default function RootLayout({
           {/* <Loader /> */}
           {children}
           <Toaster />
+          <Analytics />
         </Providers>
       </body>
     </html>
