@@ -2,7 +2,6 @@ import React from "react";
 import TextReveal from "@/components/fancy/text-reveal";
 import MotionWrap from "@/components/motion-wrap";
 
-
 function About() {
   return (
     <MotionWrap className="w-full py-24 lg:py-32" id="about">
@@ -13,16 +12,17 @@ function About() {
               as="h2"
               className="text-4xl leading-tight font-bold tracking-tighter sm:text-5xl md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight"
             >
-              About Ho
+              About
             </TextReveal>
             <div className="space-y-4">
               <TextReveal
                 as="p"
                 className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
               >
-                현승호 그는 사람들의 숨소리에 반응하며, 테크노의 신이다.
-                외쳐 ! 승호 업 외쳐 ! 승호 업 외쳐 ! 승호 업 외쳐 ! 승호 업외쳐 ! 승호 업 외쳐 ! 승호 업외쳐 ! 승호 업 외쳐 ! 승호 업외쳐 ! 승호 업 외쳐 ! 승호 업
-                외쳐 ! 승호 업 외쳐 ! 승호 업외쳐 ! 승호 업 외쳐 ! 승호 업외쳐 ! 승호 업 외쳐 ! 승호 업외쳐 ! 승호 업 외쳐 ! 승호 업외쳐 ! 승호 업 외쳐 ! 승호 업외쳐 ! 승호 업 외쳐 ! 승호 업
+                Vague Frequency Laboratory의 소개 Vague Frequency Laboratory
+                Vague Frequency Laboratory Vague Frequency LaboratoryVague
+                Frequency Laboratory Vague Frequency LaboratoryVague Frequency
+                Laboratory
               </TextReveal>
             </div>
           </div>
