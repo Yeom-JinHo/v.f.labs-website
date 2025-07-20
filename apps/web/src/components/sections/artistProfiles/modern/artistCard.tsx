@@ -71,12 +71,12 @@ export default function ArtistCard({
           style={{
             borderRadius: "24px",
           }}
-          className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden border border-zinc-950/10 bg-white sm:w-[500px] dark:border-zinc-50/10 dark:bg-zinc-900"
+          className="pointer-events-auto relative flex h-auto w-full basis-1/2 flex-col overflow-hidden border border-zinc-950/10 bg-white xl:basis-1/4 dark:border-zinc-50/10 dark:bg-zinc-900"
         >
           <DialogImage
             src={image ?? "/placeholder.svg"}
             alt={`An image which depicts the skill (${name})`}
-            className="h-80 w-full"
+            className="h-[300px] w-full object-cover md:h-[600px]"
           />
           <div className="flex flex-col gap-2 p-6">
             <DialogTitle className="text-3xl leading-8 font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
