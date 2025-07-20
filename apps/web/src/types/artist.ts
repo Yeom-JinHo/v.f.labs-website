@@ -1,11 +1,9 @@
-import type { ARTIST_NAME } from "@/consts/artist";
-
 import type { Socials } from "./contact";
 
 export interface ArtistProfile {
-  name: ARTIST_NAME;
+  name: ArtistName;
   image: string;
-  nickname: ARTIST_NAME;
+  nickname: ArtistName;
   shortDescription: string;
   fullDescription: string;
   socials?: Socials[];
