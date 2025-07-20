@@ -1,27 +1,32 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import ParallaxImage from "@/components/fancy/parallax-image";
+import { useMobile } from "@/hooks/use-mobile";
 
 function Hero() {
   const container = useRef<HTMLDivElement>(null);
+  const isMobile = useMobile();
 
   return (
     <section
-      className="bg-background/[0.96] relative w-full overflow-hidden"
+      className="bg-background relative mt-6 w-full overflow-hidden"
       ref={container}
     >
-      <div className="relative z-10 h-[42.5dvh] md:h-[51.2dvh] md:min-h-[50dvh] xl:h-[61.2dvh]">
+      <div className="relative z-10 h-screen">
         <div className="relative flex h-full flex-col items-center justify-center">
-          <div className="flex w-full items-center justify-center px-4 md:px-6">
-            <h1 className="text-4xl font-light sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
-              <span>Vague  </span>
-              <span>Frequency</span>
-              <br />
-              <span className="flex items-center gap-2 md:gap-4">
-                <span>Laboratory</span>
-              </span>
-            </h1>
+          <div className="oject-cover flex h-full flex-col items-center justify-center px-4 md:px-6">
+            <div className={isMobile ? "m-6 flex h-full" : "flex w-full"}>
+              <Image
+                src={
+                  isMobile ? `/images/logo/allV.png` : `/images/logo/allH.png`
+                }
+                alt="logo"
+                width={isMobile ? 800 : 1000}
+                height={isMobile ? 1200 : 1200}
+              />
+            </div>
           </div>
         </div>
       </div>
