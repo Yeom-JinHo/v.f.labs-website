@@ -23,6 +23,7 @@ function Hero() {
                   isMobile ? `/images/logo/allV.png` : `/images/logo/allH.png`
                 }
                 alt="logo"
+                className={isMobile ? "h-full" : ""}
                 width={isMobile ? 800 : 1000}
                 height={isMobile ? 1200 : 1200}
               />
