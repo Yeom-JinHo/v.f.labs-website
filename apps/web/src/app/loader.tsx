@@ -43,7 +43,6 @@ export default function Loader() {
               autoStart={true}
               transition={{ duration: 2, type: "tween", ease: "easeInOut" }}
               onComplete={() => setIsReady(true)}
-              onStart={() => console.log("start")}
             />
           ) : (
             <>
