@@ -55,9 +55,9 @@ export default function ArtistCard({
           alt={`${name} profile image`}
           className="h-48 w-full object-cover"
         />
-        <div className="flex grow flex-col items-end justify-between gap-4 p-6">
+        <div className="l:p-6 flex grow flex-col items-end justify-between gap-4 p-4">
           <div className="flex w-full flex-col gap-2">
-            <DialogTitle className="text-3xl leading-8 font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
+            <DialogTitle className="l:text-3xl text-2xl leading-8 font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
               <TextReveal>{name}</TextReveal>
             </DialogTitle>
             <DialogSubtitle className="text-md text-muted-foreground text-zinc-700 dark:text-zinc-400">
