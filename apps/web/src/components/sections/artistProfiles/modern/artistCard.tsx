@@ -53,7 +53,7 @@ export default function ArtistCard({
         <DialogImage
           src={image ?? "/placeholder.svg"}
           alt={`${name} profile image`}
-          className="h-48 w-full object-cover"
+          className="h-[300px] w-full object-cover md:h-[720px]"
         />
         <div className="l:p-6 flex grow flex-col items-end justify-between gap-4 p-4">
           <div className="flex w-full flex-col gap-2">
