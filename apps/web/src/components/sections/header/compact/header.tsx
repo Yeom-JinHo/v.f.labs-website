@@ -3,17 +3,9 @@
 import { useEffect, useState } from "react";
 import { metadata as meta } from "@/app/config";
 import Link from "@/components/fancy/link";
-import ThemeToggle from "@/components/mode-toggle";
 import { linkLimit, links } from "@/components/sections/header/config";
 import { motion } from "motion/react";
 
-import { Button } from "@repo/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@repo/ui/dropdown-menu";
 import { Icons } from "@repo/ui/icons";
 
 export default function Header() {
@@ -79,7 +71,7 @@ export default function Header() {
         <div className="flex w-full justify-between">
           <Link
             href="/"
-            className="text-md inline-flex items-center justify-center font-semibold"
+            className="inline-flex items-center justify-center text-2xl font-semibold"
           >
             {meta.author.name}
           </Link>
@@ -97,7 +89,7 @@ export default function Header() {
               <div className="flex items-center gap-4 lg:gap-6">
                 {links.slice(0, linkLimit).map(({ title, href }, index) => (
                   <Link
-                    className="flex items-center text-sm font-medium underline-offset-4 hover:underline"
+                    className="flex items-center text-xl font-medium underline-offset-4 hover:underline"
                     href={href}
                     key={`header-desktop-link_${index}`}
                   >
@@ -105,7 +97,7 @@ export default function Header() {
                   </Link>
                 ))}
 
-                {links.length > linkLimit && (
+                {/* {links.length > linkLimit && (
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button
@@ -128,11 +120,11 @@ export default function Header() {
                       ))}
                     </DropdownMenuContent>
                   </DropdownMenu>
-                )}
+                )} */}
               </div>
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <ThemeToggle />
-              </div>
+              </div> */}
             </nav>
           </div>
         </div>
@@ -146,17 +138,17 @@ export default function Header() {
         <div className="flex flex-col gap-4 p-4">
           {links.map(({ title, href }, index) => (
             <Link
-              className="flex items-center text-sm font-medium underline-offset-4 hover:underline"
-              href={href}
+              className="flex items-center text-xl font-medium underline-offset-4 hover:underline"
+              href="/"
               onClick={toggleMenu}
               key={`header-mobile-link_${index}`}
             >
               {title}
             </Link>
           ))}
-          <div className="flex w-full items-center justify-end">
+          {/* <div className="flex w-full items-center justify-end">
             <ThemeToggle />
-          </div>
+          </div> */}
         </div>
       </motion.div>
     </motion.header>
