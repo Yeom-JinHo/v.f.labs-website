@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 
 import Script from "next/script";
 import { metadata as meta } from "@/app/config";
+import Loader from "@/app/loader";
 import Providers from "@/app/providers";
 import { env } from "@/env";
 import { createMetadata } from "@/lib/metadata";
@@ -40,7 +41,7 @@ export default function RootLayout({
       </head>
       <body className={`${bricolage_grotesque.className} antialiased`}>
         <Providers>
-          {/* <Loader /> */}
+          <Loader />
           {children}
           <Toaster />
           <Analytics />
