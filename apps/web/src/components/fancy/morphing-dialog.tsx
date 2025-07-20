@@ -211,7 +211,7 @@ function MorphingDialogContent({
       ref={containerRef}
       layoutId={`dialog-${uniqueId}`}
       className={cn("overflow-hidden", className)}
-      style={style}
+      style={{ ...style, transform: "translate3d(0, 0, 0)" }}
       role="dialog"
       aria-modal="true"
       aria-labelledby={`motion-ui-morphing-dialog-title-${uniqueId}`}
@@ -240,15 +240,16 @@ function MorphingDialogContainer({ children }: MorphingDialogContainerProps) {
   if (!mounted) return null;
 
   return createPortal(
-    <AnimatePresence initial={false} mode="sync">
+    <AnimatePresence initial={false} mode="wait">
       {isOpen && (
         <>
           <motion.div
             key={`backdrop-${uniqueId}`}
-            className="fixed inset-0 h-full w-full bg-white/40 backdrop-blur-xs dark:bg-black/40"
+            className="fixed inset-0 h-full w-full bg-white/40 dark:bg-black/40"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
           />
           <div className="fixed inset-0 z-50 flex items-center justify-center">
             {children}
@@ -278,7 +279,6 @@ function MorphingDialogTitle({
       layoutId={`dialog-title-container-${uniqueId}`}
       className={className}
       style={style}
-      layout
     >
       {children}
     </motion.div>
@@ -369,7 +369,7 @@ function MorphingDialogImage({
       alt={alt}
       className={cn(className)}
       layoutId={`dialog-img-${uniqueId}`}
-      style={style}
+      style={{ ...style, willChange: "transform" }}
     />
   );
 }
