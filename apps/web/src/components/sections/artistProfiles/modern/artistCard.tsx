@@ -36,9 +36,9 @@ export default function ArtistCard({
   return (
     <Dialog
       transition={{
-        type: "spring",
-        stiffness: 200,
-        damping: 24,
+        type: "tween",
+        duration: 0.3,
+        ease: "easeInOut",
       }}
     >
       <DialogTrigger
@@ -82,16 +82,13 @@ export default function ArtistCard({
             <DialogTitle className="text-3xl leading-8 font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
               {name}
             </DialogTitle>
-            {/* <DialogSubtitle className="text-zinc-700 dark:text-zinc-400">
-              {description}
-            </DialogSubtitle> */}
             <DialogDescription
               className="text-md text-muted-foreground text-zinc-700 dark:text-zinc-400"
               disableLayoutAnimation
               variants={{
-                initial: { opacity: 0, scale: 0.8, y: 100 },
-                animate: { opacity: 1, scale: 1, y: 0 },
-                exit: { opacity: 0, scale: 0.8, y: 100 },
+                initial: { opacity: 0 },
+                animate: { opacity: 1 },
+                exit: { opacity: 0 },
               }}
             >
               <MemoizedReactMarkdown

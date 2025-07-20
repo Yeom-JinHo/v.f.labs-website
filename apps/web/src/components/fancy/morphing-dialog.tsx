@@ -233,7 +233,12 @@ function MorphingDialogContent({
       ref={containerRef}
       layoutId={`dialog-${uniqueId}`}
       className={cn("overflow-hidden", className)}
-      style={{ ...style, transform: "translate3d(0, 0, 0)" }}
+      style={{
+        ...style,
+        transform: "translate3d(0, 0, 0)",
+        willChange: "transform",
+        backfaceVisibility: "hidden",
+      }}
       role="dialog"
       aria-modal="true"
       aria-labelledby={`motion-ui-morphing-dialog-title-${uniqueId}`}
@@ -273,7 +278,7 @@ function MorphingDialogContainer({ children }: MorphingDialogContainerProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.15 }}
             />
             <div className="fixed inset-0 z-50 flex items-center justify-center">
               {children}
@@ -307,7 +312,15 @@ const MorphingDialogTitle = React.memo(function MorphingDialogTitle({
   );
 
   return (
-    <motion.div layoutId={layoutId} className={className} style={style}>
+    <motion.div
+      layoutId={layoutId}
+      className={className}
+      style={{
+        ...style,
+        willChange: "transform",
+        backfaceVisibility: "hidden",
+      }}
+    >
       {children}
     </motion.div>
   );
@@ -332,7 +345,15 @@ const MorphingDialogSubtitle = React.memo(function MorphingDialogSubtitle({
   );
 
   return (
-    <motion.div layoutId={layoutId} className={className} style={style}>
+    <motion.div
+      layoutId={layoutId}
+      className={className}
+      style={{
+        ...style,
+        willChange: "transform",
+        backfaceVisibility: "hidden",
+      }}
+    >
       {children}
     </motion.div>
   );
@@ -400,7 +421,12 @@ const MorphingDialogImage = React.memo(function MorphingDialogImage({
       alt={alt}
       className={cn(className)}
       layoutId={layoutId}
-      style={{ ...style, willChange: "transform" }}
+      style={{
+        ...style,
+        willChange: "transform",
+        backfaceVisibility: "hidden",
+        transform: "translate3d(0, 0, 0)",
+      }}
     />
   );
 });
