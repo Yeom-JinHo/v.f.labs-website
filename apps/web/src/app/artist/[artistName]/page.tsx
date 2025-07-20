@@ -87,12 +87,9 @@ export default async function ProjectPage(props0: {
         <h2 className="mb-2 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
           About
         </h2>
-        <TextReveal
-          as="p"
-          className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
-        >
+        <p className="whitespace-pre-line text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
           {artist.fullDescription}
-        </TextReveal>
+        </p>
       </section>
       <section className="container mb-12">
         <h2 className="mb-2 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
@@ -100,7 +97,7 @@ export default async function ProjectPage(props0: {
         </h2>
         <TextReveal
           as="p"
-          className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
+          className="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
         >
           TBD
         </TextReveal>
