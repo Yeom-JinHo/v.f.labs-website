@@ -27,7 +27,7 @@ function ArtistProfiles() {
             </TextReveal>
           </div>
           <p className="mt-4 hidden text-gray-500 lg:mt-0 lg:block lg:w-[35%] dark:text-gray-400">
-            Kingtaro와 아이들
+            Vague Frequency Laboratory
           </p>
         </div>
 
