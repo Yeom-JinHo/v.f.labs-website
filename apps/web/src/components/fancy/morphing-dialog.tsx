@@ -109,10 +109,13 @@ function MorphingDialogTrigger({
     [isOpen, setIsOpen],
   );
 
+  // layoutId를 메모이제이션
+  const layoutId = useMemo(() => `dialog-${uniqueId}`, [uniqueId]);
+
   return (
     <motion.div
       ref={triggerRef}
-      layoutId={`dialog-${uniqueId}`}
+      layoutId={layoutId}
       className={cn("relative cursor-pointer", className)}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
@@ -145,6 +148,20 @@ function MorphingDialogContent({
     useState<HTMLElement | null>(null);
   const [lastFocusableElement, setLastFocusableElement] =
     useState<HTMLElement | null>(null);
+  const focusableElementsRef = useRef<HTMLElement[]>([]);
+
+  // DOM 쿼리 결과를 메모이제이션
+  const getFocusableElements = useCallback(() => {
+    if (!containerRef.current) return [];
+
+    const elements = Array.from(
+      containerRef.current.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      ),
+    );
+
+    return elements;
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -178,15 +195,20 @@ function MorphingDialogContent({
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add("overflow-hidden");
-      const focusableElements = containerRef.current?.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
-      );
-      if (focusableElements && focusableElements.length > 0) {
-        setFirstFocusableElement(focusableElements[0] as HTMLElement);
-        setLastFocusableElement(
-          focusableElements[focusableElements.length - 1] as HTMLElement,
-        );
-        (focusableElements[0] as HTMLElement).focus();
+
+      // DOM 쿼리 최적화: 한 번만 실행하고 결과 캐시
+      const elements = getFocusableElements();
+      focusableElementsRef.current = elements;
+
+      if (elements.length > 0) {
+        const first = elements[0];
+        const last = elements[elements.length - 1];
+
+        // 참조가 변경된 경우에만 상태 업데이트
+        setFirstFocusableElement((prev) => (prev !== first ? first : prev));
+        setLastFocusableElement((prev) => (prev !== last ? last : prev));
+
+        first.focus();
       }
     } else {
       document.body.classList.remove("overflow-hidden");
@@ -198,7 +220,7 @@ function MorphingDialogContent({
         document.body.classList.remove("overflow-hidden");
       }
     };
-  }, [isOpen, triggerRef]);
+  }, [isOpen, triggerRef, getFocusableElements]);
 
   useClickOutside(containerRef, () => {
     if (isOpen) {
@@ -237,28 +259,33 @@ function MorphingDialogContainer({ children }: MorphingDialogContainerProps) {
     return () => setMounted(false);
   }, []);
 
-  if (!mounted) return null;
+  // Portal 생성을 메모이제이션
+  const portalContent = useMemo(() => {
+    if (!mounted) return null;
 
-  return createPortal(
-    <AnimatePresence initial={false} mode="wait">
-      {isOpen && (
-        <>
-          <motion.div
-            key={`backdrop-${uniqueId}`}
-            className="fixed inset-0 h-full w-full bg-white/40 dark:bg-black/40"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          />
-          <div className="fixed inset-0 z-50 flex items-center justify-center">
-            {children}
-          </div>
-        </>
-      )}
-    </AnimatePresence>,
-    document.body,
-  );
+    return createPortal(
+      <AnimatePresence initial={false} mode="wait">
+        {isOpen && (
+          <>
+            <motion.div
+              key={`backdrop-${uniqueId}`}
+              className="fixed inset-0 h-full w-full bg-white/40 dark:bg-black/40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            />
+            <div className="fixed inset-0 z-50 flex items-center justify-center">
+              {children}
+            </div>
+          </>
+        )}
+      </AnimatePresence>,
+      document.body,
+    );
+  }, [mounted, isOpen, uniqueId, children]);
+
+  return portalContent;
 }
 
 export interface MorphingDialogTitleProps {
@@ -267,23 +294,24 @@ export interface MorphingDialogTitleProps {
   style?: React.CSSProperties;
 }
 
-function MorphingDialogTitle({
+const MorphingDialogTitle = React.memo(function MorphingDialogTitle({
   children,
   className,
   style,
 }: MorphingDialogTitleProps) {
   const { uniqueId } = useMorphingDialog();
 
+  const layoutId = useMemo(
+    () => `dialog-title-container-${uniqueId}`,
+    [uniqueId],
+  );
+
   return (
-    <motion.div
-      layoutId={`dialog-title-container-${uniqueId}`}
-      className={className}
-      style={style}
-    >
+    <motion.div layoutId={layoutId} className={className} style={style}>
       {children}
     </motion.div>
   );
-}
+});
 
 export interface MorphingDialogSubtitleProps {
   children: React.ReactNode;
@@ -291,23 +319,24 @@ export interface MorphingDialogSubtitleProps {
   style?: React.CSSProperties;
 }
 
-function MorphingDialogSubtitle({
+const MorphingDialogSubtitle = React.memo(function MorphingDialogSubtitle({
   children,
   className,
   style,
 }: MorphingDialogSubtitleProps) {
   const { uniqueId } = useMorphingDialog();
 
+  const layoutId = useMemo(
+    () => `dialog-subtitle-container-${uniqueId}`,
+    [uniqueId],
+  );
+
   return (
-    <motion.div
-      layoutId={`dialog-subtitle-container-${uniqueId}`}
-      className={className}
-      style={style}
-    >
+    <motion.div layoutId={layoutId} className={className} style={style}>
       {children}
     </motion.div>
   );
-}
+});
 
 export interface MorphingDialogDescriptionProps {
   children: React.ReactNode;
@@ -355,7 +384,7 @@ export interface MorphingDialogImageProps {
   style?: React.CSSProperties;
 }
 
-function MorphingDialogImage({
+const MorphingDialogImage = React.memo(function MorphingDialogImage({
   src,
   alt,
   className,
@@ -363,16 +392,18 @@ function MorphingDialogImage({
 }: MorphingDialogImageProps) {
   const { uniqueId } = useMorphingDialog();
 
+  const layoutId = useMemo(() => `dialog-img-${uniqueId}`, [uniqueId]);
+
   return (
     <motion.img
       src={src}
       alt={alt}
       className={cn(className)}
-      layoutId={`dialog-img-${uniqueId}`}
+      layoutId={layoutId}
       style={{ ...style, willChange: "transform" }}
     />
   );
-}
+});
 
 export interface MorphingDialogCloseProps {
   children?: React.ReactNode;
