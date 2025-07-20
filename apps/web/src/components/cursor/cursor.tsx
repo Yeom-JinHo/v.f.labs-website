@@ -69,6 +69,12 @@ export default function Cursor() {
   };
 
   useEffect(() => {
+    // 모바일에서는 커서를 완전히 비활성화
+    const isFinePointer = window.matchMedia("(pointer: fine)").matches;
+    if (!isFinePointer) {
+      return;
+    }
+
     window.addEventListener("resize", manageResize);
 
     document.body.addEventListener("mouseleave", manageMouseLeave, {
@@ -93,6 +99,15 @@ export default function Cursor() {
       window.removeEventListener("mouseup", handleMouseUp);
     };
   }, []);
+
+  // 모바일에서는 렌더링하지 않음
+  const isFinePointer =
+    typeof window !== "undefined"
+      ? window.matchMedia("(pointer: fine)").matches
+      : false;
+  if (!isFinePointer) {
+    return null;
+  }
 
   const template = ({
     rotate,
