@@ -16,7 +16,7 @@ function Hero() {
     >
       <div className="relative z-10 h-screen">
         <div className="relative flex h-full flex-col items-center justify-center">
-          <div className="oject-cover flex h-full flex-col items-center justify-center px-4 md:px-6">
+          <div className="flex h-full flex-col items-center justify-center object-cover px-4 md:px-6">
             <div className={isMobile ? "m-6 flex h-full" : "flex w-full"}>
               <Image
                 src={
