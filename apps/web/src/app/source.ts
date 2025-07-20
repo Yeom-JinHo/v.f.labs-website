@@ -1,6 +1,10 @@
 import type { ArtistProfile } from "@/types/artist";
 import { createMDXSource } from "@fumadocs/content-collections";
-import { SiInstagram, SiYoutube } from "@icons-pack/react-simple-icons";
+import {
+  SiInstagram,
+  SiSoundcloud,
+  SiYoutube,
+} from "@icons-pack/react-simple-icons";
 import {
   allBlogMetas,
   allBlogs,
@@ -58,6 +62,11 @@ EP와 싱글을 발매하며 프로듀서로서의 실력을 입증했습니다.
         href: "https://www.instagram.com/ye0m_2/",
         Icon: SiInstagram,
       },
+      {
+        name: "Instagram",
+        href: "https://soundcloud.com/ye0m2",
+        Icon: SiSoundcloud,
+      },
     ],
   },
   {
@@ -111,6 +120,11 @@ World DJ Festival, Micro Seoul, Strike Music Festival 등 주요 페스티벌에
         href: "https://www.instagram.com/ye0m_2/",
         Icon: SiInstagram,
       },
+      {
+        name: "Instagram",
+        href: "https://soundcloud.com/ye0m2",
+        Icon: SiSoundcloud,
+      },
     ],
   },
   {
@@ -129,6 +143,11 @@ World DJ Festival, Micro Seoul, Strike Music Festival 등 주요 페스티벌에
         name: "Instagram",
         href: "https://www.instagram.com/ye0m_2/",
         Icon: SiInstagram,
+      },
+      {
+        name: "Instagram",
+        href: "https://soundcloud.com/ye0m2",
+        Icon: SiSoundcloud,
       },
     ],
   },
@@ -156,6 +175,11 @@ Dearboi는 서울을 기반으로 활동하는 하우스/테크 하우스 DJ로,
         name: "Instagram",
         href: "https://www.instagram.com/ye0m_2/",
         Icon: SiInstagram,
+      },
+      {
+        name: "Instagram",
+        href: "https://soundcloud.com/ye0m2",
+        Icon: SiSoundcloud,
       },
     ],
   },
@@ -192,6 +216,11 @@ With his exceptional talent and ability to deliver unparalleled sonic experience
         name: "Instagram",
         href: "https://www.instagram.com/ye0m_2/",
         Icon: SiInstagram,
+      },
+      {
+        name: "Instagram",
+        href: "https://soundcloud.com/ye0m2",
+        Icon: SiSoundcloud,
       },
     ],
   },
@@ -244,6 +273,11 @@ LOOZBONE은 빠르게 떠오르는 일렉트로닉 댄스 뮤직 신의 스타�
         href: "https://www.instagram.com/ye0m_2/",
         Icon: SiInstagram,
       },
+      {
+        name: "Instagram",
+        href: "https://soundcloud.com/ye0m2",
+        Icon: SiSoundcloud,
+      },
     ],
   },
   {
@@ -294,6 +328,11 @@ Ryumo는 서울 출신의 젊고 에너지 넘치는 DJ/프로듀서로,
         name: "Instagram",
         href: "https://www.instagram.com/ye0m_2/",
         Icon: SiInstagram,
+      },
+      {
+        name: "Instagram",
+        href: "https://soundcloud.com/ye0m2",
+        Icon: SiSoundcloud,
       },
     ],
   },

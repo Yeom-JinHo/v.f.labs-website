@@ -6,23 +6,23 @@ const linkLimit = 4;
 
 const links: Link[] = [
   {
-    title: "Home",
+    title: "Company",
     href: "/",
     thumbnail: "home.jpg",
   },
   {
-    title: "About",
-    href: "/about",
+    title: "Video",
+    href: "/video",
     thumbnail: "about.jpg",
   },
   {
-    title: "Projects",
-    href: "/projects",
+    title: "Artist",
+    href: "/artist",
     thumbnail: "projects.jpg",
   },
   {
-    title: "Blog",
-    href: "/blog",
+    title: "Contact",
+    href: "/contact",
     thumbnail: "blog.jpg",
   },
 ];
