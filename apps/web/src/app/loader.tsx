@@ -12,12 +12,14 @@ export default function Loader() {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    if (isReady) {
-      // 이전 timer가 있다면 정리
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
+    // 이전 timer가 있다면 항상 정리
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
 
+    // isReady가 true일 때만 새로운 timer 설정
+    if (isReady) {
       timerRef.current = setTimeout(() => {
         setIsVisible(false);
       }, 1000);
