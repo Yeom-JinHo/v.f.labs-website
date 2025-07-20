@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import NumberTicker from "@/components/fancy/number-ticker";
 import TextReveal from "@/components/fancy/text-reveal";
 import { Preloader } from "@/components/preloader";
@@ -9,14 +9,27 @@ import { AnimatePresence } from "motion/react";
 export default function Loader() {
   const [isVisible, setIsVisible] = useState(true);
   const [isReady, setIsReady] = useState(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (isReady) {
-      const timer = setTimeout(() => {
+      // 이전 timer가 있다면 정리
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+
+      timerRef.current = setTimeout(() => {
         setIsVisible(false);
       }, 1000);
-      return () => clearTimeout(timer);
     }
+
+    // cleanup 함수 - 컴포넌트 언마운트 시에도 실행됨
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+        timerRef.current = null;
+      }
+    };
   }, [isReady]);
 
   return (
