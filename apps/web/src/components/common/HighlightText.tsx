@@ -44,17 +44,6 @@ function HighlightText({
     onHover("");
   };
 
-  const handleTouchStart = () => {
-    if (routePath) {
-      router.prefetch(routePath);
-    }
-    onHover(children);
-  };
-
-  const handleTouchEnd = () => {
-    onHover("");
-  };
-
   const handleClick = () => {
     if (routePath && !isClicked) {
       setIsClicked(true);
@@ -69,8 +58,8 @@ function HighlightText({
           ? "relative flex h-full w-screen items-center justify-center"
           : "relative flex h-screen w-full items-center justify-center"
       }
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
+      onTouchStart={handleMouseEnter}
+      onTouchEnd={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
