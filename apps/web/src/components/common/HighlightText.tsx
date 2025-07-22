@@ -6,9 +6,15 @@ interface HighlightTextProps {
   children: ReactNode;
   onHover: (text: string) => void;
   imageUrl?: string;
+  isMobile?: boolean;
 }
 
-function HighlightText({ children, onHover, imageUrl }: HighlightTextProps) {
+function HighlightText({
+  children,
+  onHover,
+  imageUrl,
+  isMobile,
+}: HighlightTextProps) {
   const [hovered, setHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -23,7 +29,11 @@ function HighlightText({ children, onHover, imageUrl }: HighlightTextProps) {
 
   return (
     <div
-      className="relative flex h-screen w-screen items-center justify-center"
+      className={
+        isMobile
+          ? "relative flex h-full w-screen items-center justify-center"
+          : "relative flex h-screen w-full items-center justify-center"
+      }
       onTouchStart={handleMouseEnter}
       onTouchEnd={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
