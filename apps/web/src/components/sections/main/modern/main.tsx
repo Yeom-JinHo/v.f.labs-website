@@ -13,8 +13,8 @@ function Main() {
     <section
       className={
         isMobile
-          ? "relative flex h-screen flex-col overflow-hidden"
-          : "relative flex w-screen overflow-hidden"
+          ? "relative flex h-screen w-full flex-col overflow-hidden"
+          : "relative flex h-full w-screen overflow-hidden"
       }
     >
       {/* 상단 텍스트 표시 */}
