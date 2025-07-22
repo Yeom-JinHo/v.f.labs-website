@@ -6,6 +6,7 @@ interface HighlightTextProps {
   isHover?: boolean;
   imageUrl?: string;
   isMobile?: boolean;
+  onClick?: () => void;
 }
 
 function HighlightText({
@@ -14,6 +15,7 @@ function HighlightText({
   onHover,
   imageUrl,
   isMobile,
+  onClick,
 }: HighlightTextProps) {
   const handleMouseEnter = () => {
     onHover(children);
@@ -34,6 +36,7 @@ function HighlightText({
       onTouchEnd={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={onClick}
     >
       {/* 배경 이미지 오버레이 */}
       {imageUrl && (
