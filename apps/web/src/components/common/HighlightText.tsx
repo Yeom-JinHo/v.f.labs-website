@@ -5,9 +5,10 @@ import { motion } from "motion/react";
 interface HighlightTextProps {
   children: ReactNode;
   onHover: (text: string) => void;
+  imageUrl?: string;
 }
 
-function HighlightText({ children, onHover }: HighlightTextProps) {
+function HighlightText({ children, onHover, imageUrl }: HighlightTextProps) {
   const [hovered, setHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -22,12 +23,28 @@ function HighlightText({ children, onHover }: HighlightTextProps) {
 
   return (
     <div
-      className="flex h-screen w-screen items-center justify-center"
+      className="relative flex h-screen w-screen items-center justify-center"
       onTouchStart={handleMouseEnter}
       onTouchEnd={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      {/* 배경 이미지 오버레이 */}
+      {imageUrl && (
+        <motion.div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url(${imageUrl})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: hovered ? 0.6 : 0 }}
+          transition={{ duration: 0.5 }}
+        />
+      )}
+
       <button
         className="relative overflow-hidden font-sans text-2xl font-bold text-transparent uppercase"
         style={{
