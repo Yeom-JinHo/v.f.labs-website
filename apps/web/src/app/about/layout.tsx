@@ -1,6 +1,5 @@
 import type { AboutPage, WithContext } from "schema-dts";
 import { metadata as meta } from "@/app/config";
-import Cursor from "@/components/cursor/cursor";
 import { Footer, Header } from "@/components/sections";
 import { contact } from "@/components/sections/contact/config";
 import { createMetadata } from "@/lib/metadata";
@@ -44,19 +43,16 @@ export default function AboutLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <div className="flex min-h-[100dvh] flex-col">
-        <Header />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        {children}
-        <footer>
-          <Footer />
-        </footer>
-      </div>
-      <Cursor />
-    </>
+    <div className="flex min-h-[100dvh] flex-col">
+      <Header />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+      <footer>
+        <Footer />
+      </footer>
+    </div>
   );
 }
