@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import HighlightText from "@/components/common/HighlightText";
 import { COMPANY_NAME, COMPANY_SHORT_NAME } from "@/consts/company";
 import { useMobile } from "@/hooks/use-mobile";
@@ -9,6 +10,7 @@ import { motion } from "motion/react";
 function Main() {
   const isMobile = useMobile();
   const [hoveredText, setHoveredText] = useState("");
+  const router = useRouter();
 
   return (
     <section
@@ -42,6 +44,9 @@ function Main() {
       )}
 
       <HighlightText
+        onClick={() => {
+          router.push("/vague-frequency-labs");
+        }}
         onHover={setHoveredText}
         isMobile={isMobile}
         isHover={hoveredText === COMPANY_NAME.VAGUE_FREQUENCY_LABS}

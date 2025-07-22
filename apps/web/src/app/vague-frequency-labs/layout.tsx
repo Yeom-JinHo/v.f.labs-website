@@ -1,6 +1,6 @@
 import { Footer, Header } from "@/components/sections";
 
-export default function ProjectLayout({
+export default function VagueFrequencyLabsLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -8,7 +8,7 @@ export default function ProjectLayout({
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <Header />
-      {children}
+      <main className="flex-1">{children}</main>
       <footer>
         <Footer />
       </footer>
