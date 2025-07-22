@@ -31,7 +31,7 @@ function HighlightText({ children, onHover }: HighlightTextProps) {
       <button
         className="relative overflow-hidden font-sans text-2xl font-bold text-transparent uppercase"
         style={{
-          WebkitTextStroke: "1px rgba(255,255,255,0.6)",
+          WebkitTextStroke: "1px white",
         }}
       >
         <span className="actual-text">{children}</span>
@@ -42,13 +42,11 @@ function HighlightText({ children, onHover }: HighlightTextProps) {
           animate={{ width: hovered ? "100%" : "0%" }}
           transition={{ duration: 0.5 }}
           style={{
-            color: "#37FF8B",
-            WebkitTextStroke: "1px #37FF8B",
-            borderRight: hovered
-              ? "6px solid #37FF8B"
-              : "0px solid transparent",
+            color: "white",
+            WebkitTextStroke: "1px white",
+            borderRight: hovered ? "6px solid white" : "0px solid transparent",
             overflow: "hidden",
-            filter: hovered ? "drop-shadow(0 0 3px #37FF8B)" : "none",
+            filter: hovered ? "drop-shadow(0 0 3px white)" : "none",
           }}
         >
           {children}
