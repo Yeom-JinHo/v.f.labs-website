@@ -27,7 +27,7 @@ function HighlightText({
       const timeout = setTimeout(() => {
         router.push(routePath);
         setIsClicked(false);
-      }, 800);
+      }, 500);
       return () => clearTimeout(timeout);
     }
   }, [isClicked, routePath, router]);
