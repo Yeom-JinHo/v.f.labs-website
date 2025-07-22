@@ -1,77 +1,69 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import HighlightText from "@/components/common/HighlightText";
 import { useMobile } from "@/hooks/use-mobile";
-import { motion } from "framer-motion";
-
-const Test = ({ index }: { index: number }) => {
-  const [hovered, setHovered] = useState(false);
-  return (
-    <div
-      style={{
-        position: "relative",
-        width: "100%",
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onTouchStart={() => setHovered(true)}
-      onTouchEnd={() => setHovered(false)}
-    >
-      <motion.div
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundColor: "rgba(255,255,255,0.07)",
-          pointerEvents: "none",
-        }}
-        animate={{ opacity: hovered ? 1 : 0 }}
-        transition={{ duration: 0.5 }}
-      />
-      <motion.div
-        style={{
-          position: "relative",
-          zIndex: 1,
-          display: "flex",
-          backgroundColor: "transparent",
-        }}
-        animate={{
-          scale: hovered ? 1.05 : 1,
-          y: hovered ? -10 : 0,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 20,
-        }}
-      >
-        <Image
-          src={`/images/logo/${index}.png`}
-          alt="logo"
-          width={1000}
-          height={400}
-          unoptimized
-        />
-      </motion.div>
-    </div>
-  );
-};
+import { motion } from "motion/react";
 
 function Main() {
   const isMobile = useMobile();
+  const [hoveredText, setHoveredText] = useState("");
+
   return (
     <section
-      className="relative flex w-full overflow-hidden"
-      style={{
-        backgroundColor: "rgba(0,0,0)",
-      }}
+      className={
+        isMobile
+          ? "relative flex h-screen flex-col overflow-hidden"
+          : "relative flex w-screen overflow-hidden"
+      }
     >
-      <Test index={1} />
-      <Test index={2} />
-      <Test index={3} />
+      {/* 상단 텍스트 표시 */}
+      {!isMobile && (
+        <div className="fixed top-8 left-1/2 z-50 -translate-x-1/2 text-2xl font-bold text-white">
+          <span>We're </span>
+          <motion.span
+            className="inline-block text-white"
+            key={hoveredText}
+            initial={{ opacity: 0, y: -40, rotateX: -90 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            exit={{ opacity: 0, y: 40, rotateX: 90 }}
+            transition={{
+              duration: 0.5,
+              ease: "easeInOut",
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+            }}
+          >
+            {hoveredText || "?"}
+          </motion.span>
+        </div>
+      )}
+
+      <HighlightText
+        onHover={setHoveredText}
+        isMobile={isMobile}
+        isHover={hoveredText === "VAGUE FREQUENCY LABS"}
+        imageUrl="/images/logo/1_400_300.png"
+      >
+        VAGUE FREQUENCY LABS
+      </HighlightText>
+      <HighlightText
+        onHover={setHoveredText}
+        isMobile={isMobile}
+        isHover={hoveredText === "CELEBRATE AGENCY"}
+        imageUrl="/images/logo/2_400_300.png"
+      >
+        CELEBRATE AGENCY
+      </HighlightText>
+      <HighlightText
+        onHover={setHoveredText}
+        isMobile={isMobile}
+        isHover={hoveredText === "Payday Records"}
+        imageUrl="/images/logo/3_400_300.png"
+      >
+        Payday Records
+      </HighlightText>
     </section>
   );
 }
