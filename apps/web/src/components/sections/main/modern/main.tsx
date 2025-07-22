@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import HighlightText from "@/components/common/HighlightText";
+import { COMPANY_NAME, COMPANY_SHORT_NAME } from "@/consts/company";
 import { useMobile } from "@/hooks/use-mobile";
 import { motion } from "motion/react";
 
@@ -43,26 +44,26 @@ function Main() {
       <HighlightText
         onHover={setHoveredText}
         isMobile={isMobile}
-        isHover={hoveredText === "VAGUE FREQUENCY LABS"}
-        imageUrl="/images/logo/1_400_300.png"
+        isHover={hoveredText === COMPANY_NAME.VAGUE_FREQUENCY_LABS}
+        imageUrl={`/images/logo/400_300/${COMPANY_SHORT_NAME.VAGUE_FREQUENCY_LABS}.png`}
       >
-        VAGUE FREQUENCY LABS
+        {COMPANY_NAME.VAGUE_FREQUENCY_LABS}
       </HighlightText>
       <HighlightText
         onHover={setHoveredText}
         isMobile={isMobile}
-        isHover={hoveredText === "CELEBRATE AGENCY"}
-        imageUrl="/images/logo/2_400_300.png"
+        isHover={hoveredText === COMPANY_NAME.CELEBRATE_AGENCY}
+        imageUrl={`/images/logo/400_300/${COMPANY_SHORT_NAME.CELEBRATE_AGENCY}.png`}
       >
-        CELEBRATE AGENCY
+        {COMPANY_NAME.CELEBRATE_AGENCY}
       </HighlightText>
       <HighlightText
         onHover={setHoveredText}
         isMobile={isMobile}
-        isHover={hoveredText === "Payday Records"}
-        imageUrl="/images/logo/3_400_300.png"
+        isHover={hoveredText === COMPANY_NAME.PAYDAY_RECORDS}
+        imageUrl={`/images/logo/400_300/${COMPANY_SHORT_NAME.PAYDAY_RECORDS}.png`}
       >
-        Payday Records
+        {COMPANY_NAME.PAYDAY_RECORDS}
       </HighlightText>
     </section>
   );
