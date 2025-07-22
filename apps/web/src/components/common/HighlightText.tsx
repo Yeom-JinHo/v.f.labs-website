@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 
 interface HighlightTextProps {
@@ -6,7 +8,7 @@ interface HighlightTextProps {
   isHover?: boolean;
   imageUrl?: string;
   isMobile?: boolean;
-  onClick?: () => void;
+  routePath?: string;
 }
 
 function HighlightText({
@@ -15,14 +17,55 @@ function HighlightText({
   onHover,
   imageUrl,
   isMobile,
-  onClick,
+  routePath,
 }: HighlightTextProps) {
+  const router = useRouter();
+  const [isClicked, setIsClicked] = useState(false);
+
   const handleMouseEnter = () => {
-    onHover(children);
+    if (routePath) {
+      router.prefetch(routePath);
+    }
+    if (!isClicked) {
+      onHover(children);
+    }
   };
 
   const handleMouseLeave = () => {
-    onHover("");
+    if (!isClicked) {
+      onHover("");
+    }
+  };
+
+  const handleTouchStart = () => {
+    if (routePath) {
+      router.prefetch(routePath);
+    }
+    if (!isClicked) {
+      onHover(children);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (!isClicked) {
+      onHover("");
+    }
+  };
+
+  const handleClick = () => {
+    if (routePath) {
+      setIsClicked(true);
+      if (!isClicked) {
+        onHover(children); // 클릭 시에도 hover 상태 활성화
+      }
+    }
+  };
+
+  const handleAnimationComplete = () => {
+    if (routePath && isClicked) {
+      router.push(routePath);
+      setIsClicked(false);
+    }
   };
 
   return (
@@ -32,11 +75,11 @@ function HighlightText({
           ? "relative flex h-full w-screen items-center justify-center"
           : "relative flex h-screen w-full items-center justify-center"
       }
-      onTouchStart={handleMouseEnter}
-      onTouchEnd={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {/* 배경 이미지 오버레이 */}
       {imageUrl && (
@@ -74,6 +117,7 @@ function HighlightText({
             overflow: "hidden",
             filter: isHover ? "drop-shadow(0 0 3px white)" : "none",
           }}
+          onAnimationComplete={handleAnimationComplete}
         >
           {children}
         </motion.span>
