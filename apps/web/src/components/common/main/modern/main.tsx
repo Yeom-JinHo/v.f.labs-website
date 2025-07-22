@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import HighlightText from "@/components/common/HighlightText";
 import { COMPANY_NAME, COMPANY_SHORT_NAME } from "@/consts/company";
 import { useMobile } from "@/hooks/use-mobile";
@@ -10,7 +9,6 @@ import { motion } from "motion/react";
 function Main() {
   const isMobile = useMobile();
   const [hoveredText, setHoveredText] = useState("");
-  const router = useRouter();
 
   return (
     <section
@@ -44,11 +42,9 @@ function Main() {
       )}
 
       <HighlightText
-        onClick={() => {
-          router.push("/vague-frequency-labs");
-        }}
         onHover={setHoveredText}
         isMobile={isMobile}
+        routePath={`/vague-frequency-labs`}
         isHover={hoveredText === COMPANY_NAME.VAGUE_FREQUENCY_LABS}
         imageUrl={`/images/logo/400_300/${COMPANY_SHORT_NAME.VAGUE_FREQUENCY_LABS}.png`}
       >
@@ -57,6 +53,7 @@ function Main() {
       <HighlightText
         onHover={setHoveredText}
         isMobile={isMobile}
+        routePath={`/celebrate-agency`}
         isHover={hoveredText === COMPANY_NAME.CELEBRATE_AGENCY}
         imageUrl={`/images/logo/400_300/${COMPANY_SHORT_NAME.CELEBRATE_AGENCY}.png`}
       >
@@ -65,6 +62,7 @@ function Main() {
       <HighlightText
         onHover={setHoveredText}
         isMobile={isMobile}
+        routePath={`/payday-records`}
         isHover={hoveredText === COMPANY_NAME.PAYDAY_RECORDS}
         imageUrl={`/images/logo/400_300/${COMPANY_SHORT_NAME.PAYDAY_RECORDS}.png`}
       >

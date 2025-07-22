@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 
 interface HighlightTextProps {
@@ -6,7 +8,7 @@ interface HighlightTextProps {
   isHover?: boolean;
   imageUrl?: string;
   isMobile?: boolean;
-  onClick?: () => void;
+  routePath?: string;
 }
 
 function HighlightText({
@@ -15,14 +17,38 @@ function HighlightText({
   onHover,
   imageUrl,
   isMobile,
-  onClick,
+  routePath,
 }: HighlightTextProps) {
+  const router = useRouter();
+  const [isClicked, setIsClicked] = useState(false);
+
+  useEffect(() => {
+    if (isClicked && routePath) {
+      const timeout = setTimeout(() => {
+        router.push(routePath);
+        setIsClicked(false);
+      }, 500);
+      return () => clearTimeout(timeout);
+    }
+  }, [isClicked, routePath, router]);
+
   const handleMouseEnter = () => {
+    if (routePath) {
+      router.prefetch(routePath);
+    }
+
     onHover(children);
   };
 
   const handleMouseLeave = () => {
     onHover("");
+  };
+
+  const handleClick = () => {
+    if (routePath && !isClicked) {
+      setIsClicked(true);
+      onHover(children); // 클릭 시에도 hover 상태 활성화
+    }
   };
 
   return (
@@ -36,7 +62,7 @@ function HighlightText({
       onTouchEnd={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {/* 배경 이미지 오버레이 */}
       {imageUrl && (
