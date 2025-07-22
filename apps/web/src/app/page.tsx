@@ -1,5 +1,5 @@
+import Main from "@/components/common/main/modern/main";
 import Cursor from "@/components/cursor/cursor";
-import Main from "@/components/sections/main/modern/main";
 
 export default function Home() {
   return (
