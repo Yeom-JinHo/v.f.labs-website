@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 
@@ -21,6 +21,16 @@ function HighlightText({
 }: HighlightTextProps) {
   const router = useRouter();
   const [isClicked, setIsClicked] = useState(false);
+
+  useEffect(() => {
+    if (isClicked && routePath) {
+      const timeout = setTimeout(() => {
+        router.push(routePath);
+        setIsClicked(false);
+      }, 1500); // 1.5초 후 강제 라우팅
+      return () => clearTimeout(timeout);
+    }
+  }, [isClicked, routePath, router]);
 
   const handleMouseEnter = () => {
     if (routePath) {
