@@ -27,7 +27,7 @@ function HighlightText({
       const timeout = setTimeout(() => {
         router.push(routePath);
         setIsClicked(false);
-      }, 1500); // 1.5초 후 강제 라우팅
+      }, 800);
       return () => clearTimeout(timeout);
     }
   }, [isClicked, routePath, router]);
@@ -36,45 +36,29 @@ function HighlightText({
     if (routePath) {
       router.prefetch(routePath);
     }
-    if (!isClicked) {
-      onHover(children);
-    }
+
+    onHover(children);
   };
 
   const handleMouseLeave = () => {
-    if (!isClicked) {
-      onHover("");
-    }
+    onHover("");
   };
 
   const handleTouchStart = () => {
     if (routePath) {
       router.prefetch(routePath);
     }
-    if (!isClicked) {
-      onHover(children);
-    }
+    onHover(children);
   };
 
   const handleTouchEnd = () => {
-    if (!isClicked) {
-      onHover("");
-    }
+    onHover("");
   };
 
   const handleClick = () => {
-    if (routePath) {
+    if (routePath && !isClicked) {
       setIsClicked(true);
-      if (!isClicked) {
-        onHover(children); // 클릭 시에도 hover 상태 활성화
-      }
-    }
-  };
-
-  const handleAnimationComplete = () => {
-    if (routePath && isClicked) {
-      router.push(routePath);
-      setIsClicked(false);
+      onHover(children); // 클릭 시에도 hover 상태 활성화
     }
   };
 
@@ -127,7 +111,6 @@ function HighlightText({
             overflow: "hidden",
             filter: isHover ? "drop-shadow(0 0 3px white)" : "none",
           }}
-          onAnimationComplete={handleAnimationComplete}
         >
           {children}
         </motion.span>
