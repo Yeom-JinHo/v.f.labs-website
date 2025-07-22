@@ -1,8 +1,7 @@
-import type { ReactNode } from "react";
 import { motion } from "motion/react";
 
 interface HighlightTextProps {
-  children: ReactNode;
+  children: string;
   onHover: (text: string) => void;
   isHover?: boolean;
   imageUrl?: string;
@@ -17,7 +16,7 @@ function HighlightText({
   isMobile,
 }: HighlightTextProps) {
   const handleMouseEnter = () => {
-    onHover(children as string);
+    onHover(children);
   };
 
   const handleMouseLeave = () => {
