@@ -1,50 +1,87 @@
 "use client";
 
+import type { MotionValue } from "motion/react";
 import { useRef } from "react";
-import Image from "next/image";
-import ParallaxImage from "@/components/fancy/parallax-image";
-import { useMobile } from "@/hooks/use-mobile";
+import { motion, useScroll, useTransform } from "motion/react";
 
-function Hero() {
-  const container = useRef<HTMLDivElement>(null);
-  const isMobile = useMobile();
+const images = [
+  "/images/hero.png",
+  "/images/hero.png",
+  "/images/hero.png",
+  "/images/hero.png",
+  "/images/hero.png",
+];
+
+function Test({
+  scrollYProgress,
+  i,
+  src,
+}: {
+  scrollYProgress: MotionValue<number>;
+  i: number;
+  src: string;
+}) {
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const inputStart = 0;
+  const inputEnd = 0.75;
+
+  const x = useTransform(
+    scrollYProgress,
+    [inputStart, inputEnd],
+    [0, i * 0.28 * vw - 0.4 * vw],
+  );
+  const y = useTransform(
+    scrollYProgress,
+    [inputStart, inputEnd],
+    // [0, i === 0 ? -(i - 0.25) * vh : 0], // i=0일 때만 아래로 400px 이동
+    [0, 0],
+  );
+
+  // 이미지
+  // AS-IS : 100vw, 100vh
+  // TO-BE : 25vw, 25vh
+  const scale = useTransform(
+    scrollYProgress,
+    [inputStart, inputEnd],
+    [1, 0.25],
+  );
+  const z = 999 - i;
 
   return (
-    <section
-      className="bg-background relative mt-6 w-full overflow-hidden"
-      ref={container}
-    >
-      <div className="relative z-10 h-screen">
-        <div className="relative flex h-full flex-col items-center justify-center">
-          <div className="flex h-full flex-col items-center justify-center object-cover px-4 md:px-6">
-            <div className={isMobile ? "m-6 flex h-full" : "flex w-full"}>
-              <Image
-                src={
-                  isMobile ? `/images/logo/allV.png` : `/images/logo/allH.png`
-                }
-                alt="logo"
-                className={isMobile ? "h-full" : ""}
-                width={isMobile ? 800 : 1000}
-                height={isMobile ? 1200 : 1200}
-              />
-            </div>
-          </div>
+    <motion.img
+      key={i}
+      src={src}
+      className="absolute top-1/2 left-1/2 h-screen w-screen rounded object-cover shadow-xl"
+      style={{
+        x,
+        scale,
+        y,
+        zIndex: z,
+        translateX: "-50%",
+        translateY: "-50%",
+      }}
+    />
+  );
+}
+
+function Hero() {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"], // 🔄 scroll 끝나는 시점 조정
+  });
+
+  return (
+    <section ref={sectionRef} className="relative h-[400vh] bg-black">
+      {/* sticky 영역 안에 이미지들이 고정되고 퍼지는 애니메이션 진행 */}
+      <div className="sticky top-0 flex h-screen items-center justify-center">
+        <div className="relative h-[400px] w-full">
+          {images.map((src, i) => (
+            <Test key={i} scrollYProgress={scrollYProgress} i={i} src={src} />
+          ))}
         </div>
       </div>
-
-      <ParallaxImage
-        src="/images/hero.png"
-        containerRef={container}
-        alt="Hero image"
-        containerClassName="aspect-4/2 w-screen lg:mt-28"
-        priority
-        parallaxOptions={{
-          yStart: "-10%",
-          yEnd: "10%",
-          scaleStart: 1,
-          scaleEnd: 1.5,
-        }}
-      />
     </section>
   );
 }
