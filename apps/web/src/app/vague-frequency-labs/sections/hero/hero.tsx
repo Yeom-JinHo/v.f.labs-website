@@ -21,15 +21,13 @@ function Test({
   i: number;
   src: string;
 }) {
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
   const inputStart = 0;
   const inputEnd = 0.75;
 
   const x = useTransform(
     scrollYProgress,
     [inputStart, inputEnd],
-    [0, i * 0.28 * vw - 0.4 * vw],
+    ["0vw", `${i * 28 - 40}vw`], // 숫자 대신 vw 단위 문자열
   );
   const y = useTransform(
     scrollYProgress,
