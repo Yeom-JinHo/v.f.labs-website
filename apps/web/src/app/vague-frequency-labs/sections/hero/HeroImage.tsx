@@ -1,4 +1,5 @@
 import type { MotionValue } from "motion/react";
+import { useMemo } from "react";
 import Image from "next/image";
 import { useMobile } from "@/hooks/use-mobile";
 import { motion, useTransform } from "motion/react";
@@ -13,30 +14,37 @@ function HeroImage({
   src: string;
 }) {
   const isMobile = useMobile();
-  const inputStart = 0;
-  const inputEnd = 0.75;
+
+  // useMemo로 계산 최적화
+  const transformConfig = useMemo(() => {
+    const inputStart = 0;
+    const inputEnd = 0.75;
+
+    return {
+      inputStart,
+      inputEnd,
+      xEnd: `${i * 28 - 40}vw`,
+      zIndex: 999 - i,
+    };
+  }, [i]);
 
   const x = useTransform(
     scrollYProgress,
-    [inputStart, inputEnd],
-    ["0vw", `${i * 28 - 40}vw`], // 숫자 대신 vw 단위 문자열
+    [transformConfig.inputStart, transformConfig.inputEnd],
+    ["0vw", transformConfig.xEnd],
   );
+
   const y = useTransform(
     scrollYProgress,
-    [inputStart, inputEnd],
-    // [0, i === 0 ? -(i - 0.25) * vh : 0], // i=0일 때만 아래로 400px 이동
+    [transformConfig.inputStart, transformConfig.inputEnd],
     [0, 0],
   );
 
-  // 이미지
-  // AS-IS : 100vw, 100vh
-  // TO-BE : 25vw, 25vh
   const scale = useTransform(
     scrollYProgress,
-    [inputStart, inputEnd],
+    [transformConfig.inputStart, transformConfig.inputEnd],
     [1, 0.25],
   );
-  const z = 999 - i;
 
   return (
     <motion.div
@@ -48,7 +56,7 @@ function HeroImage({
         x,
         scale,
         y,
-        zIndex: z,
+        zIndex: transformConfig.zIndex,
         translateX: "-50%",
         translateY: "-50%",
       }}
