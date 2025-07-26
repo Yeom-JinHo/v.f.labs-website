@@ -1,7 +1,7 @@
 "use client";
 
 import type { MusicInfo } from "@/types/music";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -10,15 +10,38 @@ interface MusicInfoProps {
 }
 
 function MusicInfoCard({ musicInfo }: MusicInfoProps) {
+  const [isAnimating, setIsAnimating] = useState(false);
+
   return (
     <motion.div
-      whileHover={{
-        rotate: 360,
-        borderRadius: "50%",
-        transition: { duration: 0.4 },
-      }}
-      whileTap={{ rotate: 360, borderRadius: "50%" }}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
+      onHoverStart={() => setIsAnimating(true)}
+      onHoverEnd={() => setIsAnimating(false)}
+      animate={
+        isAnimating
+          ? {
+              rotate: [0, 360],
+              borderRadius: "50%",
+            }
+          : {
+              rotate: 0,
+              borderRadius: "0%",
+            }
+      }
+      transition={
+        isAnimating
+          ? {
+              rotate: {
+                duration: 3,
+                repeat: Infinity,
+                ease: "linear",
+              },
+              borderRadius: { duration: 0.4 },
+            }
+          : {
+              duration: 0.4,
+            }
+      }
+      onTap={() => setIsAnimating(true)}
       className="overflow-hidden"
     >
       <Image
