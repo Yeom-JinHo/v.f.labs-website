@@ -17,7 +17,7 @@ function Main() {
     router.prefetch("/vague-frequency-labs");
     router.prefetch("/celebrate-agency");
     router.prefetch("/payday-records");
-  }, []);
+  }, [router]);
 
   return (
     <section
