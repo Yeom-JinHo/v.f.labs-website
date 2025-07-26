@@ -53,7 +53,7 @@ function Test({
     <motion.div
       key={i}
       className={`absolute top-1/2 left-1/2 h-[50vh] w-screen rounded object-cover shadow-xl ${
-        isMobile ? "h-[50vh]" : "h-screen"
+        isMobile ? "h-[60vh]" : "h-screen"
       }`}
       style={{
         x,
@@ -86,7 +86,7 @@ function Hero() {
             <Test key={i} scrollYProgress={scrollYProgress} i={i} src={src} />
           ))}
         </div>
-        <h1 className="absolute bottom-[10vh] text-4xl font-bold">
+        <h1 className="absolute bottom-[10vh] text-3xl font-bold">
           Vague Frequency Labs
         </h1>
       </div>
