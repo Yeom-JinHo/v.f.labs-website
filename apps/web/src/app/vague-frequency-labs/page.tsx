@@ -4,6 +4,7 @@ import {
   Footer,
   Header,
   Hero,
+  MusicList,
 } from "@/app/vague-frequency-labs/sections/index";
 
 export default function VagueFrequencyLabsPage() {
@@ -14,6 +15,7 @@ export default function VagueFrequencyLabsPage() {
         <Hero />
         <About />
         <ArtistProfiles />
+        <MusicList />
       </main>
       <footer>
         <Footer />

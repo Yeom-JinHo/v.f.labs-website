@@ -4,6 +4,7 @@ import Experience from "./experience/experience";
 import Footer from "./footer/footer";
 import Header from "./header/header";
 import Hero from "./hero/hero";
+import MusicList from "./musicList/MusicList";
 import Projects from "./projects/projects";
 import Skills from "./skills/skills";
 import Technologies from "./technologies/technologies";
@@ -20,4 +21,5 @@ export {
   Testimonials,
   Footer,
   ArtistProfiles,
+  MusicList,
 };
