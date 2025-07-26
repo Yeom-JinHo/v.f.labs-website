@@ -5,7 +5,7 @@ import { useScroll } from "motion/react";
 
 import HeroImage from "./HeroImage";
 
-const images = [
+export const VAGUE_FREQUENCY_LABS_HERO_IMAGES = [
   "/images/hero/1.png",
   "/images/hero/2.jpg",
   "/images/hero/3.jpg",
@@ -26,7 +26,7 @@ function Hero() {
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-x-hidden">
         <h1 className="absolute top-[10vh] text-4xl font-bold">We are</h1>
         <div className="relative h-[400px] w-full">
-          {images.map((src, i) => (
+          {VAGUE_FREQUENCY_LABS_HERO_IMAGES.map((src, i) => (
             <HeroImage
               key={i}
               scrollYProgress={scrollYProgress}
