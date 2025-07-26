@@ -2,6 +2,8 @@
 
 import type { MotionValue } from "motion/react";
 import { useRef } from "react";
+import Image from "next/image";
+import { useMobile } from "@/hooks/use-mobile";
 import { motion, useScroll, useTransform } from "motion/react";
 
 const images = [
@@ -21,6 +23,7 @@ function Test({
   i: number;
   src: string;
 }) {
+  const isMobile = useMobile();
   const inputStart = 0;
   const inputEnd = 0.75;
 
@@ -47,10 +50,11 @@ function Test({
   const z = 999 - i;
 
   return (
-    <motion.img
+    <motion.div
       key={i}
-      src={src}
-      className="absolute top-1/2 left-1/2 h-screen w-screen rounded object-cover shadow-xl"
+      className={`absolute top-1/2 left-1/2 h-[50vh] w-screen rounded object-cover shadow-xl ${
+        isMobile ? "h-[50vh]" : "h-screen"
+      }`}
       style={{
         x,
         scale,
@@ -59,7 +63,9 @@ function Test({
         translateX: "-50%",
         translateY: "-50%",
       }}
-    />
+    >
+      <Image src={src} alt="hero" className="aspect-[4/3] object-cover" fill />
+    </motion.div>
   );
 }
 
