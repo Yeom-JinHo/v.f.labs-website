@@ -40,8 +40,6 @@ function MusicList() {
               <MusicInfoCard musicInfo={info} key={info.name} />
             ))}
           </div>
-          <div className="md:dark:from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 md:bg-linear-to-r md:from-white"></div>
-          <div className="md:dark:from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 md:bg-linear-to-l md:from-white"></div>
         </div>
       </div>
     </MotionWrap>
