@@ -6,8 +6,8 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 const images = [
   "/images/hero.png",
-  "/images/hero.png",
-  "/images/hero.png",
+  "/images/hero1.jpg",
+  "/images/hero2.jpg",
   "/images/hero.png",
   "/images/hero.png",
 ];
