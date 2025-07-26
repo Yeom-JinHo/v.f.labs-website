@@ -1,5 +1,4 @@
 import About from "./about/cozy/about";
-import ArtistProfiles from "./artistProfiles/modern/artistProfiles";
 import Experience from "./experience/modern/experience";
 import Footer from "./footer/modern/footer";
 import Header from "./header/compact/header";
@@ -19,5 +18,4 @@ export {
   Experience,
   Testimonials,
   Footer,
-  ArtistProfiles,
 };

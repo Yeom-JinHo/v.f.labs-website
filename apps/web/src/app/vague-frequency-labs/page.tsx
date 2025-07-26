@@ -4,7 +4,7 @@ import {
   Footer,
   Header,
   Hero,
-} from "@/components/sections";
+} from "@/app/vague-frequency-labs/sections/index";
 
 export default function VagueFrequencyLabsPage() {
   return (

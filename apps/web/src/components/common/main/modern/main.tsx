@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { VAGUE_FREQUENCY_LABS_HERO_IMAGES } from "@/app/vague-frequency-labs/sections/hero/hero";
 import HighlightText from "@/components/common/HighlightText";
 import { COMPANY_NAME, COMPANY_SHORT_NAME } from "@/consts/company";
 import { useMobile } from "@/hooks/use-mobile";
@@ -9,6 +11,13 @@ import { motion } from "motion/react";
 function Main() {
   const isMobile = useMobile();
   const [hoveredText, setHoveredText] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    router.prefetch("/vague-frequency-labs");
+    router.prefetch("/celebrate-agency");
+    router.prefetch("/payday-records");
+  }, [router]);
 
   return (
     <section
@@ -47,6 +56,7 @@ function Main() {
         routePath={`/vague-frequency-labs`}
         isHover={hoveredText === COMPANY_NAME.VAGUE_FREQUENCY_LABS}
         imageUrl={`/images/logo/400_300/${COMPANY_SHORT_NAME.VAGUE_FREQUENCY_LABS}.png`}
+        prefetchImageList={VAGUE_FREQUENCY_LABS_HERO_IMAGES}
       >
         {COMPANY_NAME.VAGUE_FREQUENCY_LABS}
       </HighlightText>

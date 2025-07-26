@@ -1,4 +1,4 @@
-import { Footer, Header } from "@/components/sections";
+import { Footer, Header } from "@/app/vague-frequency-labs/sections/index";
 
 export default function VagueFrequencyLabsLayout({
   children,
