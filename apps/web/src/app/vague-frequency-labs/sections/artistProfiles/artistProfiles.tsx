@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
+import { artistProfiles } from "@/app/vague-frequency-labs/sections/artistProfiles/config";
 import TextReveal from "@/components/fancy/text-reveal";
 import MotionWrap from "@/components/motion-wrap";
-import { artistProfiles } from "@/components/sections/artistProfiles/config";
 import Autoplay from "embla-carousel-auto-scroll";
 
 import { Carousel, CarouselContent, CarouselItem } from "@repo/ui/carousel";
