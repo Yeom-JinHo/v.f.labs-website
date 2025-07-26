@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import type { MusicInfo } from "@/types/music";
+import React, { useState } from "react";
 import { musicInfo } from "@/app/source";
 import TextReveal from "@/components/fancy/text-reveal";
 import MotionWrap from "@/components/motion-wrap";
@@ -16,6 +17,10 @@ function MusicList() {
     ...musicInfo.getInfos(),
     ...musicInfo.getInfos(),
   ];
+
+  const [selectedMusicInfo, setSelectedMusicInfo] = useState<MusicInfo | null>(
+    null,
+  );
 
   return (
     <MotionWrap className="w-full py-24 lg:py-32" id="testimonials">
@@ -36,12 +41,34 @@ function MusicList() {
 
         <div className="relative flex flex-col items-center justify-center gap-4 overflow-hidden">
           <div className="flex flex-wrap justify-center gap-32">
-            {musicInfos.map((info) => (
-              <MusicInfoCard musicInfo={info} key={info.name} />
+            {musicInfos.map((info, index) => (
+              <MusicInfoCard
+                musicInfo={info}
+                key={info.name + index}
+                isSelected={selectedMusicInfo?.name === info.name}
+                setSelectedMusicInfo={setSelectedMusicInfo}
+              />
             ))}
           </div>
         </div>
       </div>
+      {selectedMusicInfo && (
+        <div className="fixed bottom-0 left-0 flex h-[200px] w-screen items-center justify-center p-4">
+          <div
+            className="flex h-full w-full flex-col items-center justify-center gap-4"
+            style={{
+              backdropFilter: "blur(11px) saturate(200%)",
+              WebkitBackdropFilter: "blur(11px) saturate(200%)",
+              backgroundColor: "rgba(17, 25, 40, 0.27)",
+              borderRadius: "12px",
+              border: "1px solid rgba(255, 255, 255, 0.125)",
+            }}
+          >
+            <div>{selectedMusicInfo.name}</div>
+            <div>{selectedMusicInfo.artist}</div>
+          </div>
+        </div>
+      )}
     </MotionWrap>
   );
 }
