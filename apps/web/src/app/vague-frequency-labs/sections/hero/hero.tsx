@@ -80,11 +80,15 @@ function Hero() {
     <section ref={sectionRef} className="relative h-[400vh] bg-black">
       {/* sticky 영역 안에 이미지들이 고정되고 퍼지는 애니메이션 진행 */}
       <div className="sticky top-0 flex h-screen items-center justify-center">
+        <h1 className="absolute top-[10vh] text-4xl font-bold">We are</h1>
         <div className="relative h-[400px] w-full">
           {images.map((src, i) => (
             <Test key={i} scrollYProgress={scrollYProgress} i={i} src={src} />
           ))}
         </div>
+        <h1 className="absolute bottom-[10vh] text-4xl font-bold">
+          Vague Frequency Labs
+        </h1>
       </div>
     </section>
   );
