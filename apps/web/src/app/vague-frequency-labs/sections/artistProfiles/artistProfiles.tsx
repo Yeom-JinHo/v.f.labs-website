@@ -11,7 +11,6 @@ import { Carousel, CarouselContent, CarouselItem } from "@repo/ui/carousel";
 import ArtistCard from "./artistCard";
 
 const firstRow = [...artistProfiles];
-const secondRow = [...artistProfiles];
 
 function ArtistProfiles() {
   return (
@@ -69,45 +68,6 @@ function ArtistProfiles() {
               ))}
             </CarouselContent>
           </Carousel>
-          <Carousel
-            opts={{
-              align: "start",
-              dragFree: true,
-              loop: true,
-            }}
-            plugins={[
-              Autoplay({
-                speed: 600 / 1000,
-                direction: "backward",
-                startDelay: 100,
-                stopOnInteraction: false,
-                stopOnMouseEnter: true,
-              }),
-            ]}
-            className="w-full"
-          >
-            <CarouselContent>
-              {secondRow.map((artist, index) => (
-                <CarouselItem
-                  key={`artist-reverse_${index}`}
-                  className="basis-1/2 xl:basis-1/4"
-                >
-                  <div className="h-full p-1">
-                    <ArtistCard
-                      key={`artist_${index}`}
-                      index={index + 1}
-                      name={artist.name}
-                      shortDescription={artist.shortDescription}
-                      fullDescription={artist.fullDescription}
-                      nickname={artist.nickname}
-                      image={artist.image}
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-
           <div className="md:dark:from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 md:bg-linear-to-r md:from-white"></div>
           <div className="md:dark:from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 md:bg-linear-to-l md:from-white"></div>
         </div>
