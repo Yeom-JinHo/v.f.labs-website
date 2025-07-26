@@ -1,7 +1,7 @@
 import React from "react";
+import { experiences } from "@/app/vague-frequency-labs/sections/experience/config";
 import TextReveal from "@/components/fancy/text-reveal";
 import MotionWrap from "@/components/motion-wrap";
-import { experiences } from "@/components/sections/experience/config";
 
 import ExperienceCard from "./experience-card";
 
