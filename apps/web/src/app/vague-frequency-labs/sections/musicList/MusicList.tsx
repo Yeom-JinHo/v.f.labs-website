@@ -26,12 +26,9 @@ function MusicList() {
               as="h2"
               className="flex flex-col -space-y-4 text-4xl leading-tight font-bold tracking-tighter sm:text-5xl md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight"
             >
-              Artist Profiles
+              Music
             </TextReveal>
           </div>
-          <p className="mt-4 hidden text-gray-500 lg:mt-0 lg:block lg:w-[35%] dark:text-gray-400">
-            Vague Frequency Laboratory
-          </p>
         </div>
 
         <div className="relative flex flex-col items-center justify-center gap-4 overflow-hidden">
