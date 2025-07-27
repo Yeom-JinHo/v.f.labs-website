@@ -136,7 +136,6 @@ export default function Header() {
         className="bg-transparent md:hidden"
         style={{
           pointerEvents: isOpen ? "auto" : "none",
-          display: isOpen ? "block" : "none",
         }}
       >
         <div className="flex flex-col gap-4 p-4">
