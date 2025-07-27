@@ -392,8 +392,18 @@ export const musicInfoDatas: MusicInfo[] = [
     socials: [
       {
         name: "Youtube",
-        href: "https://www.youtube.com/watch?v=1lAXNqA25Bs",
+        href: "https://www.youtube.com/@sieloofficial",
         Icon: SiYoutube,
+      },
+      {
+        name: "Soundcloud",
+        href: "https://soundcloud.com/sieloofficial",
+        Icon: SiSoundcloud,
+      },
+      {
+        name: "Beatport",
+        href: "https://www.beatport.com/artist/sielo/62767",
+        Icon: SiBeatport,
       },
     ],
   },
