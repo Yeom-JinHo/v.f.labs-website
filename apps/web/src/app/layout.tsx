@@ -6,7 +6,6 @@ import Script from "next/script";
 import { metadata as meta } from "@/app/config";
 import Loader from "@/app/loader";
 import Providers from "@/app/providers";
-import Cursor from "@/components/cursor/cursor";
 import { env } from "@/env";
 import { createMetadata } from "@/lib/metadata";
 import { Analytics } from "@vercel/analytics/next";
@@ -46,7 +45,7 @@ export default function RootLayout({
           {children}
           <Toaster />
           <Analytics />
-          <Cursor />
+          {/* <Cursor /> */}
         </Providers>
       </body>
     </html>
