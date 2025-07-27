@@ -31,7 +31,7 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
             setIsHovering(true);
           }}
           onHoverEnd={() => setIsHovering(false)}
-          className="width-[150px] md:width-[360px] h-[150px] overflow-hidden md:h-[360px]"
+          className="h-[150px] w-[150px] overflow-hidden md:h-[360px] md:w-[360px]"
         >
           <DialogImage
             src={musicInfo.image}
