@@ -2,6 +2,7 @@
 
 import type { MusicInfo } from "@/types/music";
 import React, { useState } from "react";
+import Link from "next/link";
 import {
   MorphingDialog as Dialog,
   MorphingDialogContainer as DialogContainer,
@@ -10,6 +11,10 @@ import {
   MorphingDialogTrigger as DialogTrigger,
 } from "@/components/fancy/morphing-dialog";
 import { motion } from "framer-motion";
+
+import { cn } from "@repo/ui";
+import { buttonVariants } from "@repo/ui/button";
+import { Icons } from "@repo/ui/icons";
 
 interface MusicInfoProps {
   musicInfo: MusicInfo;
@@ -44,7 +49,7 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
             borderRadius: "12px",
             border: "1px solid rgba(255, 255, 255, 0.125)",
           }}
-          className="pointer-events-auto relative flex h-auto w-full basis-1/4 flex-col overflow-hidden"
+          className="pointer-events-auto relative flex h-auto w-full basis-1/4 flex-col overflow-hidden p-8"
         >
           <motion.div
             animate={{
@@ -71,8 +76,34 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
             ></DialogImage>
           </motion.div>
 
-          <div>{musicInfo.name}</div>
-          <div>{musicInfo.artist}</div>
+          <div className="mt-8">
+            <h3 className="text-2xl font-bold">{musicInfo.name}</h3>
+            <h3 className="text-muted-foreground text-sm">
+              {musicInfo.artist}
+            </h3>
+            <div
+              className="mt-4 flex flex-col gap-2"
+              style={{ borderTop: "1px solid dark-gray" }}
+            >
+              {musicInfo.socials?.map((social, index) => (
+                <Link
+                  target="_blank"
+                  href={social.href}
+                  className={cn(
+                    buttonVariants({ variant: "link" }),
+                    "mt-2 h-min w-full gap-1 p-0",
+                  )}
+                  key={`contact-social_${index}`}
+                >
+                  {social.Icon && <social.Icon className="size-6" />}
+                  <h3 className="text-muted-foreground text-m">
+                    {social.name}
+                  </h3>
+                  <Icons.arrowRight className="ml-auto size-4" />
+                </Link>
+              ))}
+            </div>
+          </div>
         </DialogContent>
       </DialogContainer>
     </Dialog>

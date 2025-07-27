@@ -2,8 +2,11 @@ import type { ArtistProfile } from "@/types/artist";
 import type { MusicInfo } from "@/types/music";
 import { createMDXSource } from "@fumadocs/content-collections";
 import {
+  SiApple,
+  SiBeatport,
   SiInstagram,
   SiSoundcloud,
+  SiSpotify,
   SiYoutube,
 } from "@icons-pack/react-simple-icons";
 import {
@@ -357,6 +360,26 @@ export const musicInfoDatas: MusicInfo[] = [
         name: "Youtube",
         href: "https://www.youtube.com/watch?v=1lAXNqA25Bs",
         Icon: SiYoutube,
+      },
+      {
+        name: "Soundcloud",
+        href: "https://soundcloud.com/juntaromusic",
+        Icon: SiSoundcloud,
+      },
+      {
+        name: "Spotify",
+        href: "https://open.spotify.com/artist/2UMKCxDFAAy154VgUJHKN9",
+        Icon: SiSpotify,
+      },
+      {
+        name: "Apple Music",
+        href: "https://music.apple.com/us/artist/juntaro/1020632340",
+        Icon: SiApple,
+      },
+      {
+        name: "Beatport",
+        href: "https://www.beatport.com/artist/juntaro/501402",
+        Icon: SiBeatport,
       },
     ],
   },
