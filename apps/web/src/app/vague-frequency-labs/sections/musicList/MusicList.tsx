@@ -18,7 +18,7 @@ function MusicList() {
   ];
 
   return (
-    <MotionWrap className="w-full py-24 lg:py-32" id="testimonials">
+    <MotionWrap className="w-full py-24 lg:py-32" id="music-list">
       <div className="grid gap-10">
         <div className="flex w-full flex-col items-center justify-center px-4 text-center md:px-6 lg:flex-row lg:justify-between lg:text-left">
           <div className="flex flex-col items-center lg:items-start">
