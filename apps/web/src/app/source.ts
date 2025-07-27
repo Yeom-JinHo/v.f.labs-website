@@ -1,8 +1,12 @@
 import type { ArtistProfile } from "@/types/artist";
+import type { MusicInfo } from "@/types/music";
 import { createMDXSource } from "@fumadocs/content-collections";
 import {
+  SiApple,
+  SiBeatport,
   SiInstagram,
   SiSoundcloud,
+  SiSpotify,
   SiYoutube,
 } from "@icons-pack/react-simple-icons";
 import {
@@ -342,4 +346,71 @@ export const artistProfile = {
   baseUrl: "/artistProfiles",
   getPages: () => artistProfilesData,
   getPage: (name: string) => artistProfilesData.find((p) => p.name === name),
+};
+
+export const musicInfoDatas: MusicInfo[] = [
+  {
+    name: "Floating",
+    artist: ARTIST_NAME.JUNTARO,
+    image: "/images/music/1.webp",
+    shortDescription: "test",
+    fullDescription: "test",
+    socials: [
+      {
+        name: "Youtube",
+        href: "https://www.youtube.com/watch?v=1lAXNqA25Bs",
+        Icon: SiYoutube,
+      },
+      {
+        name: "Soundcloud",
+        href: "https://soundcloud.com/juntaromusic",
+        Icon: SiSoundcloud,
+      },
+      {
+        name: "Spotify",
+        href: "https://open.spotify.com/artist/2UMKCxDFAAy154VgUJHKN9",
+        Icon: SiSpotify,
+      },
+      {
+        name: "Apple Music",
+        href: "https://music.apple.com/us/artist/juntaro/1020632340",
+        Icon: SiApple,
+      },
+      {
+        name: "Beatport",
+        href: "https://www.beatport.com/artist/juntaro/501402",
+        Icon: SiBeatport,
+      },
+    ],
+  },
+  {
+    name: "Baby",
+    artist: ARTIST_NAME.SIELO,
+    image: "/images/music/2.jpg",
+    shortDescription: "test",
+    fullDescription: "test",
+    socials: [
+      {
+        name: "Youtube",
+        href: "https://www.youtube.com/@sieloofficial",
+        Icon: SiYoutube,
+      },
+      {
+        name: "Soundcloud",
+        href: "https://soundcloud.com/sieloofficial",
+        Icon: SiSoundcloud,
+      },
+      {
+        name: "Beatport",
+        href: "https://www.beatport.com/artist/sielo/62767",
+        Icon: SiBeatport,
+      },
+    ],
+  },
+];
+
+export const musicInfo = {
+  baseUrl: "/musicInfo",
+  getInfos: () => musicInfoDatas,
+  getInfo: (name: string) => musicInfoDatas.find((p) => p.name === name),
 };
