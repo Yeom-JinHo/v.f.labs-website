@@ -13,6 +13,7 @@ import {
 } from "@/components/fancy/morphing-dialog";
 import TextReveal from "@/components/fancy/text-reveal";
 import { MemoizedReactMarkdown } from "@/components/markdown";
+import { useMobile } from "@/hooks/use-mobile";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
@@ -33,6 +34,8 @@ export default function ArtistCard({
   image,
   className,
 }: ArtistCardProps) {
+  const isMobile = useMobile();
+
   return (
     <Dialog
       transition={{
@@ -51,6 +54,8 @@ export default function ArtistCard({
         )}
       >
         <DialogImage
+          width={isMobile ? 300 : 720}
+          height={isMobile ? 300 : 720}
           src={image ?? "/placeholder.svg"}
           alt={`${name} profile image`}
           className="h-[300px] w-full object-cover md:h-[720px]"
@@ -74,6 +79,8 @@ export default function ArtistCard({
           className="pointer-events-auto relative flex h-auto w-full basis-1/2 flex-col overflow-hidden border border-zinc-950/10 bg-white xl:basis-1/4 dark:border-zinc-50/10 dark:bg-zinc-900"
         >
           <DialogImage
+            height={isMobile ? 300 : 600}
+            width={isMobile ? 300 : 600}
             src={image ?? "/placeholder.svg"}
             alt={`An image which depicts the skill (${name})`}
             className="h-[300px] w-full object-cover md:h-[600px]"
