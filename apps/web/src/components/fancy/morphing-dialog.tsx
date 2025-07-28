@@ -389,14 +389,14 @@ function MorphingDialogImage({
           src={src}
           alt={alt}
           {...(fill ? { fill } : { width, height })}
-          className="object-cover"
+          className="h-full w-full object-cover"
         />
       ) : (
         <CldImage
           src={src}
           alt={alt}
           {...(fill ? { fill } : { width, height })}
-          className="object-cover"
+          className="h-full w-full object-cover"
         />
       )}
     </motion.div>
