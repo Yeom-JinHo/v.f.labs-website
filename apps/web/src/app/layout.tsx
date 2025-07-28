@@ -9,6 +9,7 @@ import Providers from "@/app/providers";
 import { env } from "@/env";
 import { createMetadata } from "@/lib/metadata";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Toaster } from "@repo/ui/sonner";
 
@@ -45,6 +46,7 @@ export default function RootLayout({
           {children}
           <Toaster />
           <Analytics />
+          <SpeedInsights />
           {/* <Cursor /> */}
         </Providers>
       </body>
