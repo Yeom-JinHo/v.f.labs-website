@@ -133,7 +133,7 @@ World DJ Festival, Micro Seoul, Strike Music Festival 등 주요 페스티벌에
   },
   {
     name: ARTIST_NAME.SAM,
-    image: "/images/artist/sam/profile.jpeg",
+    image: "/artist/sam/profile",
     nickname: ARTIST_NAME.SAM,
     shortDescription: "King",
     fullDescription: "test",
@@ -230,7 +230,7 @@ With his exceptional talent and ability to deliver unparalleled sonic experience
   },
   {
     name: ARTIST_NAME.LOOZBONE,
-    image: "/images/artist/loozbone/profile.png",
+    image: "/artist/loozbone/profile",
     nickname: ARTIST_NAME.LOOZBONE,
     shortDescription: "King",
     fullDescription: `
