@@ -120,7 +120,9 @@ export default function ArtistCard({
           </div>
           <div className="flex justify-center p-6">
             <Button asChild className="w-full font-bold">
-              <Link href={`artist/${name}`}>자세히보기</Link>
+              <Link href={`/vague-frequency-labs/artist/${name}`}>
+                자세히보기
+              </Link>
             </Button>
           </div>
           <DialogClose className="text-zinc-50" />
