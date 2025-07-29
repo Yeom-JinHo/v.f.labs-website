@@ -74,7 +74,7 @@ export default function Knob({
   };
 
   return (
-    <div className="relative flex h-[250px] w-[250px] flex-col items-center">
+    <div className="relative flex h-[250px] w-[250px] flex-col items-center md:scale-120">
       <div className="absolute h-[100px] w-[100px] translate-y-[10px] rounded-full border border-2 border-white"></div>
       <div className="absolute h-[130px] w-[130px] translate-y-[-7px] rounded-full border border-2 border-white"></div>
       <motion.div

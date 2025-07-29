@@ -49,7 +49,7 @@ export default function KnobSection() {
             }
           }}
         />
-        <div className="absolute bottom-[100px] flex flex-col items-center justify-center">
+        <div className="absolute bottom-[150px] flex flex-col items-center justify-center">
           <TextReveal className="text-4xl font-bold">
             {steps[activeStep]?.value}
           </TextReveal>
