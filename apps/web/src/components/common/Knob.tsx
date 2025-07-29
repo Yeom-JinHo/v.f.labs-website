@@ -48,7 +48,7 @@ export default function Knob({ scrollYProgress, steps }: KnobProps) {
   };
 
   return (
-    <div className="relative flex h-[500px] w-[500px] flex-col items-center gap-2 bg-gray-500 p-40">
+    <div className="relative flex h-[250px] w-[250px] flex-col items-center">
       <div className="absolute h-[100px] w-[100px] translate-y-[10px] rounded-full border border-2 border-white"></div>
       <div className="absolute h-[130px] w-[130px] translate-y-[-7px] rounded-full border border-2 border-white"></div>
       <motion.div
@@ -144,7 +144,7 @@ export default function Knob({ scrollYProgress, steps }: KnobProps) {
         {[0, 1, 2, 3, 4].map((i) => (
           <motion.li
             key={i}
-            className="absolute left-50 h-[1px] w-[100px] translate-y-[50px]"
+            className="absolute left-50 h-[1px] w-[100px] translate-x-[-125px] translate-y-[50px]"
             style={{
               rotate: `${i * 45}deg`,
               opacity: currentProgress ? getLineOpacity(i) : 0.3,

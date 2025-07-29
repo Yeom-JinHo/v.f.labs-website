@@ -21,10 +21,7 @@ export default function KnobSection() {
   ];
 
   return (
-    <div
-      className="relative flex h-[400vh] w-[500px] flex-col items-center gap-2 bg-gray-900"
-      ref={sectionRef}
-    >
+    <div className="relative flex h-[400vh] w-full flex-col" ref={sectionRef}>
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-x-hidden">
         <Knob scrollYProgress={scrollYProgress} steps={steps} />
       </div>
