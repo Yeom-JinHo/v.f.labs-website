@@ -6,11 +6,17 @@ import { motion, useTransform } from "motion/react";
 
 interface KnobProps {
   scrollYProgress: MotionValue<number>;
-  steps: { step?: string; value?: number }[];
+  steps: { step?: string; value?: string }[];
+  onActiveStepChange?: (activeIndex: number) => void;
 }
 
-export default function Knob({ scrollYProgress, steps }: KnobProps) {
+export default function Knob({
+  scrollYProgress,
+  steps,
+  onActiveStepChange,
+}: KnobProps) {
   const [currentProgress, setCurrentProgress] = useState(0);
+  const [activeStepIndex, setActiveStepIndex] = useState(-1);
   const rotation = useTransform(scrollYProgress, [0, 0.8], [0, 180]);
 
   // scrollYProgress를 실시간으로 추적
@@ -20,6 +26,26 @@ export default function Knob({ scrollYProgress, steps }: KnobProps) {
     });
     return unsubscribe;
   }, [scrollYProgress]);
+
+  // 활성 스텝 감지 및 상위 컴포넌트로 알림
+  useEffect(() => {
+    if (!onActiveStepChange) return;
+
+    // opacity가 1인 스텝 찾기
+    let newActiveIndex = -1;
+    for (let i = 0; i < steps.length; i++) {
+      if (getLineOpacity(i) === 1) {
+        newActiveIndex = i;
+        break;
+      }
+    }
+
+    // 활성 스텝이 변경되었을 때만 콜백 호출
+    if (newActiveIndex !== activeStepIndex) {
+      setActiveStepIndex(newActiveIndex);
+      onActiveStepChange(newActiveIndex);
+    }
+  }, [currentProgress, steps.length, onActiveStepChange, activeStepIndex]);
 
   // 각 라인의 opacity 계산 함수
   const getLineOpacity = (lineIndex: number) => {
@@ -34,7 +60,7 @@ export default function Knob({ scrollYProgress, steps }: KnobProps) {
     const angleDiff = Math.abs(currentAngle - lineAngle);
 
     // opacity 계산 - 정밀한 단계별 적용 (최소값 0.4)
-    if (angleDiff <= 5) {
+    if (angleDiff <= 10) {
       return 1; // 정확히 일치
     } else if (angleDiff <= 15) {
       return 0.85; // 15도 안
@@ -158,12 +184,12 @@ export default function Knob({ scrollYProgress, steps }: KnobProps) {
                 className="absolute top-0 left-0 text-white"
                 style={{
                   transform: `translateY(-50%) rotate(${i * -45}deg)`,
-                  left: "-300%",
+                  left: "-500%",
                 }}
               >
-                {steps[i]?.step && <p>{steps[i]?.step}</p>}
+                {steps[i]?.step && <p className="text-m">{steps[i]?.step}</p>}
                 {steps[i]?.value && (
-                  <p className="font-bold">{steps[i]?.value}%</p>
+                  <p className="text-l font-bold">{steps[i]?.value}</p>
                 )}
               </div>
             </div>
