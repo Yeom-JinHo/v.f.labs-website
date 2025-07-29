@@ -1,7 +1,7 @@
 "use client";
 
 import type { MotionValue } from "motion/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion, useTransform } from "motion/react";
 
 interface KnobProps {
@@ -27,6 +27,32 @@ export default function Knob({
     return unsubscribe;
   }, [scrollYProgress]);
 
+  // 각 라인의 opacity 계산 - 메모이제이션으로 최적화
+  const lineOpacities = useMemo(() => {
+    const progress = currentProgress;
+    if (!progress) return new Array(steps.length).fill(0.4);
+
+    const currentAngle = (progress / 0.8) * 180; // 현재 스크롤에 따른 각도 (0~180)
+
+    return steps.map((_, lineIndex) => {
+      const lineAngle = lineIndex * 45; // 각 라인의 각도 (0, 45, 90, 135, 180)
+      const angleDiff = Math.abs(currentAngle - lineAngle);
+
+      // opacity 계산 - 정밀한 단계별 적용 (최소값 0.4)
+      if (angleDiff <= 10) {
+        return 1; // 정확히 일치
+      } else if (angleDiff <= 15) {
+        return 0.85; // 15도 안
+      } else if (angleDiff <= 25) {
+        return 0.7; // 25도 안
+      } else if (angleDiff <= 35) {
+        return 0.55; // 35도 안
+      } else {
+        return 0.4; // 기본 최소값
+      }
+    });
+  }, [currentProgress, steps.length]);
+
   // 활성 스텝 감지 및 상위 컴포넌트로 알림
   useEffect(() => {
     if (!onActiveStepChange) return;
@@ -34,7 +60,7 @@ export default function Knob({
     // opacity가 1인 스텝 찾기
     let newActiveIndex = -1;
     for (let i = 0; i < steps.length; i++) {
-      if (getLineOpacity(i) === 1) {
+      if (lineOpacities[i] === 1) {
         newActiveIndex = i;
         break;
       }
@@ -45,33 +71,7 @@ export default function Knob({
       setActiveStepIndex(newActiveIndex);
       onActiveStepChange(newActiveIndex);
     }
-  }, [currentProgress, steps.length, onActiveStepChange, activeStepIndex]);
-
-  // 각 라인의 opacity 계산 함수
-  const getLineOpacity = (lineIndex: number) => {
-    const progress = currentProgress;
-    if (!progress) return 0;
-
-    const lineAngle = lineIndex * 45; // 각 라인의 각도 (0, 45, 90, 135, 180)
-    // 스크롤 범위 [0, 0.8]을 [0, 180]으로 매핑
-    const currentAngle = (progress / 0.8) * 180; // 현재 스크롤에 따른 각도 (0~180)
-
-    // 각도 차이 계산 (절댓값)
-    const angleDiff = Math.abs(currentAngle - lineAngle);
-
-    // opacity 계산 - 정밀한 단계별 적용 (최소값 0.4)
-    if (angleDiff <= 10) {
-      return 1; // 정확히 일치
-    } else if (angleDiff <= 15) {
-      return 0.85; // 15도 안
-    } else if (angleDiff <= 25) {
-      return 0.7; // 25도 안
-    } else if (angleDiff <= 35) {
-      return 0.55; // 35도 안
-    } else {
-      return 0.4; // 기본 최소값
-    }
-  };
+  }, [currentProgress, onActiveStepChange, activeStepIndex, lineOpacities]);
 
   return (
     <div className="relative flex h-[250px] w-[250px] flex-col items-center md:scale-120">
@@ -173,7 +173,7 @@ export default function Knob({
             className="absolute left-50 h-[1px] w-[100px] translate-x-[-125px] translate-y-[50px]"
             style={{
               rotate: `${i * 45}deg`,
-              opacity: currentProgress ? getLineOpacity(i) : 0.3,
+              opacity: lineOpacities[i],
             }}
           >
             <div
