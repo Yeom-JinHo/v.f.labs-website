@@ -146,7 +146,7 @@ export default function Header() {
           {links.map(({ title, href }, index) => (
             <Link
               className="flex items-center text-xl font-medium underline-offset-4 hover:underline"
-              href="/"
+              href={href}
               onClick={toggleMenu}
               key={`header-mobile-link_${index}`}
             >
