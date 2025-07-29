@@ -5,6 +5,7 @@ import type { Socials } from "./contact";
 export interface ArtistProfile {
   name: ArtistName;
   image: string;
+  logoImage: string;
   nickname: ArtistName;
   shortDescription: string;
   fullDescription: string;
