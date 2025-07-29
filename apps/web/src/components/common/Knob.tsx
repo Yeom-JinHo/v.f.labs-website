@@ -47,10 +47,11 @@ export default function Knob({ scrollYProgress }: KnobProps) {
   };
 
   return (
-    <div className="relative flex h-[500px] w-[500px] flex-col items-center gap-2 bg-gray-500">
-      <div className="absolute top-52 left-50 h-[100px] w-[100px] rounded-full border border-2 border-white"></div>
+    <div className="relative flex h-[500px] w-[500px] flex-col items-center gap-2 bg-gray-500 p-40">
+      <div className="absolute h-[100px] w-[100px] translate-y-[10px] rounded-full border border-2 border-white"></div>
+      <div className="absolute h-[130px] w-[130px] translate-y-[-7px] rounded-full border border-2 border-white"></div>
       <motion.div
-        className="absolute top-50 left-50 h-[100px] w-[100px] overflow-hidden rounded-full border border-2 border-white"
+        className="absolute h-[100px] w-[100px] overflow-hidden rounded-full border border-2 border-white"
         style={{
           rotate: rotation,
         }}
@@ -142,25 +143,25 @@ export default function Knob({ scrollYProgress }: KnobProps) {
         {[0, 1, 2, 3, 4].map((i) => (
           <motion.li
             key={i}
-            className="absolute top-50 left-50 h-[1px] w-[100px] bg-white"
+            className="absolute left-50 h-[1px] w-[100px] translate-y-[50px]"
             style={{
               rotate: `${i * 45}deg`,
-              opacity: currentProgress ? getLineOpacity(i) : 0,
+              opacity: currentProgress ? getLineOpacity(i) : 0.3,
             }}
           >
             <div
-              className="h-[1px] w-[10px] bg-blue-500"
-              style={{ transform: `translateX(-100%)` }}
+              className="h-[2px] w-[20px] bg-white"
+              style={{ transform: `translateX(-250%)` }}
             >
               <div
                 className="absolute top-0 left-0 text-white"
                 style={{
                   transform: `translateY(-50%) rotate(${i * -45}deg)`,
-                  left: "-500%",
+                  left: "-300%",
                 }}
               >
                 <p>Line {i}</p>
-                <p>1%</p>
+                <p className="font-bold">111%</p>
               </div>
             </div>
           </motion.li>
