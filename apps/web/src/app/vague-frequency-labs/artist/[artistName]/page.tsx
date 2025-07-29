@@ -4,7 +4,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { metadata as meta } from "@/app/config";
 import { artistProfile } from "@/app/source";
+import { CloudinaryImage } from "@/components/cloudinary-image";
 import TextReveal from "@/components/fancy/text-reveal";
+import { ARTIST_NAME } from "@/consts/artist";
 import { createMetadata } from "@/lib/metadata";
 
 import { cn } from "@repo/ui";
@@ -58,14 +60,22 @@ export default async function ProjectPage(props0: {
           {artistName}
         </h2>
         <div className="mt-12 h-96 w-full overflow-hidden rounded-lg">
-          <Image
-            src={artist.image}
-            width={1280}
-            height={600}
-            alt={`Image of ${artistName}`}
-            className="h-full w-full object-contain"
-            priority
-          />
+          {artist.name === ARTIST_NAME.LOOZBONE ||
+          artist.name === ARTIST_NAME.SAM ? (
+            <CloudinaryImage
+              src={artist.image}
+              alt={`Image of ${artistName}`}
+            />
+          ) : (
+            <Image
+              src={artist.image}
+              width={1280}
+              height={600}
+              alt={`Image of ${artistName}`}
+              className="h-full w-full object-contain"
+              priority
+            />
+          )}
         </div>
         <div className="my-8 flex gap-1">
           {artist.socials?.map(({ Icon, href }, index) => (

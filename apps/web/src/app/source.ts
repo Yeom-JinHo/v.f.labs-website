@@ -33,6 +33,7 @@ export const artistProfilesData: ArtistProfile[] = [
   {
     name: ARTIST_NAME.JUNTARO,
     image: "/images/artist/juntaro/profile.jpg",
+    logoImage: "/images/artist/juntaro/logo.png",
     nickname: ARTIST_NAME.JUNTARO,
     shortDescription: "King",
     fullDescription: `
@@ -76,6 +77,7 @@ EP와 싱글을 발매하며 프로듀서로서의 실력을 입증했습니다.
   {
     name: ARTIST_NAME.SIELO,
     image: "/images/artist/sielo/profile.jpg",
+    logoImage: "/images/artist/sielo/logo.png",
     nickname: ARTIST_NAME.SIELO,
     shortDescription: "King",
     fullDescription: `
@@ -134,6 +136,7 @@ World DJ Festival, Micro Seoul, Strike Music Festival 등 주요 페스티벌에
   {
     name: ARTIST_NAME.SAM,
     image: "/artist/sam/profile",
+    logoImage: "/images/artist/sam/logo.png",
     nickname: ARTIST_NAME.SAM,
     shortDescription: "King",
     fullDescription: "test",
@@ -158,6 +161,7 @@ World DJ Festival, Micro Seoul, Strike Music Festival 등 주요 페스티벌에
   {
     name: ARTIST_NAME.DEARBOI,
     image: "/images/artist/dearboi/profile.png",
+    logoImage: "/images/artist/dearboi/logo.png",
     nickname: ARTIST_NAME.DEARBOI,
     shortDescription: "King",
     fullDescription: `
@@ -190,6 +194,7 @@ Dearboi는 서울을 기반으로 활동하는 하우스/테크 하우스 DJ로,
   {
     name: ARTIST_NAME.PLAYMODE,
     image: "/images/artist/playmode/profile.jpg",
+    logoImage: "/images/artist/playmode/logo.png",
     nickname: ARTIST_NAME.PLAYMODE,
     shortDescription: "King",
     fullDescription: `
@@ -231,6 +236,7 @@ With his exceptional talent and ability to deliver unparalleled sonic experience
   {
     name: ARTIST_NAME.LOOZBONE,
     image: "/artist/loozbone/profile",
+    logoImage: "/images/artist/loozbone/logo.png",
     nickname: ARTIST_NAME.LOOZBONE,
     shortDescription: "King",
     fullDescription: `
@@ -287,6 +293,7 @@ LOOZBONE은 빠르게 떠오르는 일렉트로닉 댄스 뮤직 신의 스타�
   {
     name: ARTIST_NAME.RYUMO,
     image: "/images/artist/ryumo/profile.jpg",
+    logoImage: "/images/artist/ryumo/logo.png",
     nickname: ARTIST_NAME.RYUMO,
     shortDescription: "King",
     fullDescription: `

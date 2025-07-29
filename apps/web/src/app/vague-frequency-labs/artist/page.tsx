@@ -1,10 +1,13 @@
 import type { CollectionPage, WithContext } from "schema-dts";
 import React from "react";
+import Link from "next/link";
 import { metadata as meta } from "@/app/config";
-import { project } from "@/app/source";
+import { artistProfile, project } from "@/app/source";
 import Line from "@/components/fancy/line";
 import TextReveal from "@/components/fancy/text-reveal";
 import { createMetadata } from "@/lib/metadata";
+
+import ArtistSimpleCard from "../sections/artistProfiles/ArtistSimpleCard";
 
 const title = "Artist";
 const description = "Here are some artist I have worked on.";
@@ -43,7 +46,7 @@ const jsonLd: WithContext<CollectionPage> = {
   })),
 };
 
-export default function ProjectsPage(): React.ReactElement {
+export default function ArtistPage(): React.ReactElement {
   return (
     <main className="my-14 flex-1">
       <script
@@ -60,10 +63,21 @@ export default function ProjectsPage(): React.ReactElement {
             as="h1"
             className="leading-wide tracking-relaxed text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
           >
-            아티스트
+            Artist
           </TextReveal>
 
-          <Line className={"mt-16"} />
+          <Line className={"m-16"} />
+          <div className="flex flex-wrap justify-center gap-16">
+            {artistProfile.getPages().map((artist, index) => (
+              <Link
+                key={index}
+                href={`/vague-frequency-labs/artist/${artist.name}`}
+                className="cursor-pointer"
+              >
+                <ArtistSimpleCard artist={artist} />
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </main>

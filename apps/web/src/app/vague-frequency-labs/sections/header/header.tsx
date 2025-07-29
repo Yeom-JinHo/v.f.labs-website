@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { metadata as meta } from "@/app/config";
+import { metadata as meta } from "@/app/vague-frequency-labs/config";
+import {
+  linkLimit,
+  links,
+} from "@/app/vague-frequency-labs/sections/header/config";
 import Link from "@/components/fancy/link";
-import { linkLimit, links } from "@/components/sections/header/config";
 import { motion } from "motion/react";
 
 import { Icons } from "@repo/ui/icons";

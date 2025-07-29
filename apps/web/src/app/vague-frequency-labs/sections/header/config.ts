@@ -7,22 +7,22 @@ const linkLimit = 4;
 const links: Link[] = [
   {
     title: "Company",
-    href: "/",
+    href: "/vague-frequency-labs/company",
     thumbnail: "home.jpg",
   },
   {
     title: "Video",
-    href: "/video",
+    href: "/vague-frequency-labs/video",
     thumbnail: "about.jpg",
   },
   {
     title: "Artist",
-    href: "/artist",
+    href: "/vague-frequency-labs/artist",
     thumbnail: "projects.jpg",
   },
   {
     title: "Contact",
-    href: "/contact",
+    href: "/vague-frequency-labs/contact",
     thumbnail: "blog.jpg",
   },
 ];
