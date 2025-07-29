@@ -1,7 +1,7 @@
 "use client";
 
 import type { MotionValue } from "motion/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useTransform } from "motion/react";
 
 interface KnobProps {
@@ -9,7 +9,42 @@ interface KnobProps {
 }
 
 export default function Knob({ scrollYProgress }: KnobProps) {
-  const rotation = useTransform(scrollYProgress, [0, 0.6], [0, 180]);
+  const [currentProgress, setCurrentProgress] = useState(0);
+  const rotation = useTransform(scrollYProgress, [0, 0.8], [0, 180]);
+
+  // scrollYProgress를 실시간으로 추적
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (latest) => {
+      setCurrentProgress(latest);
+    });
+    return unsubscribe;
+  }, [scrollYProgress]);
+
+  // 각 라인의 opacity 계산 함수
+  const getLineOpacity = (lineIndex: number) => {
+    const progress = currentProgress;
+    if (!progress) return 0;
+
+    const lineAngle = lineIndex * 45; // 각 라인의 각도 (0, 45, 90, 135, 180)
+    // 스크롤 범위 [0, 0.8]을 [0, 180]으로 매핑
+    const currentAngle = (progress / 0.8) * 180; // 현재 스크롤에 따른 각도 (0~180)
+
+    // 각도 차이 계산 (절댓값)
+    const angleDiff = Math.abs(currentAngle - lineAngle);
+
+    // opacity 계산 - 정밀한 단계별 적용 (최소값 0.4)
+    if (angleDiff <= 5) {
+      return 1; // 정확히 일치
+    } else if (angleDiff <= 15) {
+      return 0.85; // 15도 안
+    } else if (angleDiff <= 25) {
+      return 0.7; // 25도 안
+    } else if (angleDiff <= 35) {
+      return 0.55; // 35도 안
+    } else {
+      return 0.4; // 기본 최소값
+    }
+  };
 
   return (
     <div className="relative flex h-[500px] w-[500px] flex-col items-center gap-2 bg-gray-500">
@@ -105,11 +140,12 @@ export default function Knob({ scrollYProgress }: KnobProps) {
       </motion.div>
       <ul>
         {[0, 1, 2, 3, 4].map((i) => (
-          <li
+          <motion.li
             key={i}
             className="absolute top-50 left-50 h-[1px] w-[100px] bg-white"
             style={{
               rotate: `${i * 45}deg`,
+              opacity: currentProgress ? getLineOpacity(i) : 0,
             }}
           >
             <div
@@ -117,17 +153,17 @@ export default function Knob({ scrollYProgress }: KnobProps) {
               style={{ transform: `translateX(-100%)` }}
             >
               <div
-                className="text-whit absolute top-0 left-0"
+                className="absolute top-0 left-0 text-white"
                 style={{
                   transform: `translateY(-50%) rotate(${i * -45}deg)`,
                   left: "-500%",
                 }}
               >
-                <p>123</p>
-                <p>123</p>
+                <p>Line {i}</p>
+                <p>1%</p>
               </div>
             </div>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </div>
