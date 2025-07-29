@@ -1,14 +1,13 @@
-import type { CollectionPage, WithContext } from "schema-dts";
+import type { Organization, WithContext } from "schema-dts";
 import React from "react";
 import { metadata as meta } from "@/app/config";
-import { project } from "@/app/source";
 import KnobSection from "@/components/common/KnobSection";
 import Line from "@/components/fancy/line";
 import TextReveal from "@/components/fancy/text-reveal";
 import { createMetadata } from "@/lib/metadata";
 
 const title = "About";
-const description = "Here are some about I have worked on.";
+const description = "Learn more about Vague Frequency Laboratory";
 
 export const metadata = createMetadata({
   title,
@@ -24,24 +23,28 @@ export const metadata = createMetadata({
   },
 });
 
-const jsonLd: WithContext<CollectionPage> = {
+const jsonLd: WithContext<Organization> = {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  name: title,
-  description,
+  "@type": "Organization",
+  name: "Vague Frequency Laboratory",
+  description:
+    "An independent music label focused on experimental and innovative electronic music",
   url: `${meta.site.url}/about`,
-  isPartOf: {
-    "@type": "WebSite",
-    name: meta.site.title,
-    url: meta.site.url,
+  sameAs: [meta.site.url],
+  founder: {
+    "@type": "Person",
+    name: "Vague Frequency Laboratory Team",
   },
-  hasPart: [...project.getPages()].map((project) => ({
-    "@type": "SoftwareApplication",
-    name: project.data.title,
-    description: project.data.description,
-    url: project.url,
-    applicationCategory: "WebApplication",
-  })),
+  foundingDate: "2024",
+  knowsAbout: [
+    "Electronic Music",
+    "Experimental Music",
+    "Music Production",
+    "Sound Design",
+    "Audio Engineering",
+    "Ambient Music",
+    "IDM",
+  ],
 };
 
 export default function AboutPage(): React.ReactElement {
