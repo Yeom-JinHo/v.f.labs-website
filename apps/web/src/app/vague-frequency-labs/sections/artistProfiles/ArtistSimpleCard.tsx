@@ -12,7 +12,7 @@ interface ArtistSimpleCardProps {
 export default function ArtistSimpleCard({ artist }: ArtistSimpleCardProps) {
   return (
     <div>
-      <div className="h-[300px] w-full object-cover md:h-[520px]">
+      <div className="h-[300px] w-[200px] object-cover md:h-[520px] md:w-[350px]">
         {artist.name === ARTIST_NAME.LOOZBONE ||
         artist.name === ARTIST_NAME.SAM ? (
           <CloudinaryImage

@@ -1,5 +1,6 @@
 import type { CollectionPage, WithContext } from "schema-dts";
 import React from "react";
+import Link from "next/link";
 import { metadata as meta } from "@/app/config";
 import { artistProfile, project } from "@/app/source";
 import Line from "@/components/fancy/line";
@@ -68,7 +69,13 @@ export default function ArtistPage(): React.ReactElement {
           <Line className={"m-16"} />
           <div className="flex flex-wrap justify-center gap-16">
             {artistProfile.getPages().map((artist, index) => (
-              <ArtistSimpleCard key={index} artist={artist} />
+              <Link
+                key={index}
+                href={`/vague-frequency-labs/artist/${artist.name}`}
+                className="cursor-pointer"
+              >
+                <ArtistSimpleCard artist={artist} />
+              </Link>
             ))}
           </div>
         </div>
