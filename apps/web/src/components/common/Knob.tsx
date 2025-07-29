@@ -6,9 +6,10 @@ import { motion, useTransform } from "motion/react";
 
 interface KnobProps {
   scrollYProgress: MotionValue<number>;
+  steps: { step?: string; value?: number }[];
 }
 
-export default function Knob({ scrollYProgress }: KnobProps) {
+export default function Knob({ scrollYProgress, steps }: KnobProps) {
   const [currentProgress, setCurrentProgress] = useState(0);
   const rotation = useTransform(scrollYProgress, [0, 0.8], [0, 180]);
 
@@ -160,8 +161,10 @@ export default function Knob({ scrollYProgress }: KnobProps) {
                   left: "-300%",
                 }}
               >
-                <p>Line {i}</p>
-                <p className="font-bold">111%</p>
+                {steps[i]?.step && <p>{steps[i]?.step}</p>}
+                {steps[i]?.value && (
+                  <p className="font-bold">{steps[i]?.value}%</p>
+                )}
               </div>
             </div>
           </motion.li>
