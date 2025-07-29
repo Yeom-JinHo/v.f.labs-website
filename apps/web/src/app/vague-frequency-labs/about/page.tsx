@@ -29,7 +29,7 @@ const jsonLd: WithContext<Organization> = {
   name: "Vague Frequency Laboratory",
   description:
     "An independent music label focused on experimental and innovative electronic music",
-  url: `${meta.site.url}/about`,
+  url: `${meta.site.url}/vague-frequency-labs/about`,
   sameAs: [meta.site.url],
   founder: {
     "@type": "Person",
