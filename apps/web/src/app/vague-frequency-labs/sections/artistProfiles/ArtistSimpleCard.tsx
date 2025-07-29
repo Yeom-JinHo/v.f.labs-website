@@ -12,7 +12,7 @@ interface ArtistSimpleCardProps {
 export default function ArtistSimpleCard({ artist }: ArtistSimpleCardProps) {
   return (
     <div>
-      <div className="group relative h-[300px] w-[200px] overflow-hidden object-cover md:h-[520px] md:w-[350px]">
+      <div className="group relative h-[400px] w-[300px] overflow-hidden object-cover md:h-[520px] md:w-[350px]">
         {/* 기본 이미지 */}
         {artist.name === ARTIST_NAME.LOOZBONE ||
         artist.name === ARTIST_NAME.SAM ? (
