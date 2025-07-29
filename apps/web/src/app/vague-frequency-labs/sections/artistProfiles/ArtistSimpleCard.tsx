@@ -44,7 +44,7 @@ export default function ArtistSimpleCard({ artist }: ArtistSimpleCardProps) {
           />
         </div>
       </div>
-      <div className="l:p-6 flex grow flex-col items-end justify-between gap-4 p-4">
+      <div className="flex grow flex-col items-end justify-between gap-4 p-4">
         <div className="flex w-full flex-col gap-2">
           <div className="l:text-3xl text-2xl leading-8 font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
             <TextReveal>{artist.name}</TextReveal>
