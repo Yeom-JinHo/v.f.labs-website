@@ -23,6 +23,8 @@ interface MusicInfoProps {
 function MusicInfoCard({ musicInfo }: MusicInfoProps) {
   const [isHovering, setIsHovering] = useState(false);
 
+  const texture = `/images/texture/${Math.floor(Math.random() * 3 + 1)}.png`;
+
   return (
     <Dialog>
       <DialogTrigger>
@@ -31,7 +33,7 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
             setIsHovering(true);
           }}
           onHoverEnd={() => setIsHovering(false)}
-          className="relative h-[150px] w-[150px] overflow-hidden after:absolute after:inset-0 after:bg-[url('/images/texture/2.png')] after:bg-cover after:bg-center after:bg-no-repeat after:transition-opacity after:duration-500 hover:after:opacity-0 md:h-[360px] md:w-[360px]"
+          className="relative h-[150px] w-[150px] overflow-hidden md:h-[360px] md:w-[360px]"
         >
           <DialogImage
             width={360}
@@ -41,6 +43,10 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
             alt={musicInfo.name}
             className="h-full w-full object-cover"
           ></DialogImage>
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500 hover:opacity-0"
+            style={{ backgroundImage: `url("${texture}")` }}
+          />
         </motion.div>
       </DialogTrigger>
       <DialogContainer>
@@ -51,6 +57,7 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
             backgroundColor: "rgba(17, 25, 40, 0.27)",
             borderRadius: "12px",
             border: "1px solid rgba(255, 255, 255, 0.125)",
+            backgroundImage: `var(--texture-url)`,
           }}
           className="pointer-events-auto relative flex h-auto w-full basis-3/4 flex-col overflow-hidden p-8 md:basis-1/4"
         >
