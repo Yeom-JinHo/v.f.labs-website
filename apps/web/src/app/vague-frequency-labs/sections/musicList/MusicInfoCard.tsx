@@ -59,7 +59,6 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
             backgroundColor: "rgba(17, 25, 40, 0.27)",
             borderRadius: "12px",
             border: "1px solid rgba(255, 255, 255, 0.125)",
-            backgroundImage: `var(--texture-url)`,
           }}
           className="pointer-events-auto relative flex h-auto w-full basis-3/4 flex-col overflow-hidden p-8 md:basis-1/4"
         >
