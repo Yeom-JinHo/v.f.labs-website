@@ -10,10 +10,8 @@ import React, {
   useRef,
   useState,
 } from "react";
-import Image from "next/image";
 import useClickOutside from "@/hooks/use-click-outside";
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
-import { CldImage } from "next-cloudinary";
 import { createPortal } from "react-dom";
 
 import { cn } from "@repo/ui";
@@ -360,10 +358,6 @@ export interface MorphingDialogImageProps {
   alt: string;
   className?: string;
   style?: React.CSSProperties;
-  width?: number;
-  height?: number;
-  fill?: boolean;
-  isCloudinary?: boolean;
 }
 
 function MorphingDialogImage({
@@ -371,35 +365,17 @@ function MorphingDialogImage({
   alt,
   className,
   style,
-  width,
-  height,
-  fill = false,
-  isCloudinary = false,
 }: MorphingDialogImageProps) {
   const { uniqueId } = useMorphingDialog();
 
   return (
-    <motion.div
+    <motion.img
+      src={src}
+      alt={alt}
+      className={cn(className)}
       layoutId={`dialog-img-${uniqueId}`}
-      className={cn("relative", className)}
       style={{ ...style, willChange: "transform" }}
-    >
-      {!isCloudinary ? (
-        <Image
-          src={src}
-          alt={alt}
-          {...(fill ? { fill } : { width, height })}
-          className="h-full w-full object-cover"
-        />
-      ) : (
-        <CldImage
-          src={src}
-          alt={alt}
-          {...(fill ? { fill } : { width, height })}
-          className="h-full w-full object-cover"
-        />
-      )}
-    </motion.div>
+    />
   );
 }
 

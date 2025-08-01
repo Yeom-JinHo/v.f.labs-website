@@ -1,10 +1,8 @@
-"use client";
-
 import type { MotionValue } from "motion/react";
 import { useMemo } from "react";
+import Image from "next/image";
 import { useMobile } from "@/hooks/use-mobile";
 import { motion, useTransform } from "motion/react";
-import { CldImage } from "next-cloudinary";
 
 function HeroImage({
   scrollYProgress,
@@ -63,14 +61,7 @@ function HeroImage({
         translateY: "-50%",
       }}
     >
-      <CldImage
-        src={src}
-        alt="hero"
-        className="aspect-[4/3] object-cover"
-        fill
-        quality="auto"
-        aspectRatio="4:3"
-      />
+      <Image src={src} alt="hero" className="aspect-[4/3] object-cover" fill />
     </motion.div>
   );
 }
