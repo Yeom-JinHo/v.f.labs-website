@@ -1,7 +1,7 @@
 import type { Link } from "@/types/link";
 
 // This is a setting for the compact header
-const linkLimit = 4;
+const linkLimit = 5;
 //
 
 const links: Link[] = [
@@ -13,6 +13,11 @@ const links: Link[] = [
   {
     title: "Video",
     href: "/vague-frequency-labs/video",
+    thumbnail: "about.jpg",
+  },
+  {
+    title: "Music",
+    href: "/vague-frequency-labs/music",
     thumbnail: "about.jpg",
   },
   {
