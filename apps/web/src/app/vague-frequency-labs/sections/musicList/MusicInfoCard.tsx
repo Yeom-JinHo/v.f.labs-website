@@ -1,7 +1,7 @@
 "use client";
 
 import type { MusicInfo } from "@/types/music";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import {
   MorphingDialog as Dialog,
@@ -23,7 +23,9 @@ interface MusicInfoProps {
 function MusicInfoCard({ musicInfo }: MusicInfoProps) {
   const [isHovering, setIsHovering] = useState(false);
 
-  const texture = `/images/texture/${Math.floor(Math.random() * 3 + 1)}.png`;
+  const texture = useMemo(() => {
+    return `/images/texture/${Math.floor(Math.random() * 3 + 1)}.png`;
+  }, []);
 
   return (
     <Dialog>
