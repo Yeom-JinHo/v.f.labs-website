@@ -1,7 +1,7 @@
 "use client";
 
 import type { MusicInfo } from "@/types/music";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import {
   MorphingDialog as Dialog,
@@ -23,6 +23,10 @@ interface MusicInfoProps {
 function MusicInfoCard({ musicInfo }: MusicInfoProps) {
   const [isHovering, setIsHovering] = useState(false);
 
+  const texture = useMemo(() => {
+    return `/images/texture/${Math.floor(Math.random() * 3 + 1)}.png`;
+  }, []);
+
   return (
     <Dialog>
       <DialogTrigger>
@@ -31,7 +35,7 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
             setIsHovering(true);
           }}
           onHoverEnd={() => setIsHovering(false)}
-          className="h-[150px] w-[150px] overflow-hidden md:h-[360px] md:w-[360px]"
+          className="relative h-[150px] w-[150px] overflow-hidden md:h-[360px] md:w-[360px]"
         >
           <DialogImage
             width={360}
@@ -41,6 +45,10 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
             alt={musicInfo.name}
             className="h-full w-full object-cover"
           ></DialogImage>
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500 hover:opacity-0"
+            style={{ backgroundImage: `url("${texture}")` }}
+          />
         </motion.div>
       </DialogTrigger>
       <DialogContainer>
@@ -73,9 +81,8 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
             className="overflow-hidden"
           >
             <DialogImage
-              fill
-              width={360}
-              height={360}
+              width={720}
+              height={720}
               src={musicInfo.image}
               alt={musicInfo.name}
               className="h-full w-full object-cover"
