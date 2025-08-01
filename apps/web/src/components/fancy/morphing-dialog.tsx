@@ -367,7 +367,13 @@ export interface MorphingDialogImageProps {
   sizes?: string;
   priority?: boolean;
   quality?: number;
-  objectFit?: "contain" | "cover" | "fill" | "none" | "scale-down";
+  objectFit?: React.CSSProperties["objectFit"];
+  layoutId?: string;
+  // Next.js Image의 다른 일반적인 props들
+  placeholder?: "blur" | "empty";
+  blurDataURL?: string;
+  onLoad?: () => void;
+  onError?: () => void;
 }
 
 function MorphingDialogImage({
@@ -382,6 +388,11 @@ function MorphingDialogImage({
   priority = false,
   quality = 75,
   objectFit = "cover",
+  layoutId,
+  placeholder,
+  blurDataURL,
+  onLoad,
+  onError,
 }: MorphingDialogImageProps) {
   const { uniqueId } = useMorphingDialog();
 
@@ -389,14 +400,18 @@ function MorphingDialogImage({
     <MotionImage
       src={src}
       alt={alt}
-      width={width}
-      height={height}
+      width={fill ? undefined : width}
+      height={fill ? undefined : height}
       fill={fill}
       sizes={sizes}
       priority={priority}
       quality={quality}
+      placeholder={placeholder}
+      blurDataURL={blurDataURL}
+      onLoad={onLoad}
+      onError={onError}
       className={cn("object-cover", className)}
-      layoutId={`dialog-img-${uniqueId}`}
+      layoutId={layoutId || `dialog-img-${uniqueId}`}
       style={{
         ...style,
         willChange: "transform",

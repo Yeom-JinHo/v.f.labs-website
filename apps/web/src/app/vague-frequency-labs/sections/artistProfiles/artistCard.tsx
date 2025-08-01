@@ -54,6 +54,8 @@ export default function ArtistCard({
           src={image ?? "/placeholder.svg"}
           alt={`${name} profile image`}
           className="h-[300px] w-full object-cover md:h-[720px]"
+          width={1280}
+          height={720}
         />
         <div className="l:p-6 flex grow flex-col items-end justify-between gap-4 p-4">
           <div className="flex w-full flex-col gap-2">
@@ -74,6 +76,8 @@ export default function ArtistCard({
           className="pointer-events-auto relative flex h-auto w-full basis-1/2 flex-col overflow-hidden border border-zinc-950/10 bg-white xl:basis-1/4 dark:border-zinc-50/10 dark:bg-zinc-900"
         >
           <DialogImage
+            width={1280}
+            height={600}
             src={image ?? "/placeholder.svg"}
             alt={`An image which depicts the skill (${name})`}
             className="h-[300px] w-full object-cover md:h-[600px]"
