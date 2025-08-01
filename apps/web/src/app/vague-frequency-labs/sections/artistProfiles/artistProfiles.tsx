@@ -55,6 +55,7 @@ function ArtistProfiles() {
                 >
                   <div className="h-full p-1">
                     <ArtistCard
+                      logoImage={artist.logoImage}
                       key={`artist_${index}`}
                       index={index + 1}
                       name={artist.name}

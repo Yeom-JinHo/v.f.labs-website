@@ -414,6 +414,48 @@ export const musicInfoDatas: MusicInfo[] = [
       },
     ],
   },
+  {
+    name: "Demolish",
+    artist: ARTIST_NAME.SIELO,
+    image: "/images/music/3.webp",
+    shortDescription: "test",
+    fullDescription: "test",
+    socials: [
+      {
+        name: "Beatport",
+        href: "https://www.beatport.com/release/demolish-extended-mix/5083512",
+        Icon: SiBeatport,
+      },
+    ],
+  },
+  {
+    name: "Esto Ta Duro",
+    artist: ARTIST_NAME.JUNTARO,
+    image: "/images/music/4.webp",
+    shortDescription: "test",
+    fullDescription: "test",
+    socials: [
+      {
+        name: "Beatport",
+        href: "https://www.beatport.com/release/esto-ta-duro/5056601",
+        Icon: SiBeatport,
+      },
+    ],
+  },
+  {
+    name: "Selecta",
+    artist: ARTIST_NAME.JUNTARO,
+    image: "/images/music/5.webp",
+    shortDescription: "test",
+    fullDescription: "test",
+    socials: [
+      {
+        name: "Beatport",
+        href: "https://www.beatport.com/release/selecta-extended-mix/4387981",
+        Icon: SiBeatport,
+      },
+    ],
+  },
 ];
 
 export const musicInfo = {
