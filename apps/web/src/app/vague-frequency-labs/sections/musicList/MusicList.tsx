@@ -37,6 +37,14 @@ function MusicList() {
               <MusicInfoCard musicInfo={info} key={info.name + index} />
             ))}
           </div>
+          <Link href="/music" className="mt-12">
+            <TextReveal
+              as="p"
+              className="flex flex-col -space-y-4 text-xl leading-tight font-bold tracking-tighter sm:text-xl md:text-xl md:leading-tight lg:text-xl lg:leading-tight"
+            >
+              More
+            </TextReveal>
+          </Link>
         </div>
       </div>
     </MotionWrap>
