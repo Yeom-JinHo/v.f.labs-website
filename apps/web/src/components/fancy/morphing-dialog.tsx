@@ -10,12 +10,15 @@ import React, {
   useRef,
   useState,
 } from "react";
+import Image from "next/image";
 import useClickOutside from "@/hooks/use-click-outside";
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import { createPortal } from "react-dom";
 
 import { cn } from "@repo/ui";
 import { Icons } from "@repo/ui/icons";
+
+const MotionImage = motion(Image);
 
 export interface MorphingDialogContextType {
   isOpen: boolean;
@@ -358,6 +361,13 @@ export interface MorphingDialogImageProps {
   alt: string;
   className?: string;
   style?: React.CSSProperties;
+  width?: number;
+  height?: number;
+  fill?: boolean;
+  sizes?: string;
+  priority?: boolean;
+  quality?: number;
+  objectFit?: "contain" | "cover" | "fill" | "none" | "scale-down";
 }
 
 function MorphingDialogImage({
@@ -365,16 +375,33 @@ function MorphingDialogImage({
   alt,
   className,
   style,
+  width,
+  height,
+  fill = false,
+  sizes,
+  priority = false,
+  quality = 75,
+  objectFit = "cover",
 }: MorphingDialogImageProps) {
   const { uniqueId } = useMorphingDialog();
 
   return (
-    <motion.img
+    <MotionImage
       src={src}
       alt={alt}
-      className={cn(className)}
+      width={width}
+      height={height}
+      fill={fill}
+      sizes={sizes}
+      priority={priority}
+      quality={quality}
+      className={cn("object-cover", className)}
       layoutId={`dialog-img-${uniqueId}`}
-      style={{ ...style, willChange: "transform" }}
+      style={{
+        ...style,
+        willChange: "transform",
+        objectFit,
+      }}
     />
   );
 }
