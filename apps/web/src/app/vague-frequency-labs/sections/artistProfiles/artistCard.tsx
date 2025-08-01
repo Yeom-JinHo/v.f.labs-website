@@ -13,8 +13,6 @@ import {
 } from "@/components/fancy/morphing-dialog";
 import TextReveal from "@/components/fancy/text-reveal";
 import { MemoizedReactMarkdown } from "@/components/markdown";
-import { ARTIST_NAME } from "@/consts/artist";
-import { useMobile } from "@/hooks/use-mobile";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
@@ -35,8 +33,6 @@ export default function ArtistCard({
   image,
   className,
 }: ArtistCardProps) {
-  const isMobile = useMobile();
-
   return (
     <Dialog
       transition={{
@@ -55,14 +51,11 @@ export default function ArtistCard({
         )}
       >
         <DialogImage
-          width={isMobile ? 300 : 720}
-          height={isMobile ? 300 : 720}
           src={image ?? "/placeholder.svg"}
           alt={`${name} profile image`}
           className="h-[300px] w-full object-cover md:h-[720px]"
-          isCloudinary={
-            name === ARTIST_NAME.LOOZBONE || name === ARTIST_NAME.SAM
-          }
+          width={1280}
+          height={720}
         />
         <div className="l:p-6 flex grow flex-col items-end justify-between gap-4 p-4">
           <div className="flex w-full flex-col gap-2">
@@ -83,14 +76,11 @@ export default function ArtistCard({
           className="pointer-events-auto relative flex h-auto w-full basis-1/2 flex-col overflow-hidden border border-zinc-950/10 bg-white xl:basis-1/4 dark:border-zinc-50/10 dark:bg-zinc-900"
         >
           <DialogImage
-            height={isMobile ? 300 : 600}
-            width={isMobile ? 300 : 600}
+            width={1280}
+            height={600}
             src={image ?? "/placeholder.svg"}
             alt={`An image which depicts the skill (${name})`}
             className="h-[300px] w-full object-cover md:h-[600px]"
-            isCloudinary={
-              name === ARTIST_NAME.LOOZBONE || name === ARTIST_NAME.SAM
-            }
           />
           <div className="flex flex-col gap-2 p-6">
             <DialogTitle className="text-3xl leading-8 font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
