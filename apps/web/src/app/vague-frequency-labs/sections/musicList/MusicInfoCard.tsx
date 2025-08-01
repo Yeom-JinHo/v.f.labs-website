@@ -80,9 +80,8 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
             className="overflow-hidden"
           >
             <DialogImage
-              fill
-              width={360}
-              height={360}
+              width={720}
+              height={720}
               src={musicInfo.image}
               alt={musicInfo.name}
               className="h-full w-full object-cover"
