@@ -42,7 +42,7 @@ export default function RootLayout({
       </head>
       <body className={`${bricolage_grotesque.className} antialiased`}>
         <Providers>
-          <Loader />
+          {env.NODE_ENV !== "development" && <Loader />}
           {children}
           <Toaster />
           <Analytics />
