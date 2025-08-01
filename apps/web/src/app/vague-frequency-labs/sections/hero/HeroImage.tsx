@@ -1,7 +1,6 @@
 import type { MotionValue } from "motion/react";
 import { useMemo } from "react";
 import Image from "next/image";
-import { useMobile } from "@/hooks/use-mobile";
 import { motion, useTransform } from "motion/react";
 
 function HeroImage({
@@ -13,8 +12,6 @@ function HeroImage({
   i: number;
   src: string;
 }) {
-  const isMobile = useMobile();
-
   // useMemo로 계산 최적화
   const transformConfig = useMemo(() => {
     const inputStart = 0;
@@ -49,9 +46,7 @@ function HeroImage({
   return (
     <motion.div
       key={i}
-      className={`absolute top-1/2 left-1/2 h-[50vh] w-screen rounded object-cover shadow-xl ${
-        isMobile ? "h-[60vh]" : "h-screen"
-      }`}
+      className={`absolute top-1/2 left-1/2 h-[60vh] w-screen rounded object-cover shadow-xl md:h-screen`}
       style={{
         x,
         scale,
