@@ -5,8 +5,8 @@ import sharp from "sharp";
 export async function getLQIPBase64(
   imagePath: string,
   mimeType = "image/jpeg",
-  width = 200,
-  height = 300,
+  width = 40,
+  height = 80,
 ): Promise<string> {
   const fullPath = path.join(process.cwd(), "public", imagePath);
   const imageBuffer = await fs.readFile(fullPath);
