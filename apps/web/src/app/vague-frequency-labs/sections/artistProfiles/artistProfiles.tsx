@@ -63,6 +63,7 @@ function ArtistProfiles() {
                       fullDescription={artist.fullDescription}
                       nickname={artist.nickname}
                       image={artist.image}
+                      imagePlaceholder={artist.imagePlaceholder}
                     />
                   </div>
                 </CarouselItem>

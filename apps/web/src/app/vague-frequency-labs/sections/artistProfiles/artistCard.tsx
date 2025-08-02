@@ -32,6 +32,7 @@ export default function ArtistCard({
   shortDescription,
   image,
   className,
+  imagePlaceholder,
 }: ArtistCardProps) {
   return (
     <Dialog
@@ -56,6 +57,8 @@ export default function ArtistCard({
           className="h-[300px] w-full object-cover md:h-[720px]"
           width={1280}
           height={720}
+          placeholder="blur"
+          blurDataURL={imagePlaceholder}
         />
         <div className="l:p-6 flex grow flex-col items-end justify-between gap-4 p-4">
           <div className="flex w-full flex-col gap-2">
@@ -81,6 +84,8 @@ export default function ArtistCard({
             src={image ?? "/placeholder.svg"}
             alt={`An image which depicts the skill (${name})`}
             className="h-[300px] w-full object-cover md:h-[600px]"
+            placeholder="blur"
+            blurDataURL={imagePlaceholder}
           />
           <div className="flex flex-col gap-2 p-6">
             <DialogTitle className="text-3xl leading-8 font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
