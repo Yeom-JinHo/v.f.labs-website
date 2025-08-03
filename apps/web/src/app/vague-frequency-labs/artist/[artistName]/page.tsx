@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { metadata as meta } from "@/app/config";
 import { artistProfile } from "@/app/source";
 import TextReveal from "@/components/fancy/text-reveal";
+import { getIcon } from "@/lib/icon-map";
 import { createMetadata } from "@/lib/metadata";
 
 import { cn } from "@repo/ui";
@@ -68,19 +69,23 @@ export default async function ProjectPage(props0: {
           />
         </div>
         <div className="my-8 flex gap-1">
-          {artist.socials?.map(({ Icon, href }, index) => (
-            <Link
-              target="_blank"
-              href={href}
-              className={cn(
-                buttonVariants({ variant: "link" }),
-                "h-min w-min gap-1 p-0",
-              )}
-              key={`contact-social_${index}`}
-            >
-              {Icon && <Icon className="size-6" />}
-            </Link>
-          ))}
+          {artist.socials?.map(({ iconName, href }, index) => {
+            const IconComponent = iconName ? getIcon(iconName) : null;
+
+            return (
+              <Link
+                target="_blank"
+                href={href}
+                className={cn(
+                  buttonVariants({ variant: "link" }),
+                  "h-min w-min gap-1 p-0",
+                )}
+                key={`contact-social_${index}`}
+              >
+                {IconComponent && <IconComponent className="size-6" />}
+              </Link>
+            );
+          })}
         </div>
       </div>
       <section className="container mb-12">

@@ -10,6 +10,7 @@ import {
   MorphingDialogImage as DialogImage,
   MorphingDialogTrigger as DialogTrigger,
 } from "@/components/fancy/morphing-dialog";
+import { getIcon } from "@/lib/icon-map";
 import { motion } from "framer-motion";
 
 import { cn } from "@repo/ui";
@@ -98,23 +99,29 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
               className="mt-4 flex flex-col gap-2"
               style={{ borderTop: "1px solid dark-gray" }}
             >
-              {musicInfo.socials?.map((social, index) => (
-                <Link
-                  target="_blank"
-                  href={social.href}
-                  className={cn(
-                    buttonVariants({ variant: "link" }),
-                    "mt-2 h-min w-full gap-1 p-0",
-                  )}
-                  key={`contact-social_${index}`}
-                >
-                  {social.Icon && <social.Icon className="size-6" />}
-                  <h3 className="text-muted-foreground text-m">
-                    {social.name}
-                  </h3>
-                  <Icons.arrowRight className="ml-auto size-4" />
-                </Link>
-              ))}
+              {musicInfo.socials?.map((social, index) => {
+                const IconComponent = social.iconName
+                  ? getIcon(social.iconName)
+                  : null;
+
+                return (
+                  <Link
+                    target="_blank"
+                    href={social.href}
+                    className={cn(
+                      buttonVariants({ variant: "link" }),
+                      "mt-2 h-min w-full gap-1 p-0",
+                    )}
+                    key={`contact-social_${index}`}
+                  >
+                    {IconComponent && <IconComponent className="size-6" />}
+                    <h3 className="text-muted-foreground text-m">
+                      {social.name}
+                    </h3>
+                    <Icons.arrowRight className="ml-auto size-4" />
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </DialogContent>

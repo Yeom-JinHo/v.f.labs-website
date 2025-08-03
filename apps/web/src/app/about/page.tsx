@@ -12,6 +12,7 @@ import { skills } from "@/components/sections/skills/config";
 import { technologies } from "@/components/sections/technologies/config";
 import TechnologyCard from "@/components/sections/technologies/modern/technology-card";
 import { exampleImages } from "@/lib/example-images";
+import { getIcon } from "@/lib/icon-map";
 import { motion, useScroll, useTransform } from "motion/react";
 
 import { cn } from "@repo/ui";
@@ -206,20 +207,24 @@ export default function About() {
                 <Icons.mail className="h-4 w-4" />
                 {contact.email}
               </Link>
-              {contact.socials.map(({ Icon, name, href }, index) => (
-                <Link
-                  target="_blank"
-                  href={href}
-                  className={cn(
-                    buttonVariants({ variant: "link" }),
-                    "h-min w-min gap-1 p-0 text-sm sm:text-base md:text-lg",
-                  )}
-                  key={`contact-social_${index}`}
-                >
-                  {Icon && <Icon className="h-4 w-4" />}
-                  {name}
-                </Link>
-              ))}
+              {contact.socials.map(({ iconName, name, href }, index) => {
+                const IconComponent = iconName ? getIcon(iconName) : null;
+
+                return (
+                  <Link
+                    target="_blank"
+                    href={href}
+                    className={cn(
+                      buttonVariants({ variant: "link" }),
+                      "h-min w-min gap-1 p-0 text-sm sm:text-base md:text-lg",
+                    )}
+                    key={`contact-social_${index}`}
+                  >
+                    {IconComponent && <IconComponent className="h-4 w-4" />}
+                    {name}
+                  </Link>
+                );
+              })}
             </div>
           </div>
           <div className="col-span-1 md:col-span-3"></div>

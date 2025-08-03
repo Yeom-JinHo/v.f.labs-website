@@ -1,7 +1,9 @@
+import type { IconName } from "@/lib/icon-map";
+
 export interface Socials {
   name: string;
   href: string;
-  Icon?: React.ComponentType<{ className?: string }>;
+  iconName?: IconName;
 }
 
 export interface Contact {
