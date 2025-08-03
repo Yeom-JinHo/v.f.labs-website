@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef } from "react";
 import SkillCard from "@/app/about/_components/skill-card";
 import Link from "@/components/fancy/link";
