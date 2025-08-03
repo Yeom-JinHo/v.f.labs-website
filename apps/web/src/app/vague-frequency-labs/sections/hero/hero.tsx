@@ -6,7 +6,7 @@ import { useScroll } from "motion/react";
 import HeroImage from "./HeroImage";
 
 export const VAGUE_FREQUENCY_LABS_HERO_IMAGES = [
-  "/images/hero/1.png",
+  "/images/hero/1.jpg",
   "/images/hero/2.jpg",
   "/images/hero/3.jpg",
   "/images/hero/4.jpg",
