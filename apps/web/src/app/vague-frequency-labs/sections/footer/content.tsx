@@ -2,6 +2,7 @@ import React from "react";
 import { metadata as meta } from "@/app/config";
 import Link from "@/components/fancy/link";
 import { contact } from "@/components/sections/contact/config";
+import { getIcon } from "@/lib/icon-map";
 
 export default function Content() {
   return (
@@ -51,7 +52,8 @@ const Nav = () => {
           Socials
         </h3>
         {contact.socials.map((link, index) => {
-          const { name, href, Icon } = link;
+          const { name, href, iconName } = link;
+          const IconComponent = iconName ? getIcon(iconName) : null;
 
           return (
             <Link
@@ -61,7 +63,7 @@ const Nav = () => {
               key={`ft-l_social_${index}`}
               external
             >
-              {Icon && <Icon className="h-4 w-4" />}
+              {IconComponent && <IconComponent className="h-4 w-4" />}
               {name}
             </Link>
           );

@@ -2,14 +2,6 @@ import type { ArtistProfile } from "@/types/artist";
 import type { MusicInfo } from "@/types/music";
 import { createMDXSource } from "@fumadocs/content-collections";
 import {
-  SiApple,
-  SiBeatport,
-  SiInstagram,
-  SiSoundcloud,
-  SiSpotify,
-  SiYoutube,
-} from "@icons-pack/react-simple-icons";
-import {
   allBlogMetas,
   allBlogs,
   allProjectMetas,
@@ -62,17 +54,17 @@ EP와 싱글을 발매하며 프로듀서로서의 실력을 입증했습니다.
       {
         name: "Youtube",
         href: "https://www.youtube.com/watch?v=1lAXNqA25Bs",
-        Icon: SiYoutube,
+        iconName: "SiYoutube",
       },
       {
         name: "Instagram",
         href: "https://www.instagram.com/ye0m_2/",
-        Icon: SiInstagram,
+        iconName: "SiInstagram",
       },
       {
         name: "Instagram",
         href: "https://soundcloud.com/ye0m2",
-        Icon: SiSoundcloud,
+        iconName: "SiSoundcloud",
       },
     ],
   },
@@ -123,17 +115,17 @@ World DJ Festival, Micro Seoul, Strike Music Festival 등 주요 페스티벌에
       {
         name: "Youtube",
         href: "https://www.youtube.com/watch?v=1lAXNqA25Bs",
-        Icon: SiYoutube,
+        iconName: "SiYoutube",
       },
       {
         name: "Instagram",
         href: "https://www.instagram.com/ye0m_2/",
-        Icon: SiInstagram,
+        iconName: "SiInstagram",
       },
       {
         name: "Instagram",
         href: "https://soundcloud.com/ye0m2",
-        Icon: SiSoundcloud,
+        iconName: "SiSoundcloud",
       },
     ],
   },
@@ -150,17 +142,17 @@ World DJ Festival, Micro Seoul, Strike Music Festival 등 주요 페스티벌에
       {
         name: "Youtube",
         href: "https://www.youtube.com/watch?v=1lAXNqA25Bs",
-        Icon: SiYoutube,
+        iconName: "SiYoutube",
       },
       {
         name: "Instagram",
         href: "https://www.instagram.com/ye0m_2/",
-        Icon: SiInstagram,
+        iconName: "SiInstagram",
       },
       {
         name: "Instagram",
         href: "https://soundcloud.com/ye0m2",
-        Icon: SiSoundcloud,
+        iconName: "SiSoundcloud",
       },
     ],
   },
@@ -185,17 +177,17 @@ Dearboi는 서울을 기반으로 활동하는 하우스/테크 하우스 DJ로,
       {
         name: "Youtube",
         href: "https://www.youtube.com/watch?v=1lAXNqA25Bs",
-        Icon: SiYoutube,
+        iconName: "SiYoutube",
       },
       {
         name: "Instagram",
         href: "https://www.instagram.com/ye0m_2/",
-        Icon: SiInstagram,
+        iconName: "SiInstagram",
       },
       {
         name: "Instagram",
         href: "https://soundcloud.com/ye0m2",
-        Icon: SiSoundcloud,
+        iconName: "SiSoundcloud",
       },
     ],
   },
@@ -229,17 +221,17 @@ With his exceptional talent and ability to deliver unparalleled sonic experience
       {
         name: "Youtube",
         href: "https://www.youtube.com/watch?v=1lAXNqA25Bs",
-        Icon: SiYoutube,
+        iconName: "SiYoutube",
       },
       {
         name: "Instagram",
         href: "https://www.instagram.com/ye0m_2/",
-        Icon: SiInstagram,
+        iconName: "SiInstagram",
       },
       {
         name: "Instagram",
         href: "https://soundcloud.com/ye0m2",
-        Icon: SiSoundcloud,
+        iconName: "SiSoundcloud",
       },
     ],
   },
@@ -288,17 +280,17 @@ LOOZBONE은 빠르게 떠오르는 일렉트로닉 댄스 뮤직 신의 스타�
       {
         name: "Youtube",
         href: "https://www.youtube.com/watch?v=1lAXNqA25Bs",
-        Icon: SiYoutube,
+        iconName: "SiYoutube",
       },
       {
         name: "Instagram",
         href: "https://www.instagram.com/ye0m_2/",
-        Icon: SiInstagram,
+        iconName: "SiInstagram",
       },
       {
         name: "Instagram",
         href: "https://soundcloud.com/ye0m2",
-        Icon: SiSoundcloud,
+        iconName: "SiSoundcloud",
       },
     ],
   },
@@ -347,17 +339,17 @@ Ryumo는 서울 출신의 젊고 에너지 넘치는 DJ/프로듀서로,
       {
         name: "Youtube",
         href: "https://www.youtube.com/watch?v=1lAXNqA25Bs",
-        Icon: SiYoutube,
+        iconName: "SiYoutube",
       },
       {
         name: "Instagram",
         href: "https://www.instagram.com/ye0m_2/",
-        Icon: SiInstagram,
+        iconName: "SiInstagram",
       },
       {
         name: "Instagram",
         href: "https://soundcloud.com/ye0m2",
-        Icon: SiSoundcloud,
+        iconName: "SiSoundcloud",
       },
     ],
   },
@@ -380,27 +372,27 @@ export const musicInfoDatas: MusicInfo[] = [
       {
         name: "Youtube",
         href: "https://www.youtube.com/watch?v=1lAXNqA25Bs",
-        Icon: SiYoutube,
+        iconName: "SiYoutube",
       },
       {
         name: "Soundcloud",
         href: "https://soundcloud.com/juntaromusic",
-        Icon: SiSoundcloud,
+        iconName: "SiSoundcloud",
       },
       {
         name: "Spotify",
         href: "https://open.spotify.com/artist/2UMKCxDFAAy154VgUJHKN9",
-        Icon: SiSpotify,
+        iconName: "SiSpotify",
       },
       {
         name: "Apple Music",
         href: "https://music.apple.com/us/artist/juntaro/1020632340",
-        Icon: SiApple,
+        iconName: "SiApple",
       },
       {
         name: "Beatport",
         href: "https://www.beatport.com/artist/juntaro/501402",
-        Icon: SiBeatport,
+        iconName: "SiBeatport",
       },
     ],
   },
@@ -414,17 +406,17 @@ export const musicInfoDatas: MusicInfo[] = [
       {
         name: "Youtube",
         href: "https://www.youtube.com/@sieloofficial",
-        Icon: SiYoutube,
+        iconName: "SiYoutube",
       },
       {
         name: "Soundcloud",
         href: "https://soundcloud.com/sieloofficial",
-        Icon: SiSoundcloud,
+        iconName: "SiSoundcloud",
       },
       {
         name: "Beatport",
         href: "https://www.beatport.com/artist/sielo/62767",
-        Icon: SiBeatport,
+        iconName: "SiBeatport",
       },
     ],
   },
@@ -438,7 +430,7 @@ export const musicInfoDatas: MusicInfo[] = [
       {
         name: "Beatport",
         href: "https://www.beatport.com/release/demolish-extended-mix/5083512",
-        Icon: SiBeatport,
+        iconName: "SiBeatport",
       },
     ],
   },
@@ -452,7 +444,7 @@ export const musicInfoDatas: MusicInfo[] = [
       {
         name: "Beatport",
         href: "https://www.beatport.com/release/esto-ta-duro/5056601",
-        Icon: SiBeatport,
+        iconName: "SiBeatport",
       },
     ],
   },
@@ -466,7 +458,7 @@ export const musicInfoDatas: MusicInfo[] = [
       {
         name: "Beatport",
         href: "https://www.beatport.com/release/selecta-extended-mix/4387981",
-        Icon: SiBeatport,
+        iconName: "SiBeatport",
       },
     ],
   },

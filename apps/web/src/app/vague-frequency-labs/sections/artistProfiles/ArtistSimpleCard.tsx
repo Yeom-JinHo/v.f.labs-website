@@ -17,8 +17,10 @@ export default function ArtistSimpleCard({ artist }: ArtistSimpleCardProps) {
           width={1280}
           height={600}
           alt={`Image of ${artist.name}`}
-          className="h-full w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-30"
+          className="h-full w-full object-cover object-center transition-all duration-300 group-hover:scale-110 group-hover:opacity-30"
           priority
+          placeholder="blur"
+          blurDataURL={artist.imagePlaceholder}
         />
 
         {/* Hover 시 나타나는 이미지 */}
