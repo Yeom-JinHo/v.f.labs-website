@@ -25,8 +25,13 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
   const [isHovering, setIsHovering] = useState(false);
 
   const texture = useMemo(() => {
-    return `/images/texture/${Math.floor(Math.random() * 3 + 1)}.png`;
-  }, []);
+    // musicInfo.name을 기반으로 결정적 랜덤 생성
+    const hash = musicInfo.name.split("").reduce((acc, char) => {
+      return char.charCodeAt(0) + ((acc << 5) - acc);
+    }, 0);
+    const textureNumber = (Math.abs(hash) % 3) + 1;
+    return `/images/texture/${textureNumber}.png`;
+  }, [musicInfo.name]);
 
   return (
     <Dialog>
