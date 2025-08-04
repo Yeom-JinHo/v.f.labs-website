@@ -1,6 +1,7 @@
 import type { Organization, WithContext } from "schema-dts";
 import React from "react";
 import { metadata as meta } from "@/app/config";
+import Globe from "@/components/common/Globe";
 import KnobSection from "@/components/common/KnobSection";
 import Line from "@/components/fancy/line";
 import TextReveal from "@/components/fancy/text-reveal";
@@ -66,8 +67,23 @@ export default function AboutPage(): React.ReactElement {
           >
             About
           </TextReveal>
-
           <Line className={"m-16"} />
+          <div className="flex flex-col items-center justify-center">
+            <span
+              className="pointer-events-none inset-0 text-4xl whitespace-nowrap"
+              style={{
+                width: "100%",
+                color: "white",
+                WebkitTextStroke: "1px white",
+                borderRight: "6px solid white",
+                overflow: "hidden",
+                filter: "drop-shadow(0 0 3px white)",
+              }}
+            >
+              We play worldwide
+            </span>
+          </div>
+          <Globe />
           <KnobSection />
         </div>
       </section>
