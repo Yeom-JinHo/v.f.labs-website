@@ -38,8 +38,12 @@ export default function KnobSection() {
   ];
 
   return (
-    <div className="relative flex h-[400vh] w-full flex-col" ref={sectionRef}>
+    <div
+      className="relative mt-40 flex h-[400vh] w-full flex-col"
+      ref={sectionRef}
+    >
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-x-hidden">
+        <span className="absolute top-[100px] text-5xl">Our Process</span>
         <Knob
           scrollYProgress={scrollYProgress}
           steps={steps}
