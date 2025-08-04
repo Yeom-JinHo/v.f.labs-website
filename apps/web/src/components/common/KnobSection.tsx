@@ -43,7 +43,9 @@ export default function KnobSection() {
       ref={sectionRef}
     >
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-x-hidden">
-        <span className="absolute top-[100px] text-5xl">Our Process</span>
+        <span className="absolute top-[100px] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
+          Our Process
+        </span>
         <Knob
           scrollYProgress={scrollYProgress}
           steps={steps}
@@ -53,11 +55,11 @@ export default function KnobSection() {
             }
           }}
         />
-        <div className="absolute bottom-[150px] flex flex-col items-center justify-center">
-          <TextReveal className="text-4xl font-bold">
+        <div className="absolute bottom-[150px] flex flex-col items-center justify-center px-4 text-center">
+          <TextReveal className="text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
             {steps[activeStep]?.value}
           </TextReveal>
-          <TextReveal className="text-2xl">
+          <TextReveal className="max-w-2xl text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
             {steps[activeStep]?.description}
           </TextReveal>
         </div>
