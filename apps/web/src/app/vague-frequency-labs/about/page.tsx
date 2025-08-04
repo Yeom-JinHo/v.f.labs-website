@@ -1,10 +1,12 @@
 import type { Organization, WithContext } from "schema-dts";
 import React from "react";
+import Image from "next/image";
 import { metadata as meta } from "@/app/config";
 import Globe from "@/components/common/Globe";
 import KnobSection from "@/components/common/KnobSection";
 import Line from "@/components/fancy/line";
 import TextReveal from "@/components/fancy/text-reveal";
+import { COMPANY_SHORT_NAME } from "@/consts/company";
 import { createMetadata } from "@/lib/metadata";
 
 const title = "About";
@@ -85,6 +87,12 @@ export default function AboutPage(): React.ReactElement {
           </div>
           <Globe />
           <KnobSection />
+          <Image
+            src={`/images/logo/400_300/${COMPANY_SHORT_NAME.VAGUE_FREQUENCY_LABS}.png`}
+            alt="Vague Frequency Laboratory"
+            width={1000}
+            height={1000}
+          />
         </div>
       </section>
     </main>
