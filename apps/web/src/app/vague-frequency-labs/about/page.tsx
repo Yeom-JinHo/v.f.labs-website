@@ -1,12 +1,9 @@
 import type { Organization, WithContext } from "schema-dts";
 import React from "react";
-import Image from "next/image";
 import { metadata as meta } from "@/app/config";
-import Globe from "@/components/common/Globe";
-import KnobSection from "@/components/common/KnobSection";
 import Line from "@/components/fancy/line";
 import TextReveal from "@/components/fancy/text-reveal";
-import { COMPANY_SHORT_NAME } from "@/consts/company";
+import ParallaxGlobeLogo from "@/components/vflabs/ParallaxGlobeLogo";
 import { createMetadata } from "@/lib/metadata";
 
 const title = "About";
@@ -50,7 +47,7 @@ const jsonLd: WithContext<Organization> = {
   ],
 };
 
-export default function AboutPage(): React.ReactElement {
+export default function AboutPage() {
   return (
     <main className="my-14 flex-1">
       <script
@@ -69,30 +66,11 @@ export default function AboutPage(): React.ReactElement {
           >
             About
           </TextReveal>
-          <Line className={"m-16"} />
-          <div className="flex flex-col items-center justify-center">
-            <span
-              className="pointer-events-none inset-0 text-4xl whitespace-nowrap"
-              style={{
-                width: "100%",
-                color: "white",
-                WebkitTextStroke: "1px white",
-                borderRight: "6px solid white",
-                overflow: "hidden",
-                filter: "drop-shadow(0 0 3px white)",
-              }}
-            >
-              We play worldwide
-            </span>
+          <Line className={"mt-16"} />
+          {/* Parallax Globe + Logo */}
+          <div className="w-full">
+            <ParallaxGlobeLogo />
           </div>
-          <Globe />
-          <KnobSection />
-          <Image
-            src={`/images/logo/400_300/${COMPANY_SHORT_NAME.VAGUE_FREQUENCY_LABS}.png`}
-            alt="Vague Frequency Laboratory"
-            width={1000}
-            height={1000}
-          />
         </div>
       </section>
     </main>
