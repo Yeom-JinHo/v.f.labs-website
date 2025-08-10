@@ -66,6 +66,9 @@ export default function ContactPage(): ReactElement {
   // }, []);
 
   const initMap = (x: number, y: number) => {
+    if (typeof window === "undefined") return;
+    const container = document.getElementById("map");
+    if (!container || !window.naver.maps) return;
     const map = new window.naver.maps.Map("map", {
       center: new window.naver.maps.LatLng(x, y),
       zoom: 16,
@@ -75,7 +78,7 @@ export default function ContactPage(): ReactElement {
 
     new window.naver.maps.Marker({
       position: new window.naver.maps.LatLng(x, y),
-      map: map,
+      map,
       icon: {
         path: [
           new window.naver.maps.Point(0, 70),
