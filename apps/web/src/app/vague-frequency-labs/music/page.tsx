@@ -2,6 +2,7 @@
 
 import React from "react";
 import { musicInfo } from "@/app/source";
+import { BlurFade } from "@/components/common/BlurFade";
 import Line from "@/components/fancy/line";
 import TextReveal from "@/components/fancy/text-reveal";
 
@@ -78,7 +79,9 @@ export default function MusicPage(): React.ReactElement {
           <div className="relative flex flex-col items-center justify-center gap-4 overflow-hidden">
             <div className="flex flex-wrap justify-center gap-16">
               {musicInfos.map((info, index) => (
-                <MusicInfoCard musicInfo={info} key={info.name + index} />
+                <BlurFade key={info.name + index} inView duration={0.6}>
+                  <MusicInfoCard musicInfo={info} />
+                </BlurFade>
               ))}
             </div>
           </div>
