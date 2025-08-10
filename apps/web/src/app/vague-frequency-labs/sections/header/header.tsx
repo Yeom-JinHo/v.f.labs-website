@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { metadata as meta } from "@/app/vague-frequency-labs/config";
 import {
   linkLimit,
   links,
@@ -76,7 +75,7 @@ export default function Header() {
             href="/"
             className="inline-flex items-center justify-center text-2xl font-semibold"
           >
-            {meta.author.name}
+            v.f.labs
           </Link>
 
           <button className="md:hidden" onClick={toggleMenu}>
