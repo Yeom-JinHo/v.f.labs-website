@@ -294,65 +294,6 @@ LOOZBONE은 빠르게 떠오르는 일렉트로닉 댄스 뮤직 신의 스타�
       },
     ],
   },
-  {
-    name: ARTIST_NAME.RYUMO,
-    image: "/images/artist/ryumo/profile.jpg",
-    logoImage: "/images/artist/ryumo/logo.png",
-    imagePlaceholder:
-      "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABQACgDASIAAhEBAxEB/8QAHAAAAgMAAwEAAAAAAAAAAAAAAAYEBQcBAgMI/8QALBAAAQMDBAAFAwUBAAAAAAAAAQIDBAAFEQYSITETFCJRcQcjQTJhgbHhwf/EABoBAAIDAQEAAAAAAAAAAAAAAAMEAQIFBgD/xAAiEQABBAIDAAIDAAAAAAAAAAABAAIDERMhBBIxIlFBYYH/2gAMAwEAAhEDEQA/APnajFdgK7tNF1xKE/qUcCk7XX9VHWQkZUcV1BB5HIqdqHT863MNOyQMOdJHde2l4jUyDLZe9LiE7kn3oj6YLSkBfyJcVV7X8VZRQoEEg/iirITmbUkCr3TFnnTblHXHiOrbQoKUrbxT39J9M2+VY513uDQedaO1pCuvn+60hiYIemFOMMtN4UAoITjIqrYrFkrQMh2Gj80sWvqTKu6kS1HeF425yEgVQq+zeV+UZUhvoAjGfetQu9shzZyH47QSpfqUfbFSrFpkXZt2QS0kIyBxyaFicXa2tRrmCEOJ6kLE7zF8F/xUj7bnI+aK0d3Rrsm3XOO+pIcZJcZ/eirMkAFO9CzOVBT7aNHa0q12hmy6Ht9vayqS5lSnEng1HvwVE02pCeiv/v8AtJdu1LIVp21uh1ZdQsNkZ4xmna8lcvTXAytKgo/yKZLg5h6/S9FH0cATe1lt6uLwtclCFuNObsJUmm/6WIfjWhkvurd8cnk0tzoofYfZcG0qHBp9sITarC2hpIcWzFUoY98YpUSlrDXq0JOMMuUiwAoOtnE6fsct9U1tx5wbENg+oUVht1nSJ0t52S64sqWThSicc0VEcVD5bKRnndK6ymfSRXKhyYo6b+4k+x7rabEjzFqaUt5twPN7SEnoivn2xznIMvLZOHBsUB+RV9ZNRO2ueI3jqabKspUTwDRYHdbsWFaVgLh8gCnHUMYtLXkYUk4NMOjl+Ol5h7nDJTz7EH/KVrpcnpSgsgOuK7UnpVXOlHpC57iUMneUhNKzEUaW1DE/GWv+li2o4phXuYwRja4cfB5opi+r0TyespKdpG5IPzRTDDbQVzrvUtRCQ8kjsc1xdkLcXvI5PNelsAMpAP5q4vLIS4kAAAiixmo1WdmSav0lyNd58MYZkKAHQPNX1g1PeS+lXmSlROOKWZDZMvaOATiry2RSy3vByUeqhyBpCNwsuYCz1C51nMlTLrvmOlxYT2aKiakeD1xKx0UiiojFNCnmOBnf18tf/9k=",
-    nickname: ARTIST_NAME.RYUMO,
-    shortDescription: "King",
-    fullDescription: `
-    Young and hot DJ / Producer from Seoul, Korea.  
-Ryumo is Punk, and has positive style.
-
-Ryumo currently serves as a head producer of Club Chroma, a globally renowned club located in South Korea.
-
-He played at huge festivals such as World DJ Festival, S20, Micro and Strike Festival and holds a solid resume for opening for Zedd, Nicky Romero, Alok, Kaaze and more.
-
-Ryumo has also breached the mainstream media by participating as one of the main acts in a TV show called "WET!"
-
-During the course of this TV series, he demonstrated a variety of skills and released a track with the K-Pop Group called “Lovelyz”
-
-He started his career as a producer with Future House genre under the name "Tasty Hills", but continues his activities mainly in the drum and base and UK house genres in line with his new name and branding.
-
-Also, he has 0.1million views on short-form videos
-
-
-Ryumo는 서울 출신의 젊고 에너지 넘치는 DJ/프로듀서로,  
-펑크한 태도와 긍정적인 스타일로 주목받고 있는 아티스트입니다.
-
-현재 그는 한국을 대표하는 글로벌 클럽인 클럽 크로마(Chroma)의  
-헤드 프로듀서로 활동하고 있습니다.
-
-월드 DJ 페스티벌, S20, 마이크로 페스티벌, 스트라이크 뮤직 페스티벌 등  
-대형 무대에서 공연했으며, Zedd, Nicky Romero, Alok, Kaaze 등의 오프닝 무대 이력을 보유하고 있습니다.
-
-또한 방송 예능 프로그램 "WET!"에 메인 아티스트로 출연해 다양한 재능을 보여주었으며, K-POP 그룹 러블리즈와의 트랙 작업도 진행했습니다.
-
-활동 초반에는 "Tasty Hills"라는 이름으로 Future House 장르의 프로듀서로 시작했으며,  
-현재는 이름과 브랜드를 새롭게 하여 Drum & Bass, UK House 중심으로 활동 중입니다.
-
-또한 숏폼 플랫폼에서도 주목받으며, 10만 뷰 이상의 조회수를 기록하고 있습니다.
-    `,
-    socials: [
-      {
-        name: "Youtube",
-        href: "https://www.youtube.com/watch?v=1lAXNqA25Bs",
-        iconName: "SiYoutube",
-      },
-      {
-        name: "Instagram",
-        href: "https://www.instagram.com/ye0m_2/",
-        iconName: "SiInstagram",
-      },
-      {
-        name: "Instagram",
-        href: "https://soundcloud.com/ye0m2",
-        iconName: "SiSoundcloud",
-      },
-    ],
-  },
 ];
 
 export const artistProfile = {

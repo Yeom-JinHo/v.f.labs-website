@@ -42,7 +42,7 @@ import MusicInfoCard from "../sections/musicList/MusicInfoCard";
 //   })),
 // };
 
-export default function ArtistPage(): React.ReactElement {
+export default function MusicPage(): React.ReactElement {
   const musicInfos = [
     ...musicInfo.getInfos(),
     ...musicInfo.getInfos(),
