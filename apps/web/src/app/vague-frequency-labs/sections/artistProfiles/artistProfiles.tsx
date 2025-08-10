@@ -42,7 +42,6 @@ function ArtistProfiles() {
                 speed: 600 / 1000,
                 startDelay: 100,
                 stopOnInteraction: false,
-                stopOnMouseEnter: true,
               }),
             ]}
             className="w-full"
