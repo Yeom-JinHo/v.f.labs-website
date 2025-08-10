@@ -1,11 +1,9 @@
 "use client";
 
+import type { ReactElement } from "react";
 import React from "react";
-import { musicInfo } from "@/app/source";
 import Line from "@/components/fancy/line";
 import TextReveal from "@/components/fancy/text-reveal";
-
-import MusicInfoCard from "../sections/musicList/MusicInfoCard";
 
 // TODO: 수정필요
 // export const metadata = createMetadata({
@@ -42,19 +40,7 @@ import MusicInfoCard from "../sections/musicList/MusicInfoCard";
 //   })),
 // };
 
-export default function MusicPage(): React.ReactElement {
-  const musicInfos = [
-    ...musicInfo.getInfos(),
-    ...musicInfo.getInfos(),
-    ...musicInfo.getInfos(),
-    ...musicInfo.getInfos(),
-    ...musicInfo.getInfos(),
-    ...musicInfo.getInfos(),
-    ...musicInfo.getInfos(),
-    ...musicInfo.getInfos(),
-    ...musicInfo.getInfos(),
-  ];
-
+export default function ContactPage(): ReactElement {
   return (
     <main className="my-14 flex-1">
       {/* <script
@@ -66,22 +52,15 @@ export default function MusicPage(): React.ReactElement {
         id="hero"
       >
         <div className="flex flex-col items-center md:max-w-7xl">
-          {/* todo: re-add delay of 0.2seconds */}
           <TextReveal
             as="h1"
             className="leading-wide tracking-relaxed text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
           >
-            Music
+            Contact
           </TextReveal>
 
           <Line className={"m-16"} />
-          <div className="relative flex flex-col items-center justify-center gap-4 overflow-hidden">
-            <div className="flex flex-wrap justify-center gap-16">
-              {musicInfos.map((info, index) => (
-                <MusicInfoCard musicInfo={info} key={info.name + index} />
-              ))}
-            </div>
-          </div>
+          <div className="relative flex flex-col items-center justify-center gap-4 overflow-hidden"></div>
         </div>
       </section>
     </main>
