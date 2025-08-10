@@ -10,11 +10,11 @@ const links: Link[] = [
     href: "/vague-frequency-labs/about",
     thumbnail: "home.jpg",
   },
-  {
-    title: "Video",
-    href: "/vague-frequency-labs/video",
-    thumbnail: "about.jpg",
-  },
+  // {
+  //   title: "Video",
+  //   href: "/vague-frequency-labs/video",
+  //   thumbnail: "about.jpg",
+  // },
   {
     title: "Music",
     href: "/vague-frequency-labs/music",

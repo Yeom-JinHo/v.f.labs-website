@@ -1,9 +1,9 @@
 import type { Organization, WithContext } from "schema-dts";
 import React from "react";
 import { metadata as meta } from "@/app/config";
-import KnobSection from "@/components/common/KnobSection";
 import Line from "@/components/fancy/line";
 import TextReveal from "@/components/fancy/text-reveal";
+import ParallaxGlobeLogo from "@/components/vflabs/ParallaxGlobeLogo";
 import { createMetadata } from "@/lib/metadata";
 
 const title = "About";
@@ -47,7 +47,7 @@ const jsonLd: WithContext<Organization> = {
   ],
 };
 
-export default function AboutPage(): React.ReactElement {
+export default function AboutPage() {
   return (
     <main className="my-14 flex-1">
       <script
@@ -66,9 +66,11 @@ export default function AboutPage(): React.ReactElement {
           >
             About
           </TextReveal>
-
-          <Line className={"m-16"} />
-          <KnobSection />
+          <Line className={"mt-16"} />
+          {/* Parallax Globe + Logo */}
+          <div className="w-full">
+            <ParallaxGlobeLogo />
+          </div>
         </div>
       </section>
     </main>
