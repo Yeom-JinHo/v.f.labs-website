@@ -5,5 +5,4 @@ export const ARTIST_NAME = {
   DEARBOI: "DearBoi",
   PLAYMODE: "PLAYMODE",
   LOOZBONE: "Loozbone",
-  RYUMO: "RYUMO",
 } as const;
