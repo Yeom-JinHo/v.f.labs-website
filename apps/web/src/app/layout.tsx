@@ -6,6 +6,7 @@ import Script from "next/script";
 import { metadata as meta } from "@/app/config";
 import Loader from "@/app/loader";
 import Providers from "@/app/providers";
+import { ErrorBoundary } from "@/components/error-boundary";
 import { env } from "@/env";
 import { createMetadata } from "@/lib/metadata";
 import { Analytics } from "@vercel/analytics/next";
@@ -41,14 +42,16 @@ export default function RootLayout({
         ) : null}
       </head>
       <body className={`${bricolage_grotesque.className} antialiased`}>
-        <Providers>
-          {env.NODE_ENV !== "development" && <Loader />}
-          {children}
-          <Toaster />
-          <Analytics />
-          <SpeedInsights />
-          {/* <Cursor /> */}
-        </Providers>
+        <ErrorBoundary>
+          <Providers>
+            {env.NODE_ENV !== "development" && <Loader />}
+            {children}
+            <Toaster />
+            <Analytics />
+            <SpeedInsights />
+            {/* <Cursor /> */}
+          </Providers>
+        </ErrorBoundary>
       </body>
     </html>
   );

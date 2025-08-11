@@ -33,9 +33,16 @@ const MorphingDialogContext =
 function useMorphingDialog() {
   const context = useContext(MorphingDialogContext);
   if (!context) {
-    throw new Error(
-      "useMorphingDialog must be used within a MorphingDialogProvider",
+    // 웹뷰 안전성을 위해 에러 대신 경고 출력
+    console.warn(
+      "useMorphingDialog must be used within a MorphingDialogProvider, returning default values",
     );
+    return {
+      isOpen: false,
+      setIsOpen: () => {},
+      uniqueId: "fallback-id",
+      triggerRef: { current: null },
+    };
   }
   return context;
 }

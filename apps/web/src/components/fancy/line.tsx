@@ -24,17 +24,25 @@ export default function Line({
   let reqId: number | null = null;
 
   useEffect(() => {
-    setPath(progress);
+    try {
+      setPath(progress);
+    } catch (error) {
+      console.warn("Line component setup error:", error);
+    }
   }, []);
 
   const setPath = (progress: number) => {
-    const width = window.innerWidth * 1;
+    try {
+      const width = window.innerWidth * 1;
 
-    path.current?.setAttributeNS(
-      null,
-      "d",
-      `M0 250 Q${width * x} ${250 + progress}, ${width} 250`,
-    );
+      path.current?.setAttributeNS(
+        null,
+        "d",
+        `M0 250 Q${width * x} ${250 + progress}, ${width} 250`,
+      );
+    } catch (error) {
+      console.warn("Line path setting error:", error);
+    }
   };
 
   const lerp = (x: number, y: number, a: number) => x * (1 - a) + y * a;
