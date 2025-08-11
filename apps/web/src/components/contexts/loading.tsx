@@ -24,7 +24,11 @@ export const LoadingProvider = ({ children }: { children: ReactNode }) => {
 export const useLoading = () => {
   const context = useContext(LoadingContext);
   if (!context) {
-    throw new Error("useLoading must be used within a LoadingProvider");
+    // 에러 대신 기본값 반환하여 웹뷰 크래시 방지
+    console.warn(
+      "useLoading must be used within a LoadingProvider, returning default values",
+    );
+    return { isLoading: false, setIsLoading: () => {} };
   }
   return context;
 };

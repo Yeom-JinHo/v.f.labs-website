@@ -69,7 +69,10 @@ export default function Cursor() {
   };
 
   useEffect(() => {
-    // 모바일에서는 커서를 완전히 비활성화
+    // 웹뷰 안전성 체크
+    if (typeof window === "undefined") return;
+    if (typeof window.matchMedia !== "function") return;
+
     const isFinePointer = window.matchMedia("(pointer: fine)").matches;
     if (!isFinePointer) {
       return;
@@ -100,9 +103,9 @@ export default function Cursor() {
     };
   }, []);
 
-  // 모바일에서는 렌더링하지 않음
+  // 모바일에서는 렌더링하지 않음 - 웹뷰 안전성 강화
   const isFinePointer =
-    typeof window !== "undefined"
+    typeof window !== "undefined" && typeof window.matchMedia === "function"
       ? window.matchMedia("(pointer: fine)").matches
       : false;
   if (!isFinePointer) {
