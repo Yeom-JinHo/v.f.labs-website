@@ -76,7 +76,7 @@ export default function ArtistCard({
           style={{
             borderRadius: "24px",
           }}
-          className="pointer-events-auto relative flex h-auto w-full basis-1/2 flex-col overflow-hidden border border-zinc-950/10 bg-white xl:basis-1/4 dark:border-zinc-50/10 dark:bg-zinc-900"
+          className="pointer-events-auto relative flex h-auto w-full min-w-[300px] basis-1/2 flex-col overflow-hidden border border-zinc-950/10 bg-white xl:basis-1/4 dark:border-zinc-50/10 dark:bg-zinc-900"
         >
           <DialogImage
             width={1280}
