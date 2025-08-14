@@ -9,7 +9,7 @@ const metadata: Metadata = {
   site: {
     title: "v.f.labs",
     description: "Vague Frequency Laboratory.",
-    url: "https://www.example.com",
+    url: "https://v-f-labs-website-web.vercel.app/",
     keywords: ["TODO"],
     language: "ko",
     charset: "UTF-8",
