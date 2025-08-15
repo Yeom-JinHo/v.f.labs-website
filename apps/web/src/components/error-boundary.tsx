@@ -1,6 +1,11 @@
 "use client";
 
-import { Component, ReactNode } from "react";
+import type { ReactNode } from "react";
+import { Component } from "react";
+import GalaxyBackground from "@/components/common/GalaxyBackground";
+
+import { cn } from "@repo/ui";
+import { buttonVariants } from "@repo/ui/button";
 
 interface Props {
   children: ReactNode;
@@ -49,21 +54,28 @@ export class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         this.props.fallback || (
-          <div className="bg-background flex min-h-screen items-center justify-center p-4">
-            <div className="text-center">
-              <h2 className="text-foreground mb-4 text-xl font-semibold">
-                Something went wrong
-              </h2>
-              <p className="text-muted-foreground mb-4">
-                Please refresh the page or try again later.
-              </p>
-              <button
-                onClick={this.handleReload}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-md px-4 py-2"
-              >
-                Refresh Page
-              </button>
-            </div>
+          <div className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden">
+            <main className="relative h-screen w-screen flex-1">
+              <div className="align-center absolute top-1/2 left-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col gap-4">
+                <h1 className="text-6xl">Something went wrong</h1>
+                <p className="text-muted-foreground mb-4">
+                  Please refresh the page or try again later.
+                </p>
+                <button
+                  className={cn(
+                    buttonVariants({ variant: "default" }),
+                    "w-full self-center rounded-full border border-white/30 bg-white/20 px-8 py-2 text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30 md:self-start",
+                  )}
+                  onClick={this.handleReload}
+                >
+                  Home
+                </button>
+              </div>
+
+              <div className="absolute inset-0">
+                <GalaxyBackground mouseInteraction={false} />
+              </div>
+            </main>
           </div>
         )
       );
