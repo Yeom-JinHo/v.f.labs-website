@@ -58,7 +58,7 @@ export default function Header() {
 
   return (
     <motion.header
-      className="bg-background/80 fixed z-20 w-full backdrop-blur-lg"
+      className="bg-background/80 fixed z-[999] w-full backdrop-blur-lg"
       initial={{
         y: -80,
       }}
