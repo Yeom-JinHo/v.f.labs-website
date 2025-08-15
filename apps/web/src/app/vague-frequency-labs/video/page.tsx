@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { musicInfo } from "@/app/source";
 import Line from "@/components/fancy/line";
