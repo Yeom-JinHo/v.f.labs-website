@@ -18,7 +18,12 @@ export default function YoutubeCard({ id, title }: YoutubeCardProps) {
       duration={0.6}
       className="relative w-full p-8 md:w-[640px]"
     >
-      <LiteYouTubeEmbed id={id} title={title} />
+      <LiteYouTubeEmbed
+        aspectHeight={9}
+        aspectWidth={16}
+        id={id}
+        title={title}
+      />
       <p className="mt-2 text-xl font-bold">{title}</p>
     </BlurFade>
   );
