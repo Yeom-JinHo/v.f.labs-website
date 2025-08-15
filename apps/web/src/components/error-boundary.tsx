@@ -68,7 +68,7 @@ export class ErrorBoundary extends Component<Props, State> {
                   )}
                   onClick={this.handleReload}
                 >
-                  Home
+                  Refresh Page
                 </button>
               </div>
 
