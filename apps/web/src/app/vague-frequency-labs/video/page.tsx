@@ -74,11 +74,15 @@ export default function VideoPage(): React.ReactElement {
           <div className="relative flex flex-col items-center justify-center gap-4 overflow-hidden">
             <div className="flex flex-wrap justify-center">
               {musicInfos.map((info, index) => (
-                <div key={index} className="relative w-full p-8 md:w-[640px]">
+                <div key={index} className="relative w-full md:w-[640px]">
                   <YoutubeCard
                     key={index}
-                    id="1lAXNqA25Bs"
-                    title="JUNTARO - Live from Baccarat, Bangkok"
+                    id={index % 2 === 0 ? "1lAXNqA25Bs" : "bikTSiNr08w"}
+                    title={
+                      index % 2 === 0
+                        ? "JUNTARO - Live from Baccarat, Bangkok"
+                        : "DJ 믹스 플레이리스트 - Tech House , Afro house : SIELO | PM MU:SE / MIXMIX"
+                    }
                   />
                 </div>
               ))}

@@ -13,11 +13,13 @@ interface YoutubeCardProps {
 
 export default function YoutubeCard({ id, title }: YoutubeCardProps) {
   return (
-    <BlurFade inView duration={0.6}>
-      <div className="relative w-full p-8 md:w-[640px]">
-        <LiteYouTubeEmbed id={id} title={title} />
-        <p className="mt-2 text-xl font-bold">{title}</p>
-      </div>
+    <BlurFade
+      inView
+      duration={0.6}
+      className="relative w-full p-8 md:w-[640px]"
+    >
+      <LiteYouTubeEmbed id={id} title={title} />
+      <p className="mt-2 text-xl font-bold">{title}</p>
     </BlurFade>
   );
 }
