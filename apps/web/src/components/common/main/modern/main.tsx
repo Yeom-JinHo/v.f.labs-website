@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { VAGUE_FREQUENCY_LABS_HERO_IMAGES } from "@/app/vague-frequency-labs/sections/hero/hero";
 import HighlightText from "@/components/common/HighlightText";
 import { COMPANY_NAME, COMPANY_SHORT_NAME } from "@/consts/company";
 import { useMobile } from "@/hooks/use-mobile";
@@ -56,7 +55,6 @@ function Main() {
         routePath={`/vague-frequency-labs`}
         isHover={hoveredText === COMPANY_NAME.VAGUE_FREQUENCY_LABS}
         imageUrl={`/images/logo/400_300/${COMPANY_SHORT_NAME.VAGUE_FREQUENCY_LABS}.png`}
-        prefetchImageList={VAGUE_FREQUENCY_LABS_HERO_IMAGES}
       >
         {COMPANY_NAME.VAGUE_FREQUENCY_LABS}
       </HighlightText>
