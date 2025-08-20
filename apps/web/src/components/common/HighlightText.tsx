@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 
@@ -19,22 +19,9 @@ function HighlightText({
   imageUrl,
   isMobile,
   routePath,
-  prefetchImageList,
 }: HighlightTextProps) {
   const router = useRouter();
   const [isClicked, setIsClicked] = useState(false);
-  const prefetchedImages = useRef(new Set<string>());
-
-  const preloadNextPageHero = (src: string) => {
-    // 이미 prefetch된 이미지는 건너뛰기
-    if (prefetchedImages.current.has(src)) {
-      return;
-    }
-
-    const img = new Image();
-    img.src = src;
-    prefetchedImages.current.add(src);
-  };
 
   useEffect(() => {
     if (isClicked && routePath) {
@@ -47,11 +34,6 @@ function HighlightText({
   }, [isClicked, routePath, router]);
 
   const handleMouseEnter = () => {
-    if (routePath) {
-      // 한 번만 prefetch 실행
-      prefetchImageList?.forEach(preloadNextPageHero);
-    }
-
     onHover(children);
   };
 
