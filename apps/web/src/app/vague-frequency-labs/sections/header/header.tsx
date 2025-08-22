@@ -6,18 +6,19 @@ import {
   links,
 } from "@/app/vague-frequency-labs/sections/header/config";
 import Link from "@/components/fancy/link";
-import { motion } from "motion/react";
 
 import { Icons } from "@repo/ui/icons";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   useEffect(() => {
+    setMounted(true);
     const handleResize = () => {
       if (window.innerWidth > 768) {
         setIsOpen(false);
@@ -30,17 +31,13 @@ export default function Header() {
   }, []);
 
   return (
-    <motion.header
-      className="bg-background/80 fixed z-[500] w-full backdrop-blur-sm"
-      initial={{
-        y: -80,
-      }}
-      animate={{
-        y: 0,
-      }}
-      transition={{
-        duration: 0.8,
-      }}
+    <header
+      className={[
+        "bg-background/80 fixed z-[500] w-full backdrop-blur-sm",
+        "transform transition-opacity transition-transform duration-[800ms] ease-out will-change-transform",
+        mounted ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0",
+        "motion-reduce:transform-none motion-reduce:opacity-100 motion-reduce:transition-none",
+      ].join(" ")}
     >
       <div className="flex h-16 items-center justify-between px-4 md:px-6">
         <div className="flex w-full justify-between">
@@ -103,6 +100,6 @@ export default function Header() {
           </div> */}
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 }
