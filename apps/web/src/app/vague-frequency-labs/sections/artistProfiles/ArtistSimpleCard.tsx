@@ -22,9 +22,7 @@ export default function ArtistSimpleCard({ artist }: ArtistSimpleCardProps) {
           placeholder="blur"
           blurDataURL={artist.imagePlaceholder}
         />
-
-        {/* Hover 시 나타나는 이미지 - 최적화된 버전 */}
-        <div className="will-change-opacity absolute inset-0 flex scale-95 items-center justify-center opacity-0 transition-all duration-150 ease-out will-change-transform group-hover:scale-100 group-hover:opacity-100">
+        <div className="absolute inset-0 flex scale-95 items-center justify-center opacity-0 transition-all duration-150 ease-out group-hover:scale-100 group-hover:opacity-100">
           <Image
             src={artist.logoImage}
             width={320}
