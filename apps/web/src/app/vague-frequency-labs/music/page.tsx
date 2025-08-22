@@ -57,7 +57,7 @@ export default function MusicPage(): React.ReactElement {
   ];
 
   return (
-    <main className="my-14 flex-1">
+    <main className="my-16 flex-1">
       {/* <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

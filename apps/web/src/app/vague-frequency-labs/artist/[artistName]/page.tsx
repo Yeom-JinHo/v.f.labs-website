@@ -53,7 +53,7 @@ export default async function ProjectPage(props0: {
   if (!artist) notFound();
 
   return (
-    <main className="my-14 flex-1">
+    <main className="my-16 flex-1">
       <div className="container mx-auto flex flex-col items-center justify-center">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
           {artistName}
