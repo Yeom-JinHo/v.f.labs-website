@@ -79,7 +79,7 @@ export default function Header() {
       <div
         className="overflow-hidden bg-transparent md:hidden"
         style={{
-          maxHeight: isOpen ? "30vh" : 0,
+          maxHeight: isOpen ? "60vh" : 0,
           transition: "max-height 300ms ease-in-out",
           pointerEvents: isOpen ? "auto" : "none",
           visibility: isOpen ? "visible" : "hidden",
