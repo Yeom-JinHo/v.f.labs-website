@@ -6,18 +6,19 @@ import {
   links,
 } from "@/app/vague-frequency-labs/sections/header/config";
 import Link from "@/components/fancy/link";
-import { motion } from "motion/react";
 
 import { Icons } from "@repo/ui/icons";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   useEffect(() => {
+    setMounted(true);
     const handleResize = () => {
       if (window.innerWidth > 768) {
         setIsOpen(false);
@@ -29,45 +30,14 @@ export default function Header() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const menuVariants = {
-    open: {
-      height: "auto",
-      opacity: 1,
-      transition: {
-        height: { duration: 0.5, ease: "easeInOut" },
-        opacity: { duration: 1, ease: "easeInOut" },
-      },
-    },
-    initial: {
-      height: 0,
-      opacity: 0,
-      transition: {
-        height: { duration: 0.5, ease: "easeInOut" },
-        opacity: { duration: 0.25, ease: "easeInOut" },
-      },
-    },
-    closed: {
-      height: 0,
-      opacity: 0,
-      transition: {
-        height: { duration: 0.5, ease: "easeInOut" },
-        opacity: { duration: 0.25, ease: "easeInOut" },
-      },
-    },
-  };
-
   return (
-    <motion.header
-      className="bg-background/80 fixed z-[999] w-full backdrop-blur-lg"
-      initial={{
-        y: -80,
-      }}
-      animate={{
-        y: 0,
-      }}
-      transition={{
-        duration: 0.8,
-      }}
+    <header
+      className={[
+        "bg-background/80 fixed z-[900] w-full backdrop-blur-sm",
+        "transform transition-opacity transition-transform duration-[800ms] ease-out will-change-transform",
+        mounted ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0",
+        "motion-reduce:transform-none motion-reduce:opacity-100 motion-reduce:transition-none",
+      ].join(" ")}
     >
       <div className="flex h-16 items-center justify-between px-4 md:px-6">
         <div className="flex w-full justify-between">
@@ -98,31 +68,6 @@ export default function Header() {
                     {title}
                   </Link>
                 ))}
-
-                {/* {links.length > linkLimit && (
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="m-0 h-8 w-8"
-                      >
-                        <Icons.ellipsis className="h-4 w-4" />
-                        <span className="sr-only">Toggle menu</span>
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      {links.slice(linkLimit).map(({ title, href }, index) => (
-                        <DropdownMenuItem
-                          key={`header-extra-link_${index}`}
-                          asChild
-                        >
-                          <Link href={href}>{title}</Link>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                )} */}
               </div>
               {/* <div className="flex items-center gap-2">
                 <ThemeToggle />
@@ -131,12 +76,11 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <motion.div
-        variants={menuVariants}
-        initial="closed"
-        animate={isOpen ? "open" : "closed"}
-        className="bg-transparent md:hidden"
+      <div
+        className="overflow-hidden bg-transparent md:hidden"
         style={{
+          maxHeight: isOpen ? "30vh" : 0,
+          transition: "max-height 300ms ease-in-out",
           pointerEvents: isOpen ? "auto" : "none",
           visibility: isOpen ? "visible" : "hidden",
         }}
@@ -156,7 +100,7 @@ export default function Header() {
             <ThemeToggle />
           </div> */}
         </div>
-      </motion.div>
-    </motion.header>
+      </div>
+    </header>
   );
 }

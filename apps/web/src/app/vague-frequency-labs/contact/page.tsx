@@ -100,7 +100,7 @@ export default function ContactPage(): ReactElement {
   };
 
   return (
-    <main className="my-14 flex-1">
+    <main className="my-16 flex-1">
       <Script
         src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NAVER_CLIENT_ID}`}
         strategy="afterInteractive"
