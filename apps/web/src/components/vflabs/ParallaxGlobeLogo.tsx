@@ -1,29 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Globe from "@/components/common/Globe";
 import { COMPANY_SHORT_NAME } from "@/consts/company";
+import { useDebounce } from "@/hooks/useDebounce";
 import { motion, useScroll, useTransform } from "motion/react";
 
 import TextReveal from "../fancy/text-reveal";
-
-// 디바운싱 훅 추가
-function useDebounce<T>(value: T, delay: number): T {
-  const [debouncedValue, setDebouncedValue] = useState<T>(value);
-
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
-
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [value, delay]);
-
-  return debouncedValue;
-}
 
 export default function ParallaxGlobeLogo(): React.ReactElement {
   const containerRef = React.useRef<HTMLDivElement | null>(null);
