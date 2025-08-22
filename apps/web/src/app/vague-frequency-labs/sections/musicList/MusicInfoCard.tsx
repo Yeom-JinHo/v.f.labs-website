@@ -1,7 +1,7 @@
 "use client";
 
 import type { MusicInfo } from "@/types/music";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import Link from "next/link";
 import {
   MorphingDialog as Dialog,
@@ -22,8 +22,6 @@ interface MusicInfoProps {
 }
 
 function MusicInfoCard({ musicInfo }: MusicInfoProps) {
-  const [isHovering, setIsHovering] = useState(false);
-
   const texture = useMemo(() => {
     // musicInfo.name을 기반으로 결정적 랜덤 생성
     const hash = musicInfo.name.split("").reduce((acc, char) => {
@@ -36,13 +34,7 @@ function MusicInfoCard({ musicInfo }: MusicInfoProps) {
   return (
     <Dialog>
       <DialogTrigger>
-        <motion.div
-          onHoverStart={() => {
-            setIsHovering(true);
-          }}
-          onHoverEnd={() => setIsHovering(false)}
-          className="relative h-[150px] w-[150px] overflow-hidden md:h-[360px] md:w-[360px]"
-        >
+        <motion.div className="relative h-[150px] w-[150px] overflow-hidden md:h-[360px] md:w-[360px]">
           <DialogImage
             width={360}
             height={360}
