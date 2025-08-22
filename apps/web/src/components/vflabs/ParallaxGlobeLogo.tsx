@@ -1,12 +1,29 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Globe from "@/components/common/Globe";
 import { COMPANY_SHORT_NAME } from "@/consts/company";
 import { motion, useScroll, useTransform } from "motion/react";
 
 import TextReveal from "../fancy/text-reveal";
+
+// 디바운싱 훅 추가
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
 
 export default function ParallaxGlobeLogo(): React.ReactElement {
   const containerRef = React.useRef<HTMLDivElement | null>(null);
@@ -16,17 +33,32 @@ export default function ParallaxGlobeLogo(): React.ReactElement {
     offset: ["start start", "end start"],
   });
 
-  const globeScale = useTransform(scrollYProgress, [0, 0.5, 0.75], [1, 7, 10]);
-  const globeOpacity = useTransform(scrollYProgress, [0, 0.5, 0.75], [1, 0, 0]);
-  const globeTranslateY = useTransform(scrollYProgress, [0, 1], [0, 0]);
+  // 스크롤 이벤트를 16ms(60fps) 간격으로 디바운싱
+  const debouncedScrollYProgress = useDebounce(scrollYProgress, 16);
+
+  const globeScale = useTransform(
+    debouncedScrollYProgress,
+    [0, 0.5, 0.75],
+    [1, 7, 10],
+  );
+  const globeOpacity = useTransform(
+    debouncedScrollYProgress,
+    [0, 0.5, 0.75],
+    [1, 0, 0],
+  );
+  const globeTranslateY = useTransform(
+    debouncedScrollYProgress,
+    [0, 1],
+    [0, 0],
+  );
 
   const imageOpacity = useTransform(
-    scrollYProgress,
+    debouncedScrollYProgress,
     [0, 0.5, 0.75],
     [0, 0.3, 1],
   );
   const imageTranslateY = useTransform(
-    scrollYProgress,
+    debouncedScrollYProgress,
     [0, 0.5, 1],
     [20, 20, 0],
   );
