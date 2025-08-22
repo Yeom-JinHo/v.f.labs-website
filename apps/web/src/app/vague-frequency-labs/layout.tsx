@@ -8,7 +8,7 @@ export default function VagueFrequencyLabsLayout({
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <Header />
-      <main className="flex-1">{children}</main>
+      <main className="my-2 flex-1">{children}</main>
       <footer>
         <Footer />
       </footer>
