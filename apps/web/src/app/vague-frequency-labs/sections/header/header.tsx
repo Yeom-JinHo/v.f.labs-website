@@ -29,33 +29,6 @@ export default function Header() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const menuVariants = {
-    open: {
-      height: "auto",
-      opacity: 1,
-      transition: {
-        height: { duration: 0.5, ease: "easeInOut" },
-        opacity: { duration: 1, ease: "easeInOut" },
-      },
-    },
-    initial: {
-      height: 0,
-      opacity: 0,
-      transition: {
-        height: { duration: 0.5, ease: "easeInOut" },
-        opacity: { duration: 0.25, ease: "easeInOut" },
-      },
-    },
-    closed: {
-      height: 0,
-      opacity: 0,
-      transition: {
-        height: { duration: 0.5, ease: "easeInOut" },
-        opacity: { duration: 0.25, ease: "easeInOut" },
-      },
-    },
-  };
-
   return (
     <motion.header
       className="bg-background/80 fixed z-[999] w-full backdrop-blur-lg"
@@ -132,11 +105,9 @@ export default function Header() {
         </div>
       </div>
       <motion.div
-        variants={menuVariants}
-        initial="closed"
-        animate={isOpen ? "open" : "closed"}
-        className="bg-transparent md:hidden"
+        className="overflow-hidden bg-transparent md:hidden"
         style={{
+          height: isOpen ? "auto" : 0,
           pointerEvents: isOpen ? "auto" : "none",
           visibility: isOpen ? "visible" : "hidden",
         }}
