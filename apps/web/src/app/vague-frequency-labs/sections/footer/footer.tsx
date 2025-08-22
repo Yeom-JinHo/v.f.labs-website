@@ -10,6 +10,10 @@ export default function Footer() {
 
   // Intersection Observer로 가벼운 스크롤 감지
   useEffect(() => {
+    const currentElement = containerRef.current;
+
+    if (!currentElement) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
@@ -23,11 +27,12 @@ export default function Footer() {
       },
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
+    observer.observe(currentElement);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.unobserve(currentElement);
+      observer.disconnect();
+    };
   }, []);
 
   return (
