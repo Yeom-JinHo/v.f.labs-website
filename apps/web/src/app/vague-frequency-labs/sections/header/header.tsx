@@ -33,7 +33,7 @@ export default function Header() {
   return (
     <header
       className={[
-        "bg-background/80 fixed z-[500] w-full backdrop-blur-sm",
+        "bg-background/80 fixed z-[900] w-full backdrop-blur-sm",
         "transform transition-opacity transition-transform duration-[800ms] ease-out will-change-transform",
         mounted ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0",
         "motion-reduce:transform-none motion-reduce:opacity-100 motion-reduce:transition-none",
