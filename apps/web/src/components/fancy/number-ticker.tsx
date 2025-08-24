@@ -16,7 +16,7 @@ import { cn } from "@repo/ui";
 interface NumberTickerProps {
   from: number; // Starting value of the animation
   target: number; // End value of the animation
-  transition?: ValueAnimationTransition; // Animation configuration, refer to framer-motion docs for more details
+  transition?: ValueAnimationTransition; // Animation configuration, refer to motion/react docs for more details
   className?: string; // additionl CSS classes for styling
   onStart?: () => void; // Callback function when animation starts
   onComplete?: () => void; // Callback function when animation completes
