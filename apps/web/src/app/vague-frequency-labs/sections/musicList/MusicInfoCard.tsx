@@ -11,7 +11,7 @@ import {
   MorphingDialogTrigger as DialogTrigger,
 } from "@/components/fancy/morphing-dialog";
 import { getIcon } from "@/lib/icon-map";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import { cn } from "@repo/ui";
 import { buttonVariants } from "@repo/ui/button";
