@@ -1,4 +1,4 @@
-import Globe from "@/components/common/Globe";
+import HeroMaskedReveal from "@/components/common/HeroMaskedReveal";
 
 function Hero() {
   return (
@@ -8,7 +8,11 @@ function Hero() {
           We are
         </h1>
         <div className="w-full scale-100 md:scale-90 lg:scale-80">
-          <Globe></Globe>
+          {/* <Globe></Globe> */}
+          <HeroMaskedReveal
+            fgSrc="/images/logo/400_300/VFLABS.png"
+            bgSrc="/images/hero/2.jpg"
+          />
         </div>
         <h1 className="absolute bottom-[15vh] text-3xl font-bold md:bottom-[10vh]">
           Vague Frequency Labs
