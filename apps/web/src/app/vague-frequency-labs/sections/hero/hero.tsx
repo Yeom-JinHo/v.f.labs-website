@@ -1,23 +1,9 @@
-import HeroMaskedReveal from "@/components/common/HeroMaskedReveal";
+import HeroMaskedReveal2 from "@/components/common/HeroMaskedReveal2";
 
 function Hero() {
   return (
     <section className="relative h-[100vh]">
-      <div className="top-0 flex h-screen items-center justify-center overflow-x-hidden">
-        <h1 className="absolute top-[15vh] text-4xl font-bold md:top-[10vh]">
-          We are
-        </h1>
-        <div className="w-full scale-100 md:scale-90 lg:scale-80">
-          {/* <Globe></Globe> */}
-          <HeroMaskedReveal
-            fgSrc="/images/logo/400_300/VFLABS.png"
-            bgSrc="/images/hero/2.jpg"
-          />
-        </div>
-        <h1 className="absolute bottom-[15vh] text-3xl font-bold md:bottom-[10vh]">
-          Vague Frequency Labs
-        </h1>
-      </div>
+      <HeroMaskedReveal2 />
     </section>
   );
 }
