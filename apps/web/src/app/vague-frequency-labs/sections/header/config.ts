@@ -11,9 +11,9 @@ const links: Link[] = [
     thumbnail: "home.jpg",
   },
   {
-    title: "Video",
-    href: "/vague-frequency-labs/video",
-    thumbnail: "about.jpg",
+    title: "Artist",
+    href: "/vague-frequency-labs/artist",
+    thumbnail: "projects.jpg",
   },
   {
     title: "Music",
@@ -21,9 +21,9 @@ const links: Link[] = [
     thumbnail: "about.jpg",
   },
   {
-    title: "Artist",
-    href: "/vague-frequency-labs/artist",
-    thumbnail: "projects.jpg",
+    title: "Video",
+    href: "/vague-frequency-labs/video",
+    thumbnail: "about.jpg",
   },
   {
     title: "Contact",
