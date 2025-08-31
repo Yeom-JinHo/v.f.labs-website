@@ -8,27 +8,22 @@ const links: Link[] = [
   {
     title: "About",
     href: "/vague-frequency-labs/about",
-    thumbnail: "home.jpg",
-  },
-  {
-    title: "Video",
-    href: "/vague-frequency-labs/video",
-    thumbnail: "about.jpg",
-  },
-  {
-    title: "Music",
-    href: "/vague-frequency-labs/music",
-    thumbnail: "about.jpg",
   },
   {
     title: "Artist",
     href: "/vague-frequency-labs/artist",
-    thumbnail: "projects.jpg",
+  },
+  {
+    title: "Music",
+    href: "/vague-frequency-labs/music",
+  },
+  {
+    title: "Video",
+    href: "/vague-frequency-labs/video",
   },
   {
     title: "Contact",
     href: "/vague-frequency-labs/contact",
-    thumbnail: "blog.jpg",
   },
 ];
 
