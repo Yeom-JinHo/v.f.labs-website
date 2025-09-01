@@ -1,15 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import { MacBookScroll } from "@/components/common/MacBookScroll";
+import TextReveal from "@/components/fancy/text-reveal";
 
 function Contact() {
   return (
     <div className="w-full" id="contact">
-      <div className="flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center">
         <MacBookScroll
           title={
             <span className="text-4xl leading-tight font-bold tracking-tighter sm:text-5xl md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight">
-              Show me the your dream <br /> No kidding.
+              Show me the your dream
             </span>
           }
           badge={
@@ -25,6 +26,7 @@ function Contact() {
           src={"/images/mac/image.png"}
           showGradient={false}
         />
+        <TextReveal className="mb-40">pwlsghq@naver.com</TextReveal>
       </div>
     </div>
   );
