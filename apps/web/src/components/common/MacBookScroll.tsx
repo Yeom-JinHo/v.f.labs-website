@@ -172,8 +172,6 @@ export const Lid = ({
           alt="aceternity logo"
           className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
         />
-        <p>{scaleX.get()}</p>
-        <p>{scaleY.get()}</p>
       </motion.div>
     </div>
   );
