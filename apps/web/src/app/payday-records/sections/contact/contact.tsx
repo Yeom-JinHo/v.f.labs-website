@@ -44,8 +44,8 @@ function Contact() {
           <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
           <h3 className="mb-8 text-center text-3xl font-bold">Contact</h3>
           <div className="flex items-center">
-            <p className="text-lg md:text-xl">pwlsghq@naver.com</p>
-            <CopyButton text="pwlsghq@naver.com" className="ml-2" />
+            <p className="text-lg md:text-xl">{contact.email}</p>
+            <CopyButton text={contact.email} className="ml-2" />
           </div>
           <div className="mt-8 flex items-center">
             {contact.socials.map((link, index) => {
