@@ -235,7 +235,7 @@ export const Keypad = () => {
         </KBtn>
         <KBtn>
           <IconPlayerTrackNext className="h-[6px] w-[6px]" />
-          <span className="mt-1 inline-block">F8</span>
+          <span className="mt-1 inline-block">F9</span>
         </KBtn>
         <KBtn>
           <IconVolume3 className="h-[6px] w-[6px]" />
