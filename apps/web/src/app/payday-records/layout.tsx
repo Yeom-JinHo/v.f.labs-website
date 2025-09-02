@@ -1,4 +1,4 @@
-import { Header } from "./sections/index";
+import { Footer, Header } from "./sections/index";
 
 export default function VagueFrequencyLabsLayout({
   children,
@@ -9,9 +9,9 @@ export default function VagueFrequencyLabsLayout({
     <div className="flex min-h-[100dvh] flex-col">
       <Header />
       <main className="flex-1">{children}</main>
-      {/* <footer>
+      <footer>
         <Footer />
-      </footer> */}
+      </footer>
     </div>
   );
 }

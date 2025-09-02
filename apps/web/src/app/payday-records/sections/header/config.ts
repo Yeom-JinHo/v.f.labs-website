@@ -7,11 +7,11 @@ const linkLimit = 5;
 const links: Link[] = [
   {
     title: "About",
-    href: "/vague-frequency-labs/about",
+    href: "#about",
   },
   {
     title: "Contact",
-    href: "/vague-frequency-labs/contact",
+    href: "#contact",
   },
 ];
 
