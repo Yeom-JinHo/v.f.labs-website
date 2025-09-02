@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import CopyButton from "@/components/common/CopyButton";
 import { MacBookScroll } from "@/components/common/MacBookScroll";
-import TextReveal from "@/components/fancy/text-reveal";
 
 function Contact() {
   return (
@@ -26,7 +26,22 @@ function Contact() {
           src={"/images/mac/image.png"}
           showGradient={false}
         />
-        <TextReveal className="mb-40">pwlsghq@naver.com</TextReveal>
+        <div
+          style={{
+            backdropFilter: "blur(11px) saturate(200%)",
+            WebkitBackdropFilter: "blur(11px) saturate(200%)",
+            backgroundColor: "rgba(17, 25, 40, 0.27)",
+            borderRadius: "12px",
+            border: "1px solid rgba(255, 255, 255, 0.125)",
+          }}
+          className="align-center pointer-events-auto mb-[200px] flex h-auto min-w-[300px] flex-col items-center justify-center overflow-hidden p-8 sm:w-[40vw] [@media(max-width:375px)]:mb-40"
+        >
+          <h3 className="mb-8 text-center text-3xl font-bold">Contact</h3>
+          <div className="flex items-center">
+            <p className="text-lg md:text-xl">pwlsghq@naver.com</p>
+            <CopyButton text="pwlsghq@naver.com" className="ml-2" />
+          </div>
+        </div>
       </div>
     </div>
   );
