@@ -2,6 +2,10 @@ import React from "react";
 import Image from "next/image";
 import CopyButton from "@/components/common/CopyButton";
 import { MacBookScroll } from "@/components/common/MacBookScroll";
+import Link from "@/components/fancy/link";
+import { getIcon } from "@/lib/icon-map";
+
+import { contact } from "./config";
 
 function Contact() {
   return (
@@ -40,6 +44,24 @@ function Contact() {
           <div className="flex items-center">
             <p className="text-lg md:text-xl">pwlsghq@naver.com</p>
             <CopyButton text="pwlsghq@naver.com" className="ml-2" />
+          </div>
+          <div className="mt-8 flex items-center">
+            {contact.socials.map((link, index) => {
+              const { href, iconName } = link;
+              const IconComponent = iconName ? getIcon(iconName) : null;
+
+              return (
+                <Link
+                  className={`underline-offset-4 hover:underline ${index > 0 ? "ml-4 border-l border-gray-300 pl-4" : ""}`}
+                  href={href}
+                  target="_blank"
+                  key={`ft-l_social_${index}`}
+                  external
+                >
+                  {IconComponent && <IconComponent className="h-6 w-6" />}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -13,6 +13,16 @@ const contact: Contact = {
       href: "https://www.instagram.com/v.f.labs/",
       iconName: "SiInstagram",
     },
+    {
+      name: "Apple Music",
+      href: "https://music.apple.com/us/artist/juntaro/1020632340",
+      iconName: "SiApple",
+    },
+    {
+      name: "Beatport",
+      href: "https://www.beatport.com/artist/juntaro/501402",
+      iconName: "SiBeatport",
+    },
   ],
 };
 
