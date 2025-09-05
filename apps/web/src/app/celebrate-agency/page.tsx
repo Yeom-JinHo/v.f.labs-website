@@ -1,15 +1,15 @@
-import Link from "next/link";
-import GalaxyBackground from "@/components/common/GalaxyBackground";
-
-import { cn } from "@repo/ui";
-import { buttonVariants } from "@repo/ui/button";
+import { Iphone15Pro } from "@/components/common/Iphone15";
 
 export default function CelebrateAgencyPage() {
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <main className="relative h-screen w-screen flex-1">
+        <Iphone15Pro
+          className="size-full"
+          videoSrc="https://videos.pexels.com/video-files/8946986/8946986-uhd_1440_2732_25fps.mp4"
+        />
         <div className="align-center absolute top-1/2 left-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col gap-4">
-          <h1 className="text-6xl">Coming Soon</h1>
+          {/* <h1 className="text-6xl">Coming Soon</h1>
           <Link
             href="/"
             className={cn(
@@ -18,11 +18,11 @@ export default function CelebrateAgencyPage() {
             )}
           >
             Home
-          </Link>
+          </Link> */}
         </div>
 
         <div className="absolute inset-0">
-          <GalaxyBackground mouseInteraction={false} />
+          {/* <GalaxyBackground mouseInteraction={false} /> */}
         </div>
       </main>
     </div>
