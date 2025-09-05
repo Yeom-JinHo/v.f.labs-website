@@ -1,10 +1,10 @@
-import { SVGProps } from "react";
+import type { SVGProps } from "react";
 
 export interface Iphone15ProProps extends SVGProps<SVGSVGElement> {
   width?: number;
   height?: number;
-  src?: string; // 정적 이미지 (옵션)
-  videoSrc?: string; // 비디오 (옵션)
+  src?: string;
+  videoSrc?: string;
 }
 
 export default function Iphone15Pro({
@@ -14,7 +14,6 @@ export default function Iphone15Pro({
   videoSrc,
   ...props
 }: Iphone15ProProps) {
-  // 원본 viewBox(433x882) 기준 화면 사각형 좌표
   const leftPct = (21.25 / 433) * 100;
   const topPct = (19.25 / 882) * 100;
   const wPct = (389.5 / 433) * 100;
@@ -25,7 +24,6 @@ export default function Iphone15Pro({
 
   return (
     <div className="relative" style={{ width, height }}>
-      {/* ▼ 비디오는 SVG 아래 레이어: 화면(punch)로 뚫린 구멍을 통해 보이게 */}
       {hasVideo && (
         <div
           className="pointer-events-none absolute z-0 overflow-hidden"
@@ -48,8 +46,6 @@ export default function Iphone15Pro({
           />
         </div>
       )}
-
-      {/* ▼ SVG 프레임 (위 레이어). 화면 영역만 마스크로 투명 처리 */}
       <svg
         width={width}
         height={height}
@@ -62,37 +58,6 @@ export default function Iphone15Pro({
         }}
         {...props}
       >
-        <defs>
-          {/* 화면만 투명(검정)으로 펀치아웃하는 마스크 */}
-          <mask id="screenPunch" maskUnits="userSpaceOnUse">
-            {/* 전체는 불투명(흰색) */}
-            <rect x="0" y="0" width={width} height={height} fill="white" />
-            {/* 화면 영역만 투명(검정) */}
-            <rect
-              x={(21.25 / 433) * width}
-              y={(19.25 / 882) * height}
-              width={(389.5 / 433) * width}
-              height={(843.5 / 882) * height}
-              rx={(55.75 / 433) * width} // 비율 맞춰 둥근코너 유지
-              ry={(55.75 / 882) * height}
-              fill="black"
-            />
-          </mask>
-
-          {/* 이미지용 라운드 클립은 기존대로 유지 */}
-          <clipPath id="roundedCorners" clipPathUnits="userSpaceOnUse">
-            <rect
-              x={(21.25 / 433) * width}
-              y={(19.25 / 882) * height}
-              width={(389.5 / 433) * width}
-              height={(843.5 / 882) * height}
-              rx={(55.75 / 433) * width}
-              ry={(55.75 / 882) * height}
-            />
-          </clipPath>
-        </defs>
-
-        {/* ▼ 프레임(바디/버튼/베젤 등)은 화면부만 투명해지도록 그룹에 마스크 적용 */}
         <g mask="url(#screenPunch)">
           <path
             d="M2 73C2 32.6832 34.6832 0 75 0H357C397.317 0 430 32.6832 430 73V809C430 849.317 397.317 882 357 882H75C34.6832 882 2 849.317 2 809V73Z"
@@ -126,27 +91,23 @@ export default function Iphone15Pro({
           className="fill-[#E5E5E5] dark:fill-[#404040]"
         />
 
-        {/* 베젤 외곽선: 화면부만 투명해지도록 같은 마스크 적용 */}
         <path
           d="M21.25 75C21.25 44.2101 46.2101 19.25 77 19.25H355C385.79 19.25 410.75 44.2101 410.75 75V807C410.75 837.79 385.79 862.75 355 862.75H77C46.2101 862.75 21.25 837.79 21.25 807V75Z"
           className="fill-[#E5E5E5] stroke-[#E5E5E5] stroke-[0.5] dark:fill-[#404040] dark:stroke-[#404040]"
           mask="url(#screenPunch)"
         />
 
-        {/* 이미지가 있으면 기존처럼 clipPath로 라운드 */}
         {src && (
           <image
             href={src}
-            x={(21.25 / 433) * width}
-            y={(19.25 / 882) * height}
-            width={(389.5 / 433) * width}
-            height={(843.5 / 882) * height}
+            x="21.25"
+            y="19.25"
+            width="389.5"
+            height="843.5"
             preserveAspectRatio="xMidYMid slice"
             clipPath="url(#roundedCorners)"
           />
         )}
-
-        {/* 다이나믹 아일랜드는 마스크 없이 맨 위에 */}
         <path
           d="M154 48.5C154 38.2827 162.283 30 172.5 30H259.5C269.717 30 278 38.2827 278 48.5C278 58.7173 269.717 67 259.5 67H172.5C162.283 67 154 58.7173 154 48.5Z"
           className="fill-[#F5F5F5] dark:fill-[#262626]"
@@ -159,6 +120,30 @@ export default function Iphone15Pro({
           d="M254 48.5C254 45.4624 256.462 43 259.5 43C262.538 43 265 45.4624 265 48.5C265 51.5376 262.538 54 259.5 54C256.462 54 254 51.5376 254 48.5Z"
           className="fill-[#E5E5E5] dark:fill-[#404040]"
         />
+        <defs>
+          <mask id="screenPunch" maskUnits="userSpaceOnUse">
+            <rect x="0" y="0" width={width} height={height} fill="white" />
+            <rect
+              x="21.25"
+              y="19.25"
+              width="389.5"
+              height="843.5"
+              rx="55.75"
+              ry="55.75"
+              fill="black"
+            />
+          </mask>
+          <clipPath id="roundedCorners">
+            <rect
+              x="21.25"
+              y="19.25"
+              width="389.5"
+              height="843.5"
+              rx="55.75"
+              ry="55.75"
+            />
+          </clipPath>
+        </defs>
       </svg>
     </div>
   );
