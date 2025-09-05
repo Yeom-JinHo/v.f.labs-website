@@ -69,16 +69,21 @@ export function Iphone15Pro({
         />
       )}
       {videoSrc && (
-        <foreignObject x="21.25" y="19.25" width="389.5" height="843.5">
-          <video
-            className="size-full overflow-hidden rounded-[55.75px] object-cover"
-            src={videoSrc}
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
-        </foreignObject>
+        <g mask="url(#roundedMask)">
+          <foreignObject x="21.25" y="19.25" width="389.5" height="843.5">
+            <div className="h-full w-full">
+              <video
+                className="block h-full w-full object-cover"
+                src={videoSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                webkit-playsinline="true"
+              />
+            </div>
+          </foreignObject>
+        </g>
       )}
       <path
         d="M154 48.5C154 38.2827 162.283 30 172.5 30H259.5C269.717 30 278 38.2827 278 48.5C278 58.7173 269.717 67 259.5 67H172.5C162.283 67 154 58.7173 154 48.5Z"
@@ -103,6 +108,17 @@ export function Iphone15Pro({
             ry="55.75"
           />
         </clipPath>
+        <mask id="roundedMask" maskUnits="userSpaceOnUse">
+          <rect
+            x="21.25"
+            y="19.25"
+            width="389.5"
+            height="843.5"
+            rx="55.75"
+            ry="55.75"
+            fill="white"
+          />
+        </mask>
       </defs>
     </svg>
   );
