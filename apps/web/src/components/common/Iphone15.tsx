@@ -108,7 +108,13 @@ export function Iphone15Pro({
             ry="55.75"
           />
         </clipPath>
-        <mask id="roundedMask" maskUnits="userSpaceOnUse">
+        <mask
+          id="roundedMask"
+          maskUnits="userSpaceOnUse"
+          maskContentUnits="userSpaceOnUse"
+          /* Safari/WebKit에선 luminance가 안정적인 편 */
+          style={{ maskType: "luminance" } as any}
+        >
           <rect
             x="21.25"
             y="19.25"
