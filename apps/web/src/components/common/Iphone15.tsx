@@ -28,14 +28,13 @@ export default function Iphone15Pro({
       {/* ▼ 비디오는 SVG 아래 레이어: 화면(punch)로 뚫린 구멍을 통해 보이게 */}
       {hasVideo && (
         <div
-          className="pointer-events-none absolute overflow-hidden"
+          className="pointer-events-none absolute z-0 overflow-hidden"
           style={{
             left: `${leftPct}%`,
             top: `${topPct}%`,
             width: `${wPct}%`,
             height: `${hPct}%`,
             borderRadius: `${radiusPx}px`,
-            zIndex: -1,
           }}
         >
           <video
@@ -58,6 +57,9 @@ export default function Iphone15Pro({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="absolute inset-0 z-10"
+        style={{
+          transform: "translateZ(0)",
+        }}
         {...props}
       >
         <defs>
