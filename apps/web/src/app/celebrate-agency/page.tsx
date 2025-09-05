@@ -1,4 +1,4 @@
-import { Iphone15Pro } from "@/components/common/Iphone15";
+import Iphone15Pro from "@/components/common/Iphone15";
 
 export default function CelebrateAgencyPage() {
   return (
