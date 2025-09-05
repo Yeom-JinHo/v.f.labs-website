@@ -25,6 +25,28 @@ export default function Iphone15Pro({
   return (
     // ✅ 추가: SVG를 감싸는 relative 컨테이너
     <div className="relative" style={{ width, height }}>
+      {/* ✅ 추가: 비디오를 SVG 밖에서 절대배치 오버레이 (iOS 포함 전부 확실) */}
+      {videoSrc && (
+        <div
+          className="absolute overflow-hidden"
+          style={{
+            left: `${leftPct}%`,
+            top: `${topPct}%`,
+            width: `${wPct}%`,
+            height: `${hPct}%`,
+            borderRadius: `${radiusPx}px`,
+          }}
+        >
+          <video
+            className="block h-full w-full object-cover"
+            src={videoSrc}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        </div>
+      )}
       {/* 기존 SVG (거의 그대로) */}
       <svg
         width={width}
@@ -108,29 +130,6 @@ export default function Iphone15Pro({
           </clipPath>
         </defs>
       </svg>
-
-      {/* ✅ 추가: 비디오를 SVG 밖에서 절대배치 오버레이 (iOS 포함 전부 확실) */}
-      {videoSrc && (
-        <div
-          className="absolute overflow-hidden"
-          style={{
-            left: `${leftPct}%`,
-            top: `${topPct}%`,
-            width: `${wPct}%`,
-            height: `${hPct}%`,
-            borderRadius: `${radiusPx}px`,
-          }}
-        >
-          <video
-            className="block h-full w-full object-cover"
-            src={videoSrc}
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
-        </div>
-      )}
     </div>
   );
 }
