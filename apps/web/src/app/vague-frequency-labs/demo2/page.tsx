@@ -1,5 +1,5 @@
 import React from "react";
-import Iphone15Pro from "@/components/common/Iphone15Pro";
+import { Iphone15Pro } from "@/components/common/Iphone15Pro";
 import TextReveal from "@/components/fancy/text-reveal";
 
 export default function DemoPage() {
