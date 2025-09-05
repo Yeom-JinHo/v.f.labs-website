@@ -69,7 +69,7 @@ export function Iphone15Pro({
         />
       )}
       {videoSrc && (
-        <g mask="url(#roundedMask)">
+        <g clipPath="url(#roundedCorners)" mask="url(#roundedMask)">
           <foreignObject x="21.25" y="19.25" width="389.5" height="843.5">
             <div className="h-full w-full">
               <video
