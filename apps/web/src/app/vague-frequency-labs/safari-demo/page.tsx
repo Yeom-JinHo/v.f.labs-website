@@ -1,5 +1,6 @@
 import React from "react";
 import { Safari } from "@/components/common/safari";
+import { SafariASIS } from "@/components/common/safari-asis";
 import TextReveal from "@/components/fancy/text-reveal";
 
 export default function DemoPage() {
@@ -15,6 +16,10 @@ export default function DemoPage() {
             TOBE
           </TextReveal>
           <Safari
+            className="h-full w-full"
+            videoSrc="https://videos.pexels.com/video-files/8946986/8946986-uhd_1440_2732_25fps.mp4"
+          />
+          <SafariASIS
             className="h-full w-full"
             videoSrc="https://videos.pexels.com/video-files/8946986/8946986-uhd_1440_2732_25fps.mp4"
           />
