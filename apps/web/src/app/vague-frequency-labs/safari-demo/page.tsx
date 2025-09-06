@@ -7,7 +7,7 @@ export default function DemoPage() {
   return (
     <main className="my-14 flex-1">
       <section className="relative flex min-h-[calc(50dvh)] items-center justify-center">
-        <div className="flex w-[50vw] w-screen max-w-screen flex-col items-center p-20">
+        <div className="flex w-screen max-w-[50vw] max-w-screen flex-col items-center p-20">
           {/* todo: re-add delay of 0.2seconds */}
           <TextReveal
             as="h1"
@@ -17,11 +17,12 @@ export default function DemoPage() {
           </TextReveal>
           <Safari
             className="h-full w-full"
-            videoSrc="https://videos.pexels.com/video-files/8946986/8946986-uhd_1440_2732_25fps.mp4"
+            // width={400}
+            videoSrc="https://videos.pexels.com/video-files/27180348/12091515_2560_1440_50fps.mp4"
           />
           <SafariASIS
             className="h-full w-full"
-            videoSrc="https://videos.pexels.com/video-files/8946986/8946986-uhd_1440_2732_25fps.mp4"
+            videoSrc="https://videos.pexels.com/video-files/27180348/12091515_2560_1440_50fps.mp4"
           />
         </div>
       </section>
