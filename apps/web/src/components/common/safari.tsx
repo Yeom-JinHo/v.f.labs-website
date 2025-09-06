@@ -15,8 +15,8 @@ export function Safari({
   imageSrc,
   videoSrc,
   url,
-  width = 1203,
-  height = 753,
+  // width = 1203,
+  // height = 753,
   mode = "default",
   className,
   style,
@@ -40,8 +40,8 @@ export function Safari({
 
   return (
     <div
-      className={`relative inline-block max-w-full align-middle leading-none ${className ?? ""}`}
-      style={{ width, height, ...style }}
+      className={`relative inline-block aspect-[1203/753] w-full align-middle leading-none ${className ?? ""}`}
+      style={style}
     >
       {hasVideo && (
         <div
