@@ -20,6 +20,12 @@ export default function DemoPage() {
             // width={400}
             videoSrc="https://videos.pexels.com/video-files/27180348/12091515_2560_1440_50fps.mp4"
           />
+          <TextReveal
+            as="h1"
+            className="leading-wide tracking-relaxed text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
+          >
+            ASIS
+          </TextReveal>
           <SafariASIS
             className="h-full w-full"
             videoSrc="https://videos.pexels.com/video-files/27180348/12091515_2560_1440_50fps.mp4"
