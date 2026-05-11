@@ -21,24 +21,31 @@ const nextConfig: NextConfig = {
     silenceDeprecations: ["legacy-js-api"],
   },
   async redirects() {
+    const onOldHost = [
+      { type: "host" as const, value: "v-f-labs-website-web.vercel.app" },
+    ];
     return [
       {
         source: "/celebrate-agency/:path*",
+        has: onOldHost,
         destination: "https://celebrate-agency.vercel.app/:path*",
         permanent: true,
       },
       {
         source: "/payday-records/:path*",
+        has: onOldHost,
         destination: "https://payday-records.vercel.app/:path*",
         permanent: true,
       },
       {
         source: "/vague-frequency-labs/:path*",
+        has: onOldHost,
         destination: "https://vague-frequency-labs.vercel.app/:path*",
         permanent: true,
       },
       {
         source: "/:path*",
+        has: onOldHost,
         destination: "https://vague-frequency-labs.vercel.app/intro",
         permanent: true,
       },
