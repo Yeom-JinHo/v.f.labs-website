@@ -20,6 +20,30 @@ const nextConfig: NextConfig = {
   sassOptions: {
     silenceDeprecations: ["legacy-js-api"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/celebrate-agency/:path*",
+        destination: "https://celebrate-agency.vercel.app/:path*",
+        permanent: true,
+      },
+      {
+        source: "/payday-records/:path*",
+        destination: "https://payday-records.vercel.app/:path*",
+        permanent: true,
+      },
+      {
+        source: "/vague-frequency-labs/:path*",
+        destination: "https://vague-frequency-labs.vercel.app/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        destination: "https://vague-frequency-labs.vercel.app/intro",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withContentCollections(nextConfig);
